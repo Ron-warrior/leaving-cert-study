@@ -1,0 +1,154 @@
+<div class="install-dock" data-install-dock>
+  <div class="install-help" data-install-help hidden>
+    <strong>Install LC Study</strong>
+    <span data-install-help-text></span>
+  </div>
+  <button
+    class="install-btn"
+    type="button"
+    data-install-app
+    aria-label="Install LC Study"
+    hidden
+  >
+    <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+      <path d="M12 3v11m0 0 4-4m-4 4-4-4M5 16v3h14v-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    <span>Install app</span>
+  </button>
+</div>
+
+<script>
+  type BeforeInstallPromptEvent = Event & {
+    prompt: () => Promise<void>;
+    userChoice: Promise<{ outcome: "accepted" | "dismissed" }>;
+  };
+
+  (() => {
+    const dock = document.querySelector<HTMLElement>("[data-install-dock]");
+    const button = document.querySelector<HTMLButtonElement>("[data-install-app]");
+    const help = document.querySelector<HTMLElement>("[data-install-help]");
+    const helpText = document.querySelector<HTMLElement>("[data-install-help-text]");
+    if (!dock || !button || !help || !helpText) return;
+
+    const nav = navigator as Navigator & { standalone?: boolean };
+    const standalone =
+      window.matchMedia("(display-mode: standalone)").matches ||
+      nav.standalone === true;
+    if (standalone) {
+      dock.remove();
+      return;
+    }
+
+    const ios =
+      /iphone|ipad|ipod/i.test(navigator.userAgent) ||
+      (navigator.maxTouchPoints > 1 && /Macintosh/i.test(navigator.userAgent));
+    let promptEvent: BeforeInstallPromptEvent | null = null;
+
+    const show = () => {
+      button.hidden = false;
+    };
+
+    if (ios) show();
+
+    window.addEventListener("beforeinstallprompt", (event) => {
+      event.preventDefault();
+      promptEvent = event as BeforeInstallPromptEvent;
+      show();
+    });
+
+    button.addEventListener("click", async () => {
+      if (!promptEvent) {
+        helpText.textContent = ios
+          ? "Tap Share, then choose Add to Home Screen."
+          : "Open your browser menu and choose Install app or Add to Home screen.";
+        help.hidden = !help.hidden;
+        return;
+      }
+
+      const installPrompt = promptEvent;
+      await installPrompt.prompt();
+      const choice = await installPrompt.userChoice;
+      promptEvent = null;
+      help.hidden = true;
+      if (choice.outcome === "accepted") button.hidden = true;
+    });
+
+    window.addEventListener("appinstalled", () => {
+      button.hidden = true;
+      help.hidden = true;
+    });
+  })();
+</script>
+
+<style>
+  .install-dock {
+    position: fixed;
+    right: max(16px, env(safe-area-inset-right));
+    bottom: max(16px, env(safe-area-inset-bottom));
+    z-index: 70;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+
+  .install-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border: 1px solid color-mix(in srgb, var(--cyan) 45%, transparent);
+    border-radius: 999px;
+    background: var(--cyan);
+    color: #04121f;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 28%);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 140ms ease, filter 140ms ease;
+  }
+
+  .install-btn:hover {
+    filter: brightness(1.07);
+    transform: translateY(-1px);
+  }
+
+  .install-btn:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+  }
+
+  .install-btn[hidden],
+  .install-help[hidden] {
+    display: none;
+  }
+
+  .install-help {
+    max-width: 270px;
+    padding: 11px 13px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+    color: var(--ink);
+    box-shadow: 0 12px 32px rgb(0 0 0 / 30%);
+    font-size: 12.5px;
+    line-height: 1.45;
+  }
+
+  .install-help strong {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 12px;
+  }
+
+  .install-help span {
+    color: var(--muted);
+  }
+
+  @media print {
+    .install-dock {
+      display: none;
+    }
+  }
+</style>

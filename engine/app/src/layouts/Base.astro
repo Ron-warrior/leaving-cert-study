@@ -1,6 +1,7 @@
 ---
 import "../styles/base.css";
 import "../styles/app.css";
+import InstallApp from "../components/InstallApp.astro";
 import { withBase } from "../lib/paths";
 
 interface Props {
@@ -45,6 +46,7 @@ const {
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <slot />
+    <InstallApp />
     <script is:inline>
       document.querySelectorAll("[data-theme-toggle]").forEach(function (button) {
         function paint() {
