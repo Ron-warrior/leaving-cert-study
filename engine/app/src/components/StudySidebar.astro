@@ -1,0 +1,151 @@
+---
+import type { Subject } from "../lib/content";
+import {
+  getLab,
+  getListening,
+  getOral,
+  noteHref,
+  shortTitle,
+  subjects,
+} from "../lib/content";
+
+interface Props {
+  subject: Subject;
+  home?: boolean;
+}
+
+const { subject, home = false } = Astro.props;
+const path = Astro.url.pathname;
+const subjectHome = `/${subject.slug}/`;
+
+const practice = [
+  {
+    href: `/${subject.slug}/questions/`,
+    num: "Q",
+    label: "2023–2026 questions",
+  },
+  {
+    href: `/${subject.slug}/mock/`,
+    num: "⏱",
+    label: subject.mockTitle,
+  },
+  ...(subject.slug === "cs"
+    ? [
+        {
+          href: `/${subject.slug}/original-sample-paper-a/`,
+          num: "✎",
+          label: "Original sample paper",
+        },
+      ]
+    : []),
+  ...(getLab(subject.slug).length
+    ? [
+        {
+          href: `/${subject.slug}/section-c/`,
+          num: "C",
+          label: "Section C lab",
+        },
+      ]
+    : []),
+  ...(getListening(subject.slug).length
+    ? [
+        {
+          href: `/${subject.slug}/listening/`,
+          num: "♪",
+          label: "Listening practice",
+        },
+      ]
+    : []),
+  ...(getOral(subject.slug).roleplays.length
+    ? [
+        {
+          href: `/${subject.slug}/oral/`,
+          num: "◉",
+          label: "Oral trainer",
+        },
+      ]
+    : []),
+];
+---
+
+<aside class:list={["side", home && "home-drawer"]}>
+  <div class="scrim" data-scrim></div>
+  <div class="side-menu" id="side-menu">
+    <div class="menu-head">
+      <span>Subjects, notes &amp; practice</span>
+      <button class="menu-close" type="button" data-menu aria-label="Close menu">✕</button>
+    </div>
+
+    <div class="side-title">Overview</div>
+    <nav class="chapter-list" aria-label="Overview">
+      <a class="chapter-btn" href="/">
+        <span class="chapter-num" aria-hidden="true">⊞</span>
+        <span class="chapter-name">All subjects</span>
+      </a>
+      <a
+        class:list={["chapter-btn", path === subjectHome && "is-active"]}
+        href={subjectHome}
+        aria-current={path === subjectHome ? "page" : undefined}
+      >
+        <span class="chapter-num" aria-hidden="true">⌂</span>
+        <span class="chapter-name">Home</span>
+      </a>
+    </nav>
+
+    <details class="side-group" data-side-group="subject">
+      <summary class="side-title">Subject</summary>
+      <div class="subject-switch" role="group" aria-label="Choose a subject">
+        {subjects.map((item) => (
+          <a
+            class:list={["subject-btn", item.slug === subject.slug && "is-active"]}
+            href={`/${item.slug}/`}
+            title={item.level}
+            aria-current={item.slug === subject.slug ? "page" : undefined}
+          >
+            {item.name}
+          </a>
+        ))}
+      </div>
+    </details>
+
+    <details class="side-group" data-side-group="notes">
+      <summary class="side-title">Chapter notes</summary>
+      <nav class="chapter-list" aria-label="Chapter notes">
+        {subject.notes.map((note, index) => {
+          const href = noteHref(subject, note);
+          return (
+            <a
+              class:list={["chapter-btn", path === href && "is-active"]}
+              href={href}
+              aria-current={path === href ? "page" : undefined}
+            >
+              <span class="chapter-num">{String(index).padStart(2, "0")}</span>
+              <span class="chapter-name">{shortTitle(note.title)}</span>
+            </a>
+          );
+        })}
+      </nav>
+    </details>
+
+    <details class="side-group menu-practice" data-side-group="practice">
+      <summary class="side-title">Practice</summary>
+      {practice.map((item) => (
+        <a
+          class:list={["chapter-btn", path === item.href && "is-active"]}
+          href={item.href}
+          aria-current={path === item.href ? "page" : undefined}
+        >
+          <span class="chapter-num" aria-hidden="true">{item.num}</span>
+          <span class="chapter-name">{item.label}</span>
+        </a>
+      ))}
+    </details>
+
+    <div class="menu-practice menu-theme">
+      <button class="chapter-btn" type="button" data-theme-toggle>
+        <span class="chapter-num" aria-hidden="true">◐</span>
+        <span class="chapter-name" data-theme-label>Light mode</span>
+      </button>
+    </div>
+  </div>
+</aside>

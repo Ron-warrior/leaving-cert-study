@@ -1,0 +1,70 @@
+---
+interface Props {
+  name: "menu" | "search" | "sun" | "moon" | "close" | "home" | "bank" | "clock" | "code";
+}
+
+const { name } = Astro.props;
+const extraClass = name === "sun" || name === "moon" ? `icon-${name}` : "";
+---
+
+<svg
+  class={`icon-svg ${extraClass}`}
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.8"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+  focusable="false"
+>
+  {name === "menu" && (
+    <>
+      <path d="M4 7h16" />
+      <path d="M4 12h16" />
+      <path d="M4 17h16" />
+    </>
+  )}
+  {name === "search" && (
+    <>
+      <circle cx="10.8" cy="10.8" r="6.3" />
+      <path d="m15.5 15.5 4.2 4.2" />
+    </>
+  )}
+  {name === "sun" && (
+    <>
+      <circle cx="12" cy="12" r="3.8" />
+      <path d="M12 2.5v2M12 19.5v2M4.3 4.3l1.4 1.4M18.3 18.3l1.4 1.4M2.5 12h2M19.5 12h2M4.3 19.7l1.4-1.4M18.3 5.7l1.4-1.4" />
+    </>
+  )}
+  {name === "moon" && (
+    <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z" />
+  )}
+  {name === "close" && (
+    <>
+      <path d="M6 6l12 12" />
+      <path d="M18 6 6 18" />
+    </>
+  )}
+  {name === "home" && (
+    <>
+      <path d="m4 10.5 8-6.5 8 6.5V20a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1Z" />
+    </>
+  )}
+  {name === "bank" && (
+    <>
+      <path d="M4 6h16M4 12h16M4 18h10" />
+    </>
+  )}
+  {name === "clock" && (
+    <>
+      <circle cx="12" cy="12" r="8" />
+      <path d="M12 7v5l3 2" />
+    </>
+  )}
+  {name === "code" && (
+    <>
+      <path d="m8 8-4 4 4 4M16 8l4 4-4 4" />
+    </>
+  )}
+</svg>

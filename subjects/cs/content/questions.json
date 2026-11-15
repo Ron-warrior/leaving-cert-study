@@ -1,0 +1,1994 @@
+{
+  "schemaVersion": 1,
+  "subjects": [
+    {
+      "slug": "cs",
+      "questions": [
+        {
+          "year": 2023,
+          "number": 1,
+          "section": "A",
+          "marks": 6,
+          "chapter": "python",
+          "title": "Data types",
+          "prompt": "A program stores the values below. State the most appropriate data type for each one: Ciara; 255; 083-1234567; 1.5, 1.7, 1.2, 0.9, 1.3; False; -99.99.",
+          "answer": "Ciara — String/str\n255 — int/integer\n083-1234567 — String/str\n1.5, 1.7, 1.2, 0.9, 1.3 — List/array\nFalse — Boolean/bool\n-99.99 — Float/real",
+          "rubric": [
+            {
+              "point": "Ciara as String",
+              "marks": 1
+            },
+            {
+              "point": "255 as int",
+              "marks": 1
+            },
+            {
+              "point": "083-1234567 as String (leading zero)",
+              "marks": 1
+            },
+            {
+              "point": "Decimal list as List/array",
+              "marks": 1
+            },
+            {
+              "point": "False as Boolean",
+              "marks": 1
+            },
+            {
+              "point": "-99.99 as Float/real",
+              "marks": 1
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "number": 2,
+          "section": "A",
+          "marks": 6,
+          "chapter": "systems",
+          "title": "Why hexadecimal, and a conversion",
+          "prompt": "Information systems can represent numbers in decimal, binary and hexadecimal format. Many software developers use hexadecimal numbers.\n\n(a) Explain one advantage of using hexadecimal numbers.\n\n(b) Convert the hexadecimal number C9 into a decimal number.",
+          "answer": "(a) It is concise: most numbers need fewer digits than in binary or decimal. Each hex digit maps to exactly four binary digits, so conversion to and from binary is fast. Fewer characters means fewer writing errors, and it is the usual shorthand for memory addresses, machine code, colours and error codes.\n\n(b) C = 12, so C9 = 12 × 16 + 9 = 192 + 9 = 201.",
+          "rubric": [
+            {
+              "point": "Conciseness / fewer digits",
+              "marks": 1
+            },
+            {
+              "point": "Four binary digits per hex digit",
+              "marks": 1
+            },
+            {
+              "point": "Fewer errors or common uses (addresses, colours)",
+              "marks": 1
+            },
+            {
+              "point": "C = 12",
+              "marks": 1
+            },
+            {
+              "point": "12 × 16 = 192",
+              "marks": 1
+            },
+            {
+              "point": "Answer 201",
+              "marks": 1
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "number": 3,
+          "section": "A",
+          "marks": 6,
+          "chapter": "algorithms",
+          "title": "Truth table and a Boolean expression",
+          "prompt": "(a) Complete the truth table for the expressions x > 0, y > 0 and (x > 0 and y > 0). (b) A point (x, y) must lie in a narrow band beside the y-axis: within distance d of the axis but not on it, and above the x-axis. Write a Boolean expression that is true for such points.",
+          "answer": "(a) x > 0 | y > 0 | x > 0 and y > 0\nFalse | False | False\nFalse | True | False\nTrue | False | False\nTrue | True | True\n\n(b) (x > -d and x < 0) and (y > 0 and y < d)",
+          "rubric": [
+            {
+              "point": "AND column correct in all four rows",
+              "marks": 3
+            },
+            {
+              "point": "Left side: -d < x < 0",
+              "marks": 1
+            },
+            {
+              "point": "Right side: 0 < y < d",
+              "marks": 1
+            },
+            {
+              "point": "Both sides joined with and",
+              "marks": 1
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "number": 4,
+          "section": "A",
+          "marks": 6,
+          "chapter": "htmlcss",
+          "title": "User interfaces",
+          "prompt": "User interfaces have evolved constantly over the past 40 years to become more user-friendly and accessible.\n\n(a) What is meant by the term 'user interface'?\n\n(b) Name and describe one type of user interface that a computer system might use.",
+          "answer": "(a) The means by which a user provides input to a computer and the computer conveys output back: the point of interaction between user and machine through input/output devices.\n\n(b) Any one of: GUI (windows, icons, menus, pointer); CLI (text-only commands, requires knowledge of commands); menu-driven (choose from listed options, move up/down/back/forward); touch (responds to physical touch on screen); natural-language/voice (speech commands, e.g. Siri); form-based; VR/AR.",
+          "rubric": [
+            {
+              "point": "Interface as the point of interaction",
+              "marks": 2
+            },
+            {
+              "point": "Input and output via devices",
+              "marks": 1
+            },
+            {
+              "point": "A type of interface named",
+              "marks": 1
+            },
+            {
+              "point": "Description of that type",
+              "marks": 2
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "number": 5,
+          "section": "A",
+          "marks": 6,
+          "chapter": "systems",
+          "title": "TCP/IP layers",
+          "prompt": "Transmission Control Protocol / Internet Protocol (TCP/IP) refers to a suite of protocols used to send and receive messages over the internet. The TCP/IP protocol suite contains a number of different layers. Name one of these layers and describe what happens within this layer.",
+          "answer": "Application — encodes and decodes the message using protocols such as HTTP, FTP and SMTP.\nTransport — splits the message into packets, numbers them and records the total, so the receiver can reassemble them in order and spot missing packets.\nNetwork (internet) — adds the sender's and receiver's IP addresses so the network knows where to deliver it.\nData link — carries out the physical transfer of packets between nodes, and between networks.",
+          "rubric": [
+            {
+              "point": "Layer named correctly",
+              "marks": 2
+            },
+            {
+              "point": "Role clearly described",
+              "marks": 4
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "number": 6,
+          "section": "A",
+          "marks": 6,
+          "chapter": "microbit",
+          "title": "Embedded systems in the home",
+          "prompt": "Smart homes make use of embedded systems to make living spaces more enjoyable and convenient for home owners.\n\n(a) State two examples of embedded systems you might find in a smart home.\n\n(b) Describe two characteristics of embedded systems that distinguish them from general computer systems.",
+          "answer": "(a) Any two: programmable appliances (washing machine, dishwasher, fridge, kettle); heating/ventilation/air-conditioning; lighting control; alarm or security system; home robots (Roomba, lawnmower); smoke or carbon-monoxide detectors; voice assistants controlling appliances. (Micro:bit and Raspberry Pi are not accepted.)\n\n(b) Any two: performs one specific function and cannot be reprogrammed beyond its purpose; low cost; real-time operation; low power; minimal user interface; little human intervention; highly stable; high reliability; uses a microprocessor or microcontroller with limited memory.",
+          "rubric": [
+            {
+              "point": "First valid smart-home example",
+              "marks": 1
+            },
+            {
+              "point": "Second valid smart-home example",
+              "marks": 1
+            },
+            {
+              "point": "First characteristic with distinction from a PC",
+              "marks": 2
+            },
+            {
+              "point": "Second characteristic with distinction",
+              "marks": 2
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "number": 7,
+          "section": "A",
+          "marks": 6,
+          "chapter": "python",
+          "title": "Trace table",
+          "prompt": "Complete the trace table for the Python code shown below.\n\n    x = 10\n    y = 5\n\n    while x >= y:\n        x = x - 1\n        y = y + 1",
+          "answer": "x  | y\n10 | 5\n9  | 6\n8  | 7\n7  | 8",
+          "rubric": [
+            {
+              "point": "x = 9",
+              "marks": 1
+            },
+            {
+              "point": "x = 8",
+              "marks": 1
+            },
+            {
+              "point": "x = 7",
+              "marks": 1
+            },
+            {
+              "point": "y = 6",
+              "marks": 1
+            },
+            {
+              "point": "y = 7",
+              "marks": 1
+            },
+            {
+              "point": "y = 8",
+              "marks": 1
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "number": 8,
+          "section": "A",
+          "marks": 6,
+          "chapter": "algorithms",
+          "title": "Wolf, goat and cabbage states",
+          "prompt": "A farmer needs to ferry a wolf, a goat and a cabbage from one side of a river to the other in a boat, as shown in Figure 3. However, the boat only has room for the farmer and one other item, either the wolf, the goat or the cabbage. If left alone without the farmer present, the wolf would eat the goat, and the goat would eat the cabbage.\n\nThe state of the system at any given point in time can be represented using an ordered list of four values as follows:\n\n(<side for farmer>, <side for wolf>, <side for goat>, <side for cabbage>)\n\nBy using the letter E to represent the east side of the river, and the letter W to represent the west side of the river, the state (E, E, E, E) means that all four are on the east side of the river. (E, E, E, E) is the initial state of the system.\n\n(a) Using this notation, what is the desired final state of the system?\n\n(b) The state (W, E, E, W) is considered a loss state because the wolf will eat the goat (as the farmer and the cabbage are both on the west side).\n\n(i) Using this notation, name any other two loss states.\n\n(ii) Using this notation, name any one non-loss state, other than the initial and final states.",
+          "answer": "(a) (W, W, W, W) — the farmer, wolf, goat and cabbage all end on the west side (1 mark).\n\n(b)(i) Any two loss states from: (E, E, W, W), (E, W, W, E), (E, W, W, W), (W, E, E, E), (W, W, E, E). (W, E, E, W) was given in the question and scores nothing (2 marks each).\n\n(ii) Any one non-loss state from: (E, E, E, W), (E, E, W, E), (E, W, E, E), (E, W, E, W), (W, E, W, E), (W, E, W, W), (W, W, E, W), (W, W, W, E) (1 mark).",
+          "rubric": [
+            {
+              "point": "Final state (W, W, W, W)",
+              "marks": 1
+            },
+            {
+              "point": "First valid loss state",
+              "marks": 2
+            },
+            {
+              "point": "Second valid loss state (not the one given)",
+              "marks": 2
+            },
+            {
+              "point": "One valid non-loss state",
+              "marks": 1
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "number": 9,
+          "section": "A",
+          "marks": 6,
+          "chapter": "algorithms",
+          "title": "Chop Cup moves",
+          "prompt": "Chop Cup is a magic routine which involves three cups face down and one ball underneath one of the cups. In any single move the position of two cups can be swapped using one of three possible moves, A, B or C as shown in Figure 4: move A swaps positions 1 and 2, move B swaps positions 1 and 3, and move C swaps positions 2 and 3.\n\nEach cup is identified by its position. Initially the leftmost cup is at position 1, the middle cup is at position 2 and the rightmost cup is at position 3.\n\n(a) Given that the ball starts under the leftmost cup (position 1) and always remains under the same cup, state the ball position after the sequence of moves, ABCBCA.\n\n(b) Without knowing which cup the ball is under, construct a sequence involving at least three moves which results in the ball ending in the same position as it started from.",
+          "answer": "(a) Trace the ball position after each move:\n\nStart: position 1\nA (1 and 2 swap): position 2\nB (1 and 3 swap): position 2\nC (2 and 3 swap): position 3\nB (1 and 3 swap): position 1\nC (2 and 3 swap): position 1\nA (1 and 2 swap): position 2\n\nThe ball ends at position 2, under the middle cup (4 marks).\n\n(b) Any valid sequence, e.g. ABBA, AAAA, or any sequence in which every move appears an even number of times, or a palindrome (2 marks). The full list is AAAA, AABB, AACC, ABAC, ABBA, ABCB, ACAB, ACBC, ACCA, BAAB, BABC, BACA, BBAA, BBBB, BBCC, BCAC, BCBA, BCCB, CAAC, CABA, CACB, CBAB, CBBC, CBCA, CCAA, CCBB, CCCC.",
+          "rubric": [
+            {
+              "point": "Correct trace through the six moves",
+              "marks": 3
+            },
+            {
+              "point": "Final position 2 (middle cup)",
+              "marks": 1
+            },
+            {
+              "point": "Valid sequence of at least three moves",
+              "marks": 2
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "number": 10,
+          "section": "A",
+          "marks": 6,
+          "chapter": "algorithms",
+          "title": "Quicksort partition",
+          "prompt": "Quicksort is widely recognised as one of the most efficient sorting algorithms. It works by recursively partitioning a list about one of the elements known as the pivot. Consider the unsorted list of integers shown in Figure 5: 60, 30, 80, 40, 10, 50, 20, 70, 90.\n\n(a) Using the leftmost element as the pivot, show the contents of the list after the initial partition by the quicksort algorithm. You should assume that the elements in the left and right sub-lists are not re-ordered.\n\n(b) Explain why 90 would have been a poor choice of pivot to partition the list shown in Figure 5.",
+          "answer": "(a) Pivot = 60. One valid result is: 30, 40, 10, 50, 20, 60, 80, 70, 90. The left sub-list holds every value below 60, and the right sub-list holds every value above 60, with each sub-list keeping its original order. Another accepted form is: 50, 30, 20, 40, 10, 60, 80, 70, 90. (3 marks: split about the pivot, left sub-list, right sub-list.)\n\n(b) 90 is the largest number in the list, so one side of the partition is empty and the list is not really divided. The recursion then takes longer, increasing the time taken to execute the algorithm (3 marks).",
+          "rubric": [
+            {
+              "point": "Elements split about the pivot 60",
+              "marks": 1
+            },
+            {
+              "point": "Left sub-list correct and in order",
+              "marks": 1
+            },
+            {
+              "point": "Right sub-list correct and in order",
+              "marks": 1
+            },
+            {
+              "point": "90 is the largest value",
+              "marks": 1
+            },
+            {
+              "point": "One side would be empty / no real split",
+              "marks": 1
+            },
+            {
+              "point": "Increases the time taken",
+              "marks": 1
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "number": 11,
+          "section": "A",
+          "marks": 6,
+          "chapter": "algorithms",
+          "title": "Username algorithm",
+          "prompt": "Figure 6 depicts a flowchart of a Python algorithm which can be used to generate new usernames for students. You can assume that the date is in the format ddmmyyyy.\n\nThe flowchart's steps are: Step 2 input first_name; Step 3 input surname; Step 4 input date_of_birth; Step 5 first_name = first_name[0:2]; Step 6 date_of_birth = date_of_birth[4:8]; Step 7 username = first_name + surname + date_of_birth; Step 8 output username.\n\n(a) Name one input and one output of the algorithm.\n\n(b) Referring to the relevant step(s) in the flowchart explain how the algorithm uses string slicing and string concatenation.",
+          "answer": "(a) Inputs: first_name, surname, date_of_birth. Output: username. Names, dates and sample usernames score nothing.\n\n(b) Slicing: step 5 takes the first two characters of the first name; step 6 takes characters 4 to 7 of the date (the four-digit year in dd/mm/yyyy). Concatenation: step 7 joins the two initials, the surname and the year into one string — the username.",
+          "rubric": [
+            {
+              "point": "Inputs identified",
+              "marks": 1
+            },
+            {
+              "point": "Output identified",
+              "marks": 1
+            },
+            {
+              "point": "First two characters sliced from the name",
+              "marks": 2
+            },
+            {
+              "point": "Characters 4–7 sliced as the year",
+              "marks": 1
+            },
+            {
+              "point": "Concatenation of the parts explained",
+              "marks": 1
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "number": 12,
+          "section": "A",
+          "marks": 6,
+          "chapter": "software",
+          "title": "SDLC and testing",
+          "prompt": "A Software Development Lifecycle (SDLC) such as the one shown in Figure 7 below, is usually followed when creating information systems.\n\n(a) Outline briefly two reasons why the SDLC is important.\n\n(b) Distinguish between functional and non-functional testing.",
+          "answer": "(a) Any two: it provides a structured approach and reduces complexity; it improves quality by checking requirements are met; it reduces budget overruns and missed deadlines; it supports resource and staff planning; it encourages communication between stakeholders.\n\n(b) Functional testing checks whether the system meets its requirements; non-functional testing checks how well it does so (performance, usability, reliability, scalability, security). Functional testing normally comes first. Functional examples: unit, smoke, integration, black-box, white-box, acceptance, regression. Non-functional examples: performance, stress, usability, security, compatibility.",
+          "rubric": [
+            {
+              "point": "First valid reason for the SDLC",
+              "marks": 1
+            },
+            {
+              "point": "Second valid reason",
+              "marks": 1
+            },
+            {
+              "point": "Functional = meets requirements",
+              "marks": 1
+            },
+            {
+              "point": "Non-functional = how well (performance, usability…)",
+              "marks": 2
+            },
+            {
+              "point": "Correct examples or ordering",
+              "marks": 1
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "number": 13,
+          "section": "B",
+          "marks": 38,
+          "chapter": "modelling",
+          "title": "Digital hubs and facial recognition",
+          "prompt": "The National Hub Network is an initiative set up by the Irish Government to allow people across Ireland to work closer to home through providing digital working hubs with modern facilities and high-speed internet connections. There are over 260 working hub locations spread across Ireland with over 4000 desks available. Many of these hubs have been set up in rural and remote areas.\n\n(a) (i) Consider the impact that a digital working hub might have to a rural community's culture and society. Provide one argument in support of this initiative and one argument against.\n\n(ii) As the demand for desk space in digital hubs increases, the Government plan on using computer modelling to plan ahead and make sure they have enough resources in place and also that they are targeting the correct areas when it comes to opening new hubs. Suggest one data item that could be collected in order to model the situation. Justify your answer.\n\n(iii) To ensure that the digital hubs are accessible for anyone who wishes to use them, adaptive and assistive technologies are in place for anyone who should need them. Name two types of such technologies and describe how each could support someone with additional needs when using a computer system.\n\n(b) Figure 8 shows the set of hubs and distances in kilometres between each pair of hubs. The distances are: A–B 20, A–C 15, A–D 15, B–C 25, B–D 30, C–D 35. A technician must travel around each hub to check the equipment and to fix any technical issues that arise. The technician will begin at Hub A and visit all hubs exactly once, before returning to Hub A.\n\n(i) Calculate and state the shortest possible route the technician should take.\n\n(ii) Outline briefly two features of abstraction contained in Figure 8.\n\n(iii) At the beginning of each day the technician has a look at all of the locations that she needs to visit. To try and do this in the shortest time possible the technician will use heuristics. Explain what is meant by heuristics.\n\n(c) In 2022, the Irish Government announced plans to introduce legislation to grant Gardaí new powers to use Facial Recognition Software (FRS). However, the Irish Council for Civil Liberties (ICCL) said it strongly opposes the use of such technology for law enforcement and in public spaces. Outline two arguments for and two arguments against the use of FRS for law enforcement.",
+          "answer": "(a)(i) Support (4 marks): local residents and businesses get dependable IT facilities and online services; people can work locally instead of leaving the area; hubs can attract new residents and boost the local economy.\n\nAgainst (4 marks): house prices may rise; the local culture and way of life may change; extra population can strain infrastructure and services; new businesses may affect existing ones.\n\n(ii) Any valid data item with a justification (1 + 2 marks), e.g. population (whether a hub is viable and what pressure it puts on schools and hospitals), housing figures (whether there is enough accommodation), broadband availability/speed (whether the infrastructure can cope), or hub occupancy rates (actual demand).\n\n(iii) Two technologies at 4 marks each (1 for naming, 3 for the description): braille keyboard, screen reader, screen magnifier, sip-and-puff device, large monitor, adapted keyboard or mouse, voice output, word-prediction software, eye-tracking, joystick, trackball or touch screen.\n\n(b)(i) A → C → B → D → A = 15 + 25 + 30 + 15 = 85 km. The reverse A → D → B → C → A is also 85 km (2 marks).\n\n(ii) Circles and letters stand for hubs; lines stand for roads; numbers stand for distances. Scale and real geography (rivers, hills, buildings) are ignored (1 mark each).\n\n(iii) A heuristic is a rule of thumb that finds a good approximate solution when an exact method such as brute force would take too long. Here it could be \"always travel to the nearest unvisited hub\" (3 marks).\n\n(c) For (6 marks): FRS speeds up reviewing CCTV and identifying criminals; it can increase convictions and reduce crime; codes of practice and GDPR can guard against misuse.\n\nAgainst (6 marks): privacy and data-protection risks (who owns the data, how long it is kept, what it is used for); mistaken identity; bias when training data is not representative, leading to discrimination.",
+          "rubric": [
+            {
+              "point": "One supported argument for the hubs (4)",
+              "marks": 4
+            },
+            {
+              "point": "One argument against the hubs (4)",
+              "marks": 4
+            },
+            {
+              "point": "Valid data item with a justification (3)",
+              "marks": 3
+            },
+            {
+              "point": "Assistive technology 1 named and described (4)",
+              "marks": 4
+            },
+            {
+              "point": "Assistive technology 2 named and described (4)",
+              "marks": 4
+            },
+            {
+              "point": "Shortest route: 85 km via A-C-B-D-A (2)",
+              "marks": 2
+            },
+            {
+              "point": "Two features of abstraction in Figure 8 (2)",
+              "marks": 2
+            },
+            {
+              "point": "Heuristics explained as an approximate rule of thumb (3)",
+              "marks": 3
+            },
+            {
+              "point": "Two arguments for facial recognition (6)",
+              "marks": 6
+            },
+            {
+              "point": "Two arguments against facial recognition (6)",
+              "marks": 6
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "number": 14,
+          "section": "B",
+          "marks": 38,
+          "chapter": "systems",
+          "title": "Von Neumann architecture and storage",
+          "prompt": "In the 1940s John von Neumann discovered that computer systems could treat instructions as data and, as such, could be manipulated inside the computer's memory while a program is running. This major breakthrough in computing became known as the stored program concept, and is still used in the majority of computer systems we use today. The von Neumann architecture is shown in Figure 9.\n\n(a) (i) Explain the term 'output device'. Provide two examples.\n\n(ii) The CPU cycle carried out to process data and instructions has three steps to it. The first step 'Fetch Instruction' has been completed for you in Figure 10 below. Complete the diagram by filling in the next two steps of the process, labelled (a) and (b).\n\n(iii) The CPU contains a number of registers including the Program Counter and the Accumulator. Explain one difference between these two registers.\n\n(iv) The CPU is often described as the brains of the computer. It is made up of two main components, namely the Arithmetic Logic Unit (ALU) and the Control Unit (CU). State the purpose of these two components.\n\n(v) The CPU is the most important component of a computer system and determines how fast a computer can run. Describe two factors that can impact the performance of the CPU.\n\n(b) As well as having main memory, computer systems tend to have secondary storage which allows users to save data such as programs and files.\n\n(i) Sarah is looking to buy a new laptop. So far, all the laptops she has looked at have either magnetic or solid state hard drives. Which type of secondary storage would you recommend? Justify your answer.\n\n(ii) When a computer is carrying out lots of tasks it can start to run out of memory. In some cases, a computer may have to rely on virtual memory. What is meant by the term 'virtual memory'?\n\n(iii) For a school software development project Sarah has to work with classmates to produce a computational artefact for a local business. The group will be working on this both at school and at home. Sarah suggests working in the cloud for the project. Describe one advantage and one disadvantage of working in the cloud.\n\n(iv) As part of the school project Sarah has been assigned the role of Business Analyst. Describe two activities typically undertaken by a Business Analyst in a software development company.",
+          "answer": "(a)(i) An output device is any hardware that conveys information from the computer to the user (2 marks). Examples (1 each): monitor, printer, projector, speaker or headphones.\n\n(ii) (a) Decode; (b) Execute (1 mark each; both correct names in the wrong order still earn 1).\n\n(iii) The Program Counter holds the address of the next instruction to execute; the Accumulator holds data being operated on. The PC is part of the control unit, the ACC part of the ALU.\n\n(iv) ALU: performs all basic arithmetic and logical operations. CU: directs and coordinates the operations of the computer and tells memory, the ALU and input/output devices how to respond to instructions.\n\n(v) Any two factors, explained (3 marks each): number of cores, clock speed, cache size, bus width, amount of RAM.\n\n(b)(i) Recommend an SSD (3 marks) — faster, quieter, no moving parts so more durable, lower power, unaffected by magnets. A magnetic drive is acceptable if justified on cost per GB and capacity.\n\n(ii) Virtual memory is an area of secondary storage allocated by the operating system to hold data from RAM temporarily, usually when RAM is full. Accessing it is slower than accessing RAM.\n\n(iii) Cloud advantage (3 marks): access from anywhere, collaboration, automatic backup, low setup cost, extra storage. Disadvantage (3 marks): needs internet access, vendor lock-in, subscription costs, limited control, security handled by the provider.\n\n(iv) Two Business Analyst activities (3 marks each): identify areas for improvement and research solutions; write reports and present them to stakeholders; communicate requirements to analysts, designers and programmers; organise staff training and ensure the system fits the business.",
+          "rubric": [
+            {
+              "point": "Output device defined (2)",
+              "marks": 2
+            },
+            {
+              "point": "Two valid output device examples (2)",
+              "marks": 2
+            },
+            {
+              "point": "Decode and Execute identified (2)",
+              "marks": 2
+            },
+            {
+              "point": "One valid difference: PC vs Accumulator (2)",
+              "marks": 2
+            },
+            {
+              "point": "Purpose of the ALU (3)",
+              "marks": 3
+            },
+            {
+              "point": "Purpose of the Control Unit (3)",
+              "marks": 3
+            },
+            {
+              "point": "Two CPU performance factors explained (6)",
+              "marks": 6
+            },
+            {
+              "point": "SSD recommendation justified (3)",
+              "marks": 3
+            },
+            {
+              "point": "Virtual memory explained (3)",
+              "marks": 3
+            },
+            {
+              "point": "Cloud advantage and disadvantage (6)",
+              "marks": 6
+            },
+            {
+              "point": "Two Business Analyst activities (6)",
+              "marks": 6
+            }
+          ]
+        },
+        {
+          "year": 2023,
+          "number": 15,
+          "section": "B",
+          "marks": 38,
+          "chapter": "algorithms",
+          "title": "Searching and recursion",
+          "prompt": "Computers can use a choice of different search algorithms to find information much quicker than humans. Two common search algorithms are the linear search and the binary search.\n\n(a) Consider the following list of seven names: Amir, Dean, Eoin, Helen, Natalia, Steve, Terry\n\n(i) What search algorithm would be best suited to search the list of names shown above? Justify your answer.\n\nSearch algorithms work by comparing the list elements with a particular search value, known as a key.\n\n(ii) List, in order, the names that would be compared until Natalia is found using the linear search algorithm.\n\n(iii) List, in order, the names that would be compared until Natalia is found using the binary search algorithm.\n\n(iv) Complete the table below to show the best and worst case time complexities for the two search algorithms. You can assume that the size of the input is N.\n\n(v) What is meant by O(1) time complexity?\n\n(b) The Python code below shows an implementation of a binary search function.\n\n    1  def binary_search1(v, L):\n    2\n    3      lo = 0\n    4      hi = len(L) - 1\n    5\n    6      while (lo <= hi):\n    7          mid = (lo + hi)//2\n    8\n    9          if L[mid] > v:\n    10             hi = mid - 1\n    11         elif L[mid] < v:\n    12             lo = mid + 1\n    13         else:\n    14             return mid\n    15\n    16     return len(L)\n\n(i) In the code there is one example of iteration. State on which lines the iteration starts and ends and explain what it does.\n\n(ii) The function contains two examples of a return statement – line 14 and line 16. What is the purpose of a return statement?\n\n(iii) Explain the reason for len(L) on line 16.\n\n(c) An alternative implementation of the binary search can be achieved using recursion as shown.\n\n    1  def binary_search2(v, L, lo, hi):\n    2\n    3      if lo > hi:\n    4          return len(L)\n    5\n    6      mid = (lo + hi)//2\n    7\n    8      if L[mid] > v:\n    9          return binary_search2(v, L, lo, mid - 1)\n    10     elif L[mid] < v:\n    11         return binary_search2(v, L, mid + 1, hi)\n    12\n    13     return mid\n\n(i) Referring to the code above, describe two properties of recursive functions.\n\n(ii) State one advantage and one disadvantage of using recursion.\n\n(iii) Given a list of names, initialised as shown below, write a line of code to call the function binary_search2 to find the name Natalia. You should store the result of the function in a variable called result.\n\n    names = [\"Amir\", \"Dean\", \"Eoin\", \"Helen\", \"Natalia\", \"Steve\", \"Terry\"]",
+          "answer": "(a)(i) Linear search, because the list is short and a linear search is fast on short lists; or binary search, because the list is already sorted and binary search is faster. The algorithm must be justified (2 marks).\n\n(ii) Amir, Dean, Eoin, Helen, Natalia (2 marks; 1 if every name except Natalia is listed).\n\n(iii) Helen, Steve, Natalia (2 marks; 1 if every name except Natalia is listed).\n\n(iv) Linear search: best O(1), worst O(N). Binary search: best O(1), worst O(log2 N) (1 mark each).\n\n(v) O(1) means the time taken is constant regardless of the size of the input N (3 marks).\n\n(b)(i) Starts on line 6, ends on line 14 (1 mark each). The loop repeatedly halves the list by calculating the middle index, compares the value there with the target and updates the lower and higher indices until the value is found or the range is empty (3 marks).\n\n(ii) A return statement ends the function and passes the result back to the code that called it (3 marks).\n\n(iii) Line 16 returns len(L) to indicate that the value was not found (3 marks).\n\n(c)(i) A recursive function calls itself; it has a base case that ends the recursion; and it moves progressively towards that base case (two properties, 3 marks each).\n\n(ii) Advantage (3 marks): simplicity, elegance, readable code for problems that break into smaller copies of themselves. Disadvantage (3 marks): memory/stack overhead and slower execution, with a risk of stack overflow if the recursion is too deep.\n\n(iii) (3 marks):\n\n    result = binary_search2(\"Natalia\", names, 0, len(names) - 1)",
+          "rubric": [
+            {
+              "point": "Search algorithm named with justification (2)",
+              "marks": 2
+            },
+            {
+              "point": "Linear search comparisons in order (2)",
+              "marks": 2
+            },
+            {
+              "point": "Binary search comparisons in order (2)",
+              "marks": 2
+            },
+            {
+              "point": "Four time complexities correct (3)",
+              "marks": 3
+            },
+            {
+              "point": "O(1) explained as constant time (3)",
+              "marks": 3
+            },
+            {
+              "point": "Iteration start/end lines and explanation (5)",
+              "marks": 5
+            },
+            {
+              "point": "Purpose of a return statement (3)",
+              "marks": 3
+            },
+            {
+              "point": "Reason for len(L) at line 16 (3)",
+              "marks": 3
+            },
+            {
+              "point": "Two properties of recursive functions (6)",
+              "marks": 6
+            },
+            {
+              "point": "One advantage and one disadvantage of recursion (6)",
+              "marks": 6
+            },
+            {
+              "point": "Correct call to binary_search2 (3)",
+              "marks": 3
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "number": 1,
+          "section": "A",
+          "marks": 6,
+          "chapter": "systems",
+          "title": "Logic gate outputs",
+          "prompt": "Logic gates have one or more inputs and a single output. For each logic gate below, enter the output, either 0 or 1.\n\n1. AND gate with inputs 1 and 1.\n2. AND gate with inputs 0 and 1.\n3. NOT gate with input 1.\n4. OR gate with inputs 1 and 0.\n5. OR gate with inputs 0 and 0.\n6. NAND gate with inputs 1 and 1.",
+          "answer": "1. AND(1, 1) = 1\n2. AND(0, 1) = 0\n3. NOT(1) = 0\n4. OR(1, 0) = 1\n5. OR(0, 0) = 0\n6. NAND(1, 1) = 0\n\nA NAND gate is an AND gate followed by a NOT gate, so its output is the opposite of AND.",
+          "rubric": [
+            {
+              "point": "AND(1,1) = 1",
+              "marks": 1
+            },
+            {
+              "point": "AND(0,1) = 0",
+              "marks": 1
+            },
+            {
+              "point": "NOT(1) = 0",
+              "marks": 1
+            },
+            {
+              "point": "OR(1,0) = 1",
+              "marks": 1
+            },
+            {
+              "point": "OR(0,0) = 0",
+              "marks": 1
+            },
+            {
+              "point": "NAND(1,1) = 0",
+              "marks": 1
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "number": 2,
+          "section": "A",
+          "marks": 6,
+          "chapter": "python",
+          "title": "While loop output",
+          "prompt": "What is the output displayed by the following Python code?\n\n    number = 27\n    while number < 39:\n        print(number, end=\" \")\n        number = number + 3",
+          "answer": "27 30 33 36\n\nThe loop prints the current value, then adds 3. It stops when number becomes 39, because 39 is not less than 39.",
+          "rubric": [
+            {
+              "point": "27 printed",
+              "marks": 1
+            },
+            {
+              "point": "30 printed",
+              "marks": 1
+            },
+            {
+              "point": "33 printed",
+              "marks": 1
+            },
+            {
+              "point": "36 printed",
+              "marks": 1
+            },
+            {
+              "point": "Values in the correct order",
+              "marks": 1
+            },
+            {
+              "point": "Spaces between values (end=\" \")",
+              "marks": 1
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "number": 3,
+          "section": "A",
+          "marks": 6,
+          "chapter": "systems",
+          "title": "Decimal to 8-bit binary",
+          "prompt": "Express the decimal number 121 as an 8-bit binary number.",
+          "answer": "121 = 64 + 32 + 16 + 8 + 1, so the 8-bit binary is 0111 1001.\n\nCheck: 64 + 32 + 16 + 8 + 1 = 121.",
+          "rubric": [
+            {
+              "point": "Correct 8-bit answer 01111001",
+              "marks": 6
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "number": 4,
+          "section": "A",
+          "marks": 6,
+          "chapter": "algorithms",
+          "title": "Swapping discs",
+          "prompt": "A row has five positions, 0 to 4. In the start state the discs are: white, white, empty, black, black (positions 0–4). The goal is: black, black, empty, white, white.\n\nA disc may move in one of two ways:\n1. Move into an empty square one position to the left or right.\n2. Jump in either direction over a single adjacent disc into an empty space immediately beyond it.\n\nWrite a sequence of steps that swaps all the white discs with the black discs. Only one disc may move in each step.",
+          "answer": "One valid eight-step sequence (positions are 0–4):\n\n1. 1 → 2 (white slides right)\n2. 3 → 1 (black jumps left over position 2)\n3. 4 → 3 (black slides left)\n4. 2 → 4 (white jumps right over position 3)\n5. 0 → 2 (white jumps right over position 1)\n6. 1 → 0 (black slides left)\n7. 3 → 1 (black jumps left over position 2)\n8. 2 → 3 (white slides right)\n\nFinal state: black, black, empty, white, white.",
+          "rubric": [
+            {
+              "point": "Complete correct sequence of moves",
+              "marks": 4
+            },
+            {
+              "point": "At least four correct steps in the right order",
+              "marks": 1
+            },
+            {
+              "point": "Correct final state",
+              "marks": 1
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "number": 5,
+          "section": "A",
+          "marks": 6,
+          "chapter": "history",
+          "title": "A computing milestone",
+          "prompt": "The history of computer hardware is marked by significant milestones that have driven advancements in computing capabilities. The six milestones are:\n\n- Turing Machines\n- Transistors\n- Integrated Circuits\n- ARPANET\n- Microprocessors\n- Personal Computers\n\nChoose one of the milestones and explain its significance.",
+          "answer": "Choose any one milestone and explain it clearly.\n\nTuring Machines: the first abstract model of computability; if a problem was computable, a Turing machine could compute it. They were also used to prove that not everything is computable, showing the limits of computation.\n\nTransistors: replaced bulky, unreliable vacuum tubes, enabling smaller, faster and more energy-efficient devices and laying the foundation for modern semiconductors.\n\nIntegrated Circuits: orders of magnitude smaller, faster and cheaper than circuits built from discrete components, allowing a very large transistor count on one chip.\n\nARPANET: the forerunner of the internet; many protocols used by modern networks were developed for it.\n\nMicroprocessors: put computing power on a single small chip, leading to rapid advances in personal computers and other electronic devices.\n\nPersonal Computers: revolutionised how individuals work, learn and connect; their affordability made information, communication and productivity tools accessible to everyone.",
+          "rubric": [
+            {
+              "point": "One milestone correctly named",
+              "marks": 1
+            },
+            {
+              "point": "Significance clearly explained",
+              "marks": 5
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "number": 6,
+          "section": "A",
+          "marks": 6,
+          "chapter": "software",
+          "title": "Unit and system testing",
+          "prompt": "Consider a social networking mobile application designed for teenagers. Provide one example of a unit test case and one example of a system test case that might be carried out during the development process.",
+          "answer": "Unit test case (testing one small piece in isolation): check that updating a profile picture works; check that posting a message works; check that sending or receiving a message works; check that the privacy settings work correctly.\n\nSystem test case (testing the whole application end to end): check that the app handles a realistic number of simultaneous users; check that it handles multiple chat sessions at once; check that it gives a user-friendly experience; check that it complies with privacy and security regulations.",
+          "rubric": [
+            {
+              "point": "Valid unit test case",
+              "marks": 3
+            },
+            {
+              "point": "Valid system test case",
+              "marks": 3
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "number": 7,
+          "section": "A",
+          "marks": 6,
+          "chapter": "ethics",
+          "title": "An emerging technology",
+          "prompt": "Some current emerging trends include: Quantum Computing, Edge Computing, the Internet of Things (IoT), Biometric Authentication and Blockchain Technology.\n\nPick any one of these and briefly describe one potential advantage and one potential disadvantage it might have on society in the future.",
+          "answer": "Quantum computing — advantage: can solve certain problems far faster than classical computers, leading to breakthroughs in cryptography, medicine and climate modelling. Disadvantage: very expensive to build, run and maintain, and its power could break current encryption.\n\nEdge computing — advantage: processing data near where it is generated reduces latency for real-time applications such as autonomous vehicles and remote healthcare. Disadvantage: edge devices have limited processing power and storage, and managing a large distributed network is complex.\n\nIoT — advantage: connected devices enable smart homes, cities and industries, improving convenience and efficiency. Disadvantage: devices collect sensitive personal data and are often vulnerable to security breaches.\n\nBiometric authentication — advantage: fingerprints, faces or iris patterns are hard to forge, giving strong security and convenience. Disadvantage: privacy concerns and the risk of spoofing, false positives and false negatives.\n\nBlockchain — advantage: a decentralised, transparent and tamper-resistant record of transactions. Disadvantage: public ledgers can be traced back to individuals, and mining consumes large amounts of energy.",
+          "rubric": [
+            {
+              "point": "One emerging trend named",
+              "marks": 1
+            },
+            {
+              "point": "Potential advantage described",
+              "marks": 2
+            },
+            {
+              "point": "Potential disadvantage described",
+              "marks": 3
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "number": 8,
+          "section": "A",
+          "marks": 6,
+          "chapter": "systems",
+          "title": "RAM and ROM",
+          "prompt": "RAM and ROM are two types of primary memory used to store data. Provide one example of data that might be stored in RAM and one example of data that might be stored in ROM.",
+          "answer": "RAM (temporary, volatile): the operating system, application software, a running Python program and its data, a document being edited, or any temporary data.\n\nROM (permanent, non-volatile): firmware embedded in hardware, the BIOS needed to start the computer, bootstrap programs, or system-level configuration data.",
+          "rubric": [
+            {
+              "point": "Valid example of data in RAM",
+              "marks": 3
+            },
+            {
+              "point": "Valid example of data in ROM",
+              "marks": 3
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "number": 9,
+          "section": "A",
+          "marks": 6,
+          "chapter": "python",
+          "title": "Leap year rules",
+          "prompt": "A leap year contains an additional day, making it 366 days long. The Python function is_leap_year can determine whether a year y is a leap year:\n\n    def is_leap_year(y):\n        if (y % 400 == 0) or ((y % 4 == 0) and (y % 100 != 0)):\n            return True\n        else:\n            return False\n\nUse the code to describe the two rules for determining whether a year is a leap year.",
+          "answer": "Rule 1: if the year is evenly divisible by 400, it is a leap year (e.g. 2000).\n\nRule 2: if the year is evenly divisible by 4 but not by 100, it is a leap year (e.g. 2024 is, but 2025 and 2100 are not).",
+          "rubric": [
+            {
+              "point": "Rule 1: divisible by 400",
+              "marks": 3
+            },
+            {
+              "point": "Rule 2: divisible by 4 and not by 100",
+              "marks": 3
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "number": 10,
+          "section": "A",
+          "marks": 6,
+          "chapter": "htmlcss",
+          "title": "Universal design in a kiosk",
+          "prompt": "Many fast-food restaurants use interactive kiosks with menu-driven interfaces. Name two principles of universal design and explain how these principles could be met in the design of such systems.",
+          "answer": "Any two principles, each named and explained:\n\n- Equitable use: adjustable font sizes, colour contrast and audio feedback make the kiosk usable by people with different abilities.\n- Flexibility in use: customers can interact by touch or by voice commands.\n- Simple and intuitive use: a straightforward menu with clear icons and labels.\n- Perceptible information: instructions and payment guidance given through visual cues, text labels and audio.\n- Tolerance for error: confirmation dialogs, clear feedback and the ability to review an order before paying.\n- Low physical effort: a responsive touch interface and alternative input methods.\n- Size and space for approach and use: kiosks at different heights, with room for wheelchair users.",
+          "rubric": [
+            {
+              "point": "Principle 1 named",
+              "marks": 1
+            },
+            {
+              "point": "Principle 1 applied to the kiosk",
+              "marks": 2
+            },
+            {
+              "point": "Principle 2 named",
+              "marks": 1
+            },
+            {
+              "point": "Principle 2 applied to the kiosk",
+              "marks": 2
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "number": 11,
+          "section": "A",
+          "marks": 6,
+          "chapter": "algorithms",
+          "title": "General solution with shapes",
+          "prompt": "A row of ten shapes contains squares and triangles. This pseudocode moves all triangles to the left of all squares:\n\n    problem_solved <- FALSE\n    LOOP until problem_solved IS TRUE\n        square <- find the leftmost square\n        triangle <- find the rightmost triangle\n        IF position of square IS GREATER THAN position of triangle\n            problem_solved <- TRUE\n        ELSE\n            swap(square, triangle)\n\n(a) Apply the algorithm to the row: square, triangle, triangle, square, triangle, square, triangle, triangle, square, square. Show Step 1 and Step 2.\n\n(b) Explain what is meant by the phrase 'a general solution'.",
+          "answer": "(a) Initial row: □ ▲ ▲ □ ▲ □ ▲ ▲ □ □\n\nStep 1: swap the leftmost square (position 0) with the rightmost triangle (position 7):\n▲ ▲ ▲ □ ▲ □ ▲ □ □ □\n\nStep 2: swap the leftmost square (position 3) with the rightmost triangle (position 6):\n▲ ▲ ▲ ▲ ▲ □ □ □ □ □\n\nNow every triangle is to the left of every square, so the loop ends.\n\n(b) A general solution provides a broad approach that works for different inputs, not just one particular row. It always produces the correct output regardless of the input, and it does not depend on the size of the input.",
+          "rubric": [
+            {
+              "point": "Correct Step 1",
+              "marks": 2
+            },
+            {
+              "point": "Correct Step 2",
+              "marks": 2
+            },
+            {
+              "point": "General solution explained",
+              "marks": 2
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "number": 12,
+          "section": "A",
+          "marks": 6,
+          "chapter": "ethics",
+          "title": "If you are not paying",
+          "prompt": "Figure 5 shows social media icons with the quote: \"If you're not paying for the product, then you are the product.\"\n\n(a) Explain the meaning of the quote in relation to online applications.\n\n(b) Provide one implication that the quote could have for your use of online applications.",
+          "answer": "(a) When a service such as social media is free, users become the commodity: their attention and personal data are the real products. As users interact, they generate valuable data about their preferences and behaviour, which the platform collects, analyses and uses for targeted advertising or sells to third parties. Users pay indirectly with their personal information and attention rather than money.\n\n(b) Any one implication: be more careful about the personal information you share and review privacy settings; be aware of addictive or manipulative design and manage screen time; read terms and conditions; treat targeted advertising with scepticism.",
+          "rubric": [
+            {
+              "point": "Meaning: users and their data are the product",
+              "marks": 3
+            },
+            {
+              "point": "One valid implication for personal use",
+              "marks": 3
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "number": 13,
+          "section": "B",
+          "marks": 38,
+          "chapter": "ai",
+          "title": "Artificial intelligence and computer vision",
+          "prompt": "The term artificial intelligence (AI) was first used in 1955 by John McCarthy, among others. Since then, related terms such as narrow AI, artificial general intelligence (AGI) and generative AI have emerged.\n\n(a) (i) What is meant by the term 'artificial intelligence'?\n(ii) Distinguish between narrow AI and artificial general intelligence (AGI).\n(iii) ChatGPT and Gemini are examples of generative AI applications. Explain the term 'generative AI'.\n(iv) Name two types of output that can be produced by generative AI.\n\n(b) Computer vision is a field of AI that uses machine learning techniques to develop models capable of identifying objects in an image. Study the image in Figure 5, which shows labels with confidence percentages.\n(i) In relation to computer vision, what do the percentages shown in Figure 5 represent?\n(ii) Suggest two applications for this type of technology and describe how each application could benefit society.\n(iii) Read the two scenarios and for each state whether it could use machine learning AI. Justify each answer.\nScenario 1: An online streaming service that recommends films based on users' viewing habits.\nScenario 2: An automated lawnmower that uses sensors to navigate an outdoor space and avoid obstacles while cutting the grass.\n(iv) In recent years many instances of bias have been identified in computer vision applications. Explain one method that could be used to reduce bias in these applications.\n\n(c) In 2023 an open letter published by the Future of Life Institute requested all AI labs to immediately pause for at least six months the training of very powerful AI systems. While the letter was signed by many well-known academics and industry leaders, many notable individuals and companies did not publicly declare their support. Discuss the reasons for some people supporting the initiative to pause training and others not supporting it.",
+          "answer": "(a)(i) AI is the science and engineering of making computer programs capable of tasks that normally require human intelligence — judgement, interpretation, generalisation, visual perception, speech recognition, decision-making and translation. It is the design of systems that appear to mimic intelligent behaviour.\n\n(ii) Narrow AI performs a single task, with no skills that transfer to other tasks. AGI can autonomously solve a variety of complex problems across different domains, learning and adapting as it goes.\n\n(iii) Generative AI automatically creates new, original content in response to a user's prompt. It can also produce incorrect output, known as hallucination, so it should be used with caution.\n\n(iv) Any two: text, images, video, music, software code.\n\n(b)(i) Each percentage is the model's confidence that the label it has attached to that part of the image is correct. For example, \"cat: 94%\" means the model is 94% confident that region shows a cat.\n\n(ii) Any two applications and benefits (3 + 3 marks): medical imaging for early disease detection; self-driving cars detecting pedestrians, cyclists and other vehicles to reduce accidents; checkout-free retail that improves shopping and reduces theft; aerial imaging to monitor crops and optimise irrigation; facial recognition to improve security in airports and public spaces; robots that recognise and assemble products in manufacturing; monitoring endangered species; AR learning experiences.\n\n(iii) Scenario 1: yes, machine learning AI. The system analyses each user's viewing habits, compares them with other users and predicts what they will want to watch. There are too many users to write a rule for every person. (A no answer can be justified by privacy concerns, limited data or a preference for simple rules.)\n\nScenario 2: typically not machine learning AI. The mower uses sensors and predefined rules to navigate and avoid collisions; it does not learn or adapt to its environment. (Some path-planning systems could be described as AI robotics.)\n\n(iv) Use a larger, diverse and representative training dataset; involve a diverse development team and keep a human in the loop; monitor the dataset and conduct regular bias audits.\n\n(c) Reasons for supporting a pause (6 marks for two points): time to align AI with human values, privacy, accountability and fairness; protect jobs and allow reskilling; assess security risks such as cyber threats and AI-driven weapons; avoid unintended consequences of complex systems; reduce the existential risk from superintelligent AI and allow public discussion.\n\nReasons against (6 marks for two points): a pause slows innovation and breakthroughs in healthcare, education and research; AI could help solve climate change, healthcare disparities and resource management; countries that continue may gain a competitive economic, military and technological lead; AI creates new jobs and growth; voluntary pauses are hard to enforce globally.",
+          "rubric": [
+            {
+              "point": "Artificial intelligence defined (3)",
+              "marks": 3
+            },
+            {
+              "point": "Narrow AI distinguished from AGI (3)",
+              "marks": 3
+            },
+            {
+              "point": "Generative AI explained (3)",
+              "marks": 3
+            },
+            {
+              "point": "Two generative AI outputs (2)",
+              "marks": 2
+            },
+            {
+              "point": "Confidence percentages explained (2)",
+              "marks": 2
+            },
+            {
+              "point": "Computer vision application 1 and benefit (3)",
+              "marks": 3
+            },
+            {
+              "point": "Computer vision application 2 and benefit (3)",
+              "marks": 3
+            },
+            {
+              "point": "Streaming scenario justified (2)",
+              "marks": 2
+            },
+            {
+              "point": "Lawnmower scenario justified (2)",
+              "marks": 2
+            },
+            {
+              "point": "One method to reduce bias (3)",
+              "marks": 3
+            },
+            {
+              "point": "Two reasons for pausing (6)",
+              "marks": 6
+            },
+            {
+              "point": "Two reasons against pausing (6)",
+              "marks": 6
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "number": 14,
+          "section": "B",
+          "marks": 38,
+          "chapter": "algorithms",
+          "title": "Flowcharts and bubble sort",
+          "prompt": " (a) A flowchart describes an algorithm that reads two values, swaps them, and then displays their new values. The input variables are a and b, and a variable t is used during the swap.\n(i) State the names of the two input variables.\n(ii) Explain the purpose of the variable t.\n(iii) Flowcharts are commonly used in the design process to describe algorithms. State one advantage and one disadvantage of using flowcharts.\n\n(b) The Python code below shows an implementation of the bubble sort algorithm.\n\n    values = [50, 70, 30, 60, 20]\n\n    for i in range(len(values)):\n        for j in range(len(values)-1):\n            if values[j] > values[j+1]:\n                t = values[j+1]\n                values[j+1] = values[j]\n                values[j] = t\n\n    print(\"OUTPUT:\", values)\n\n(i) State the data type of the variable values.\n(ii) What is the index of the element 70?\n(iii) What does len(values) return?\n(iv) What does the slice values[2:4] return?\n(v) Explain why values[5] would generate a runtime error.\n(vi) State one advantage and one disadvantage of sorting a data set.\n\n(c) The algorithm takes five passes to complete the bubble sort of values.\n(i) Apply the bubble sort algorithm and show the contents of values after each of the five passes.\n(ii) The algorithm has O(n²) best and worst case time complexity. Explain what this means in terms of the number of compare operations performed.\n(iii) Suggest one improvement that would reduce either the number of comparisons or the number of swaps required.",
+          "answer": "(a)(i) a and b.\n\n(ii) t is a temporary variable used to hold the value of a during the swap. Without it, the value of a would be lost when b is assigned to a.\n\n(iii) Advantage: flowcharts are easier to understand than code, especially for non-programmers; they show the flow and logic visually; they are independent of a programming language. Disadvantage: they take time to draw, become unwieldy for complex algorithms, and a lack of standards can cause ambiguity.\n\n(b)(i) List (array).\n(ii) 1.\n(iii) 5.\n(iv) [30, 60].\n(v) The valid indices are 0 to 4. Index 5 is out of bounds, so Python raises an IndexError at runtime.\n\n(vi) Advantage: binary search requires sorted data; sorted data is more user-friendly (timelines, catalogues) and easier to analyse (median, quartiles, trends, outliers). Disadvantage: sorting takes time and CPU/memory; sorting an already sorted data set may waste resources; the data must be kept sorted.\n\n(c)(i) Initial: 50 70 30 60 20\nAfter pass 1: 50 30 60 20 70\nAfter pass 2: 30 50 20 60 70\nAfter pass 3: 30 20 50 60 70\nAfter pass 4: 20 30 50 60 70\nAfter pass 5: 20 30 50 60 70\n\n(ii) A list of size N takes N passes, and each pass performs about N−1 comparisons, giving N²−N comparisons. For large N this is approximately N², so we write O(N²). Doubling the input size roughly quadruples the number of comparisons.\n\n(iii) Reduce the inner loop by one comparison on each pass, because the largest remaining item is already in its final position: range(len(values)-1-i). Alternatively, keep a flag recording whether any swap happened and stop early if a pass makes no swaps.",
+          "rubric": [
+            {
+              "point": "Input variables a and b (2)",
+              "marks": 2
+            },
+            {
+              "point": "Purpose of temporary variable t (3)",
+              "marks": 3
+            },
+            {
+              "point": "One flowchart advantage (2)",
+              "marks": 2
+            },
+            {
+              "point": "One flowchart disadvantage (2)",
+              "marks": 2
+            },
+            {
+              "point": "values is a list (1)",
+              "marks": 1
+            },
+            {
+              "point": "Index of 70 is 1 (1)",
+              "marks": 1
+            },
+            {
+              "point": "len(values) is 5 (1)",
+              "marks": 1
+            },
+            {
+              "point": "Slice [30, 60] (2)",
+              "marks": 2
+            },
+            {
+              "point": "Index 5 is out of bounds (3)",
+              "marks": 3
+            },
+            {
+              "point": "One advantage of sorting (3)",
+              "marks": 3
+            },
+            {
+              "point": "One disadvantage of sorting (3)",
+              "marks": 3
+            },
+            {
+              "point": "All five passes correct (5)",
+              "marks": 5
+            },
+            {
+              "point": "O(n²) explained via comparisons (5)",
+              "marks": 5
+            },
+            {
+              "point": "One valid improvement (5)",
+              "marks": 5
+            }
+          ]
+        },
+        {
+          "year": 2024,
+          "number": 15,
+          "section": "B",
+          "marks": 38,
+          "chapter": "databases",
+          "title": "Books, members and loans",
+          "prompt": "Alex is designing a database for a library.\n\n(a) She has a single BOOKS table:\n\nbook_id | title | year | cost | author | author_dob | on_loan\n1 | The Cat in the Hat | 1957 | 6.95 | Dr. Seuss | 02/03/1904 | Yes\n2 | Green Eggs and Ham | 1960 | 8.95 | Dr. Seuss | March 2, 1904 | Y\n3 | Horton Hears a Who! | 1954 | €10 | Doc Seus | 02/03/1904 | N\n4 | How the Grinch Stole Christmas! | 1957 | 9.95 | Dr. Seuss | 03/02/1904 | No\n\n(i) Explain the two terms 'database' and 'record'.\n(ii) Suggest a good primary key for BOOKS and justify your answer.\n(iii) Identify any two data inconsistencies in the table.\n(iv) Assuming all inconsistencies are fixed, name three fields that match the data types Boolean, String and Real.\n\n(b) Alex builds a relational database with MEMBERS and LOANS tables.\n\nMEMBERS: member_id | member_name\n1 | Amy\n2 | (empty)\n3 | Chloe\n\nLOANS: member_id | book_id | date_borrowed\n3 | 2 | 20/05/2024\n(empty) | 4 | 01/05/24\n2 | 1 | (empty)\n(empty) | (empty) | (empty)\n\n(i) Fill in the six empty cells using this information: Amy borrowed How the Grinch Stole Christmas! on 1 May 2024. Bill borrowed The Cat in the Hat on 18 May 2024. Chloe borrowed Horton Hears a Who! 7 days ago (relative to 20/05/2024).\n(ii) Identify and explain the use of one foreign key in this design.\n(iii) Explain how the design removes the need for the on_loan field in BOOKS.\n(iv) Explain the term 'data redundancy'.\n\n(c) Alex plans a data analytics project.\n(i) Suggest two possible hypotheses she could test with her data.\n(ii) Name and describe two types of data errors that can be removed using data cleaning.",
+          "answer": "(a)(i) A database is a collection of structured data organised so it can be easily and efficiently retrieved, added to, updated and deleted; the data is arranged in tables of rows and columns. A record is one row of a table — a set of related fields about one entity.\n\n(ii) book_id. Each book has a unique book_id, so it can identify a record without ambiguity. Title and author are not unique.\n\n(iii) Any two: the euro symbol in cost for book 3 (€10 vs 6.95); \"Doc Seus\" is misspelled; author_dob uses dd/mm/yyyy in records 1 and 3 but other formats in 2 and 4 (and 03/02/1904 is ambiguous); on_loan mixes Yes/Y and N/No.\n\n(iv) Boolean: on_loan. String: title, author or author_dob. Real: cost.\n\n(b)(i) MEMBERS row 2: Bill.\nLOANS row 2: member_id 1 (Amy), book_id 4, date 01/05/2024 (normalised).\nLOANS row 3: member_id 2 (Bill), book_id 1, date 18/05/2024.\nLOANS row 4: member_id 3 (Chloe), book_id 3, date 13/05/2024.\n\n(ii) member_id in LOANS is a foreign key linking each loan to a member in MEMBERS. (book_id in LOANS is a foreign key linking to BOOKS.)\n\n(iii) A row in LOANS means that book is currently on loan, and the date borrowed can be read from that row. The information is derived from LOANS, so storing on_loan in BOOKS would duplicate it.\n\n(iv) Data redundancy means the same piece of data is stored in more than one place. It usually results from poor design and can cause inconsistencies and wasted storage.\n\n(c)(i) Any two hypotheses, e.g.: the most popular book is X; borrowing is highest in a particular season; a particular demographic prefers certain genres; expensive books are returned on time more often; member A returns books more reliably than member B; a campaign increased borrowing by X%.\n\n(ii) Any two error types, each described: missing values (incomplete or absent entries); duplicate records; inconsistent formatting (dates, capitalisation, units); outliers/anomalies; incorrect data types; typographical errors; inconsistent categories such as Y vs Yes; invalid entries outside an allowed range.",
+          "rubric": [
+            {
+              "point": "Database explained (2)",
+              "marks": 2
+            },
+            {
+              "point": "Record explained (2)",
+              "marks": 2
+            },
+            {
+              "point": "Primary key book_id (1)",
+              "marks": 1
+            },
+            {
+              "point": "Primary key justified (2)",
+              "marks": 2
+            },
+            {
+              "point": "Two data inconsistencies (2)",
+              "marks": 2
+            },
+            {
+              "point": "Boolean, String and Real fields matched (3)",
+              "marks": 3
+            },
+            {
+              "point": "MEMBERS cell: Bill (1)",
+              "marks": 1
+            },
+            {
+              "point": "LOANS row for Amy (1)",
+              "marks": 1
+            },
+            {
+              "point": "LOANS row for Bill (1)",
+              "marks": 1
+            },
+            {
+              "point": "LOANS row for Chloe (1)",
+              "marks": 1
+            },
+            {
+              "point": "Dates normalised correctly (2)",
+              "marks": 2
+            },
+            {
+              "point": "Foreign key identified (1)",
+              "marks": 1
+            },
+            {
+              "point": "Foreign key explained (3)",
+              "marks": 3
+            },
+            {
+              "point": "on_loan derived from LOANS (3)",
+              "marks": 3
+            },
+            {
+              "point": "Data redundancy explained (3)",
+              "marks": 3
+            },
+            {
+              "point": "Two testable hypotheses (4)",
+              "marks": 4
+            },
+            {
+              "point": "Two data error types described (6)",
+              "marks": 6
+            }
+          ]
+        },
+        {
+          "year": 2025,
+          "number": 1,
+          "section": "A",
+          "marks": 6,
+          "chapter": "python",
+          "title": "Tracing Python output",
+          "prompt": "State the output of the following Python code.\n\n    a = 5\n    b = a + 2\n    b = 10\n    print(a)\n    print(b)\n    a = b * 2\n    c = a // b\n    print(a)\n    print(c)\n    a = a + 1\n    print(a % b)\n    print(b == c)",
+          "answer": "5\n10\n20\n2\n1\nFalse\n\nAfter b is reassigned to 10, a is still 5. a then becomes 20, c = 20 // 10 = 2, a becomes 21, 21 % 10 = 1, and 10 == 2 is False.",
+          "rubric": [
+            {
+              "point": "5",
+              "marks": 1
+            },
+            {
+              "point": "10",
+              "marks": 1
+            },
+            {
+              "point": "20",
+              "marks": 1
+            },
+            {
+              "point": "2",
+              "marks": 1
+            },
+            {
+              "point": "1",
+              "marks": 1
+            },
+            {
+              "point": "False",
+              "marks": 1
+            }
+          ]
+        },
+        {
+          "year": 2025,
+          "number": 2,
+          "section": "A",
+          "marks": 6,
+          "chapter": "systems",
+          "title": "ASCII versus Unicode",
+          "prompt": "ASCII and Unicode are both examples of character encoding systems. Compare ASCII and Unicode under the headings, memory usage and compatibility.",
+          "answer": "Memory usage: ASCII is a fixed-width encoding that uses 7 bits for 128 characters, so it is very memory-efficient for English text; extended ASCII uses 8 bits for 256 characters. Unicode may use 1 to 4 bytes per character, which can increase memory usage, but it can represent over 1.1 million characters including non-Roman scripts, mathematical symbols and emojis.\n\nCompatibility: Unicode is backward compatible with ASCII — the first 128 Unicode characters are identical to ASCII. Unicode offers far greater compatibility because it supports characters from all languages, so applications in different countries can communicate seamlessly.",
+          "rubric": [
+            {
+              "point": "ASCII memory usage (7/8 bits, 128/256 characters)",
+              "marks": 3
+            },
+            {
+              "point": "Unicode compatibility and language coverage",
+              "marks": 3
+            }
+          ]
+        },
+        {
+          "year": 2025,
+          "number": 3,
+          "section": "A",
+          "marks": 6,
+          "chapter": "algorithms",
+          "title": "Hackathon logic puzzle",
+          "prompt": "Four girls competed in a coding hackathon, each creating a project with a unique theme and achieving a different ranking. Use the clues to determine who created each project and where they came in.\n\nClue 1: The person who completed an artificial intelligence project took first place.\nClue 2: Grace came third.\nClue 3: Ada's web development project was not last.\nClue 4: Kay beat the person who created an embedded system project.\nClue 5: The person who completed a data analytics project beat Joy.",
+          "answer": "1st: Kay — Artificial intelligence\n2nd: Ada — Web development\n3rd: Grace — Data analytics\n4th: Joy — Embedded system\n\nAda's web project cannot be 4th and cannot be 3rd (Grace), so Ada is 2nd. Kay must be 1st, because only then can she beat the embedded project; Joy is 4th with the embedded system, leaving data analytics for Grace in 3rd.",
+          "rubric": [
+            {
+              "point": "1st: Kay, AI",
+              "marks": 1
+            },
+            {
+              "point": "2nd: Ada, web development",
+              "marks": 1
+            },
+            {
+              "point": "3rd: Grace, data analytics",
+              "marks": 1
+            },
+            {
+              "point": "4th: Joy, embedded system",
+              "marks": 1
+            },
+            {
+              "point": "Ranking consistent with clue 4",
+              "marks": 1
+            },
+            {
+              "point": "Projects consistent with clue 5",
+              "marks": 1
+            }
+          ]
+        },
+        {
+          "year": 2025,
+          "number": 4,
+          "section": "A",
+          "marks": 6,
+          "chapter": "systems",
+          "title": "Operating system functions",
+          "prompt": "Two key functions of an operating system are resource management and file management. Explain what is meant by the terms 'resource management' and 'file management'.",
+          "answer": "Resource management: the operating system controls and coordinates the computer's hardware resources — CPU time, memory (RAM), secondary storage and input/output devices — deciding which process gets which resource and when.\n\nFile management: the operating system organises and keeps track of files on storage devices such as hard drives and USB drives, ensuring files can be created, accessed, modified, moved and deleted when needed.",
+          "rubric": [
+            {
+              "point": "Resource management explained (CPU, memory, I/O)",
+              "marks": 3
+            },
+            {
+              "point": "File management explained (organise and track files)",
+              "marks": 3
+            }
+          ]
+        },
+        {
+          "year": 2025,
+          "number": 5,
+          "section": "A",
+          "marks": 6,
+          "chapter": "htmlcss",
+          "title": "Hex colour to RGB",
+          "prompt": "In web design, colours are often represented using a hexadecimal code which defines the red, green and blue (RGB) components. For #0A33F0, the first two characters (0A) represent red, the next two (33) represent green, and the last two (F0) represent blue. Each component is hexadecimal from 00 to FF (0 to 255 decimal). Convert #0A33F0 to its RGB decimal values.",
+          "answer": "Red: 0A = 10\nGreen: 33 = 3 × 16 + 3 = 51\nBlue: F0 = 15 × 16 + 0 = 240\n\nRGB(10, 51, 240).",
+          "rubric": [
+            {
+              "point": "Red = 10",
+              "marks": 2
+            },
+            {
+              "point": "Green = 51",
+              "marks": 2
+            },
+            {
+              "point": "Blue = 240",
+              "marks": 2
+            }
+          ]
+        },
+        {
+          "year": 2025,
+          "number": 6,
+          "section": "A",
+          "marks": 6,
+          "chapter": "ai",
+          "title": "AI in medical diagnosis",
+          "prompt": "Referring to the quote from Professor Timothy Miller, University of Melbourne — \"Will a computer take your job? It's predicted that computers could one day become smarter than humans, but we shouldn't forget people power in the age of artificial intelligence\" — describe one benefit and one limitation of using artificial intelligence (AI) in the area of medical diagnosis.",
+          "answer": "Benefit (any one): improved accuracy, because AI can detect patterns missed by human doctors; faster diagnosis by analysing images, test results and records quickly; earlier detection of cancers or neurological conditions; reduced workload, freeing doctors for complex cases; availability 24/7 and in areas with few specialists.\n\nLimitation (any one): lack of human judgement and empathy; inaccurate or unfair results if training data is biased or incomplete, or when a new disease appears; ethical concerns about patient privacy, data security and accountability; difficulty explaining how a diagnosis was reached; high development and maintenance costs.",
+          "rubric": [
+            {
+              "point": "One benefit of AI in diagnosis",
+              "marks": 3
+            },
+            {
+              "point": "One limitation of AI in diagnosis",
+              "marks": 3
+            }
+          ]
+        },
+        {
+          "year": 2025,
+          "number": 7,
+          "section": "A",
+          "marks": 6,
+          "chapter": "algorithms",
+          "title": "Search algorithm trees",
+          "prompt": "A binary question has two possible answers, yes or no. Figures 1 and 2 show binary questions chained together to determine the outcome of tossing a six-sided die. Figure 1 has tree depth 5; Figure 2 has tree depth 3.\n\n(a) State the name of each search algorithm.\n(b) Suggest which of the two algorithms is most efficient. Justify your answer.",
+          "answer": "(a) Algorithm 1 (depth 5): linear search. Algorithm 2 (depth 3): binary search.\n\n(b) Binary search is generally more efficient: at worst it needs about log₂(n) comparisons, while linear search needs O(n). For example, finding one face of a six-sided die takes at most 3 binary-search questions but up to 6 linear-search questions.\n\nA valid alternative: linear search can be more efficient for a very small list because it has no sorting overhead, and the target may be found in the first comparison or two.",
+          "rubric": [
+            {
+              "point": "Algorithm 1 named as linear search",
+              "marks": 1
+            },
+            {
+              "point": "Algorithm 2 named as binary search",
+              "marks": 1
+            },
+            {
+              "point": "More efficient algorithm chosen",
+              "marks": 1
+            },
+            {
+              "point": "Justified using O(log n) versus O(n)",
+              "marks": 3
+            }
+          ]
+        },
+        {
+          "year": 2025,
+          "number": 8,
+          "section": "A",
+          "marks": 6,
+          "chapter": "systems",
+          "title": "IP versus VoIP",
+          "prompt": "Distinguish between the IP and VoIP communication protocols.",
+          "answer": "IP (Internet Protocol) is the general protocol used to send all types of data as packets over the internet — for example browsing websites or sending email. VoIP (Voice over Internet Protocol) is a specific application of IP used for voice and video communication, such as Zoom or WhatsApp calls.",
+          "rubric": [
+            {
+              "point": "IP described as general packet data protocol",
+              "marks": 3
+            },
+            {
+              "point": "VoIP described as voice/video over IP",
+              "marks": 3
+            }
+          ]
+        },
+        {
+          "year": 2025,
+          "number": 9,
+          "section": "A",
+          "marks": 6,
+          "chapter": "python",
+          "title": "FizzBuzz bugs",
+          "prompt": "The intention of the code below is to scan every integer from 1 to 20 inclusive and display FizzBuzz for multiples of both 3 and 5, Fizz for multiples of 3 only, Buzz for multiples of 5 only, and the number otherwise.\n\n    For i in range(1, 21):\n        if i % 3 == 0:\n            print(\"Fizz\"\n        elif i % 5 == 0:\n            print(Buzz\")\n        elif i % 3 == 0 and i % 5 == 0:\n            print(\"FizzBuzz\")\n        else\n            print(number)\n\n(a) Identify any two syntax errors.\n(b) Identify the logic error and suggest a solution.",
+          "answer": "(a) Any two: line 1 uses For instead of for; line 3 is missing the closing bracket; line 5 is missing the opening quote; line 8 is missing the colon after else; line 9 uses the undefined variable number instead of i.\n\n(b) The combined test for divisibility by both 3 and 5 comes last, after the tests for 3 and 5 on their own. A multiple of 15 such as 15 therefore matches the first branch and prints Fizz; FizzBuzz is never reached. Move the combined test to the start of the if/elif chain, before the individual tests.",
+          "rubric": [
+            {
+              "point": "First syntax error identified",
+              "marks": 1
+            },
+            {
+              "point": "Second syntax error identified",
+              "marks": 1
+            },
+            {
+              "point": "Logic error: FizzBuzz unreachable",
+              "marks": 2
+            },
+            {
+              "point": "Solution: test both 3 and 5 first",
+              "marks": 2
+            }
+          ]
+        },
+        {
+          "year": 2025,
+          "number": 10,
+          "section": "A",
+          "marks": 6,
+          "chapter": "ethics",
+          "title": "Automating processes",
+          "prompt": "List two examples of how computing technology is used to automate processes. Outline one limitation of either example.",
+          "answer": "Any two examples: customer-support chatbots; online shopping recommendations; self-driving cars; medical diagnosis or monitoring; smart home systems; banking transactions and payments; payroll systems; school or college administration systems.\n\nLimitation (one, tied to an example): high development and maintenance cost; job displacement; errors in data leading to wrong outcomes; vulnerability to cyberattacks; ethical concerns such as privacy, fairness and accountability; limited human understanding of decisions.",
+          "rubric": [
+            {
+              "point": "First valid automation example",
+              "marks": 2
+            },
+            {
+              "point": "Second valid automation example",
+              "marks": 2
+            },
+            {
+              "point": "One limitation outlined",
+              "marks": 2
+            }
+          ]
+        },
+        {
+          "year": 2025,
+          "number": 11,
+          "section": "A",
+          "marks": 6,
+          "chapter": "ethics",
+          "title": "Personalisation and elections",
+          "prompt": "Social media platforms often use data from users to personalise content. Give one advantage and one potential risk of this approach in the context of political elections.",
+          "answer": "Advantage: voters see content relevant to their interests and can make better-informed decisions; engagement and turnout may increase; parties can target resources at the right audience and save time and money.\n\nRisk: users may only see content that agrees with their views, creating echo chambers or filter bubbles; algorithms may spread false or misleading information tailored to a user's preferences; there are privacy concerns about the data collected and how it is used.",
+          "rubric": [
+            {
+              "point": "One advantage in an election context",
+              "marks": 3
+            },
+            {
+              "point": "One potential risk in an election context",
+              "marks": 3
+            }
+          ]
+        },
+        {
+          "year": 2025,
+          "number": 12,
+          "section": "A",
+          "marks": 6,
+          "chapter": "systems",
+          "title": "CPU components",
+          "prompt": "The Central Processing Unit (CPU) is often referred to as the \"brain\" of the computer. Identify and state the purpose of two CPU components.",
+          "answer": "Any two components:\n\n- Arithmetic Logic Unit (ALU): performs arithmetic operations such as addition and subtraction, and logical operations such as AND, OR and NOT.\n- Control Unit (CU): directs and coordinates the CPU by fetching, decoding and executing instructions from memory.\n- Registers: small, high-speed storage inside the CPU that temporarily hold data, instructions or addresses.\n- Cache: stores frequently used data and instructions close to the CPU to reduce latency.\n- Program Counter (PC): holds the address of the next instruction to execute.\n- Clock: generates a timing signal that synchronises CPU operations.",
+          "rubric": [
+            {
+              "point": "First CPU component named",
+              "marks": 1
+            },
+            {
+              "point": "Purpose of first component",
+              "marks": 2
+            },
+            {
+              "point": "Second CPU component named",
+              "marks": 1
+            },
+            {
+              "point": "Purpose of second component",
+              "marks": 2
+            }
+          ]
+        },
+        {
+          "year": 2025,
+          "number": 13,
+          "section": "B",
+          "marks": 38,
+          "chapter": "software",
+          "title": "Deposit Return Scheme project",
+          "prompt": "The Deposit Return Scheme (DRS) was introduced in Ireland in February 2024 to encourage recycling and reduce litter. Consumers pay a small refundable deposit on drink containers, and return them through a Reverse Vending Machine (RVM) that issues a voucher.\n\nYou are designing a software application that supports the DRS for a retail environment and manages all stages of the lifecycle of drink containers.\n\n(a) (i) Identify two other roles on the project team and outline two responsibilities for each role.\n(ii) State the name of two software development processes available to you.\n(iii) Choose the process that should be used for this project and justify your choice by describing two key features of the methodology.\n\n(b) Store staff and customers are two key stakeholders.\n(i) For each stakeholder, outline one goal they may want from the system and one benefit they should gain.\n(ii) State the name of one other stakeholder of the system once it goes live.\n(iii) Suggest two specific use cases of the database management component.\n(iv) Suggest two ways AI technology could be used in the DRS application.\n\n(c) (i) A visually impaired user needs assistance identifying containers and navigating the DRS application. Identify and explain two appropriate assistive technology solutions.\n(ii) The system will be tested with unit testing and functional testing. Distinguish between them.",
+          "answer": "(a)(i) Any two roles, each with two responsibilities:\n\n- Analyst: works with stakeholders to identify and document requirements; develops use cases.\n- Designer: designs the application using pseudocode, flowcharts, data-flow diagrams, wireframes and database design; produces design documents and prototypes.\n- Software developer: writes the application code; performs implementation, unit testing and debugging.\n- Software tester: unit, system and functional/non-functional testing; documents and tracks test results.\n- System architect: defines the overall structure and technology stack.\n- UI/UX designer: creates a user-friendly interface.\n- IT support technician: provides ongoing technical support.\n\n(ii) Waterfall (staged) and Agile (iterative).\n\n(iii) Agile, for example: the project is broken into short sprints with functional components delivered incrementally; customers collaborate throughout; the team can respond to changing requirements. Waterfall is also valid: it is highly structured with analysis, design, implementation, deployment and maintenance; each phase is completed before the next; comprehensive documentation; suitable when requirements are unlikely to change.\n\n(b)(i) Store staff — goal: quickly register returned containers and update stock, with a reliable, easy-to-use and automated system that alerts them when the machine is full. Benefit: faster customer service and a reduced workload. Customers — goal: scan containers and receive an immediate refund. Benefit: the refund itself and a contribution to a cleaner environment.\n\n(ii) Any one: store manager, government regulator, system administrator, maintenance technician, logistics manager, environmental analyst.\n\n(iii) Any two: machine details (location, installation date, last emptied, status); container tracking using unique identifiers and recycling status; finance management storing deposits paid and refunds issued, with transaction reports.\n\n(iv) Any two: automated image recognition for bottle scanning; demand prediction for collection logistics; predictive maintenance for the machines; personalised incentives; data analysis for environmental reporting; a customer-support chatbot.\n\n(c)(i) Any two, each explained: screen reader reads interface text, instructions and transaction details aloud; voice-recognition software lets the user speak commands such as \"return container\"; braille display gives tactile output of text; a simplified interface with large buttons, clear fonts and high contrast helps low vision.\n\n(ii) Unit testing tests individual components of a program and is carried out by developers as they write the code. Functional testing tests the overall functionality of the software, checking that all features work together as expected from the user's perspective; it is usually done later in development.",
+          "rubric": [
+            {
+              "point": "Role 1 named (1)",
+              "marks": 1
+            },
+            {
+              "point": "Role 1 responsibility 1 (1)",
+              "marks": 1
+            },
+            {
+              "point": "Role 1 responsibility 2 (1)",
+              "marks": 1
+            },
+            {
+              "point": "Role 2 named (1)",
+              "marks": 1
+            },
+            {
+              "point": "Role 2 responsibility 1 (1)",
+              "marks": 1
+            },
+            {
+              "point": "Role 2 responsibility 2 (1)",
+              "marks": 1
+            },
+            {
+              "point": "Two development processes named (2)",
+              "marks": 2
+            },
+            {
+              "point": "Chosen process justified with two features (4)",
+              "marks": 4
+            },
+            {
+              "point": "Store staff goal and benefit (2)",
+              "marks": 2
+            },
+            {
+              "point": "Customer goal and benefit (2)",
+              "marks": 2
+            },
+            {
+              "point": "One other stakeholder (1)",
+              "marks": 1
+            },
+            {
+              "point": "Two database use cases (4)",
+              "marks": 4
+            },
+            {
+              "point": "Two AI uses in the application (6)",
+              "marks": 6
+            },
+            {
+              "point": "Two assistive technologies explained (6)",
+              "marks": 6
+            },
+            {
+              "point": "Unit and functional testing distinguished (5)",
+              "marks": 5
+            }
+          ]
+        },
+        {
+          "year": 2025,
+          "number": 14,
+          "section": "B",
+          "marks": 38,
+          "chapter": "algorithms",
+          "title": "GCD, recursion and quicksort",
+          "prompt": " (a) The Greatest Common Divisor (GCD) of two integers is the largest number that divides both with no remainder. This code implements Euclid's algorithm using subtraction:\n\n    def gcd(a, b):\n        while a != b:\n            if a > b:\n                a = a - b\n            elif b > a:\n                b = b - a\n        return a\n\n    print(\"The GCD is\", gcd(45, 18))\n\n(i) State the purpose of the def keyword on line 1.\n(ii) Complete the trace table starting with a = 45 and b = 18.\n(iii) Explain why a for loop would not be suitable for this algorithm.\n\n(b) A recursive implementation:\n\n    def recursive_gcd(a, b):\n        if b == 0:\n            return a\n        return recursive_gcd(b, a%b)\n\n    print(\"The GCD is\", recursive_gcd(45, 18))\n\n(i) Outline the meaning of 'base case' and 'recursive case'.\n(ii) Explain the use of the variable b and the expression a%b on line 4.\n(iii) Which version would you recommend for very large numbers on a machine with limited RAM? Justify in terms of memory.\n\n(c) Quicksort uses partitioning around a pivot.\n(i) For the list 29, 10, 14, 37, 13 with pivot 13, state the two sub-lists after one partitioning step.\n(ii) Describe the next steps quicksort takes.\n(iii) Outline two common strategies for selecting a pivot.\n(iv) Explain the best and worst-case time complexity of quicksort.",
+          "answer": "(a)(i) def introduces (defines) the function gcd.\n\n(ii) a | b\n45 | 18\n27 | 18\n9 | 18\n9 | 9\n\nThe loop ends when a and b are both 9, so the GCD is 9.\n\n(iii) The number of iterations is not known before the algorithm runs; it varies with the arguments. A for loop needs a known number of repetitions, so a while loop is the correct choice.\n\n(b)(i) The base case is the condition that stops the function calling itself indefinitely, e.g. b == 0, where the answer a is known. The recursive case is the part that calls the function again with a simpler or smaller version of the problem and eventually reaches the base case.\n\n(ii) b is the second parameter: it is checked against 0 for the base case and becomes the first argument in the next call. a%b is the remainder when a is divided by b; it becomes the new second argument. This uses the fact that gcd(a, b) = gcd(b, a % b), reducing the problem each time.\n\n(iii) gcd, the non-recursive version. Its memory use stays constant because the loop reuses the same variables. The recursive version adds a new stack frame for every call, so memory grows with the size of the numbers and can cause a stack overflow on a machine with limited RAM.\n\n(c)(i) Left sub-list: [10]. Right sub-list: [29, 14, 37].\n\n(ii) Quicksort applies the same process recursively to each sub-list. A sub-list of one element is already sorted. For a larger sub-list it chooses a new pivot and partitions around it, repeating until every sub-list has one element; the sorted sub-lists are then combined in order.\n\n(iii) Any two: first element, last element, middle element, median of first/middle/last, median of medians, random element.\n\n(iv) Best case O(n log n): each pivot divides the list into two roughly equal halves, giving a balanced recursion tree about log n levels deep, with n work at each level. Worst case O(n²): the pivot repeatedly produces very unbalanced splits, such as always being the smallest or largest element, giving n levels and n work per level. This can happen on already sorted or reverse-sorted lists.",
+          "rubric": [
+            {
+              "point": "Purpose of def (2)",
+              "marks": 2
+            },
+            {
+              "point": "Trace rows (27,18), (9,18), (9,9) (4)",
+              "marks": 4
+            },
+            {
+              "point": "For loop unsuitable: unknown iterations (4)",
+              "marks": 4
+            },
+            {
+              "point": "Base case explained (2)",
+              "marks": 2
+            },
+            {
+              "point": "Recursive case explained (2)",
+              "marks": 2
+            },
+            {
+              "point": "Role of b explained (3)",
+              "marks": 3
+            },
+            {
+              "point": "Role of a%b explained (3)",
+              "marks": 3
+            },
+            {
+              "point": "gcd recommended (1)",
+              "marks": 1
+            },
+            {
+              "point": "Constant memory versus call stack (4)",
+              "marks": 4
+            },
+            {
+              "point": "Left and right sub-lists (2)",
+              "marks": 2
+            },
+            {
+              "point": "Recursive partitioning described (5)",
+              "marks": 5
+            },
+            {
+              "point": "Two pivot strategies (2)",
+              "marks": 2
+            },
+            {
+              "point": "Best case O(n log n) (2)",
+              "marks": 2
+            },
+            {
+              "point": "Worst case O(n²) (2)",
+              "marks": 2
+            }
+          ]
+        },
+        {
+          "year": 2025,
+          "number": 15,
+          "section": "B",
+          "marks": 38,
+          "chapter": "modelling",
+          "title": "Driving tests and disease spread",
+          "prompt": "Modelling and simulation are essential tools for understanding and solving complex real-world problems.\n\n(a) A student uses a dataset to model driving test outcomes:\n\nID | Gender | Age | Transmission | Instructor experience (years) | Test outcome\n1 | Male | 18 | Manual | 8 | FAIL\n2 | Female | 22 | Automatic | 5 | PASS\n3 | Male | 20 | Automatic | 8 | PASS\n4 | Male | 19 | Manual | 3 | FAIL\n5 | Female | 30 | Automatic | 12 | PASS\n6 | Female | 25 | Manual | 2 | FAIL\n7 | Female | 23 | Automatic | 10 | PASS\n8 | Male | 17 | Manual | 6 | FAIL\n9 | Male | 19 | Manual | 5 | FAIL\n10 | Female | 21 | Manual | 15 | PASS\n\n(i) State the output variable in the model.\n(ii) State the names of two input variables.\n(iii) Describe two patterns you can identify.\n(iv) Identify two additional variables that could enhance the model.\n\n(b) \"All models are wrong, but some are useful.\"\n(i) Outline one limitation and one benefit of modelling and simulation.\n(ii) Explain why abstraction is important when developing a model.\n(iii) Pick two of Education, Mental wellbeing, Environment and Traffic management. Briefly describe how modelling could address a problem and improve outcomes in each.\n\n(c) A health agency wants to predict how an infectious disease might spread in a school and evaluate containment strategies.\n(i) Describe how agent-based modelling could simulate disease spread.\n(ii) Outline one emergent behaviour the simulation could reveal.\n(iii) Suggest one strategy the agency could test and explain how its success would be measured.",
+          "answer": "(a)(i) Test outcome.\n\n(ii) Any two: Gender, Age, Transmission, Instructor experience (years).\n\n(iii) Any two: younger drivers (under 20) tend to fail more; automatic-transmission drivers tend to pass while manual drivers fail more often; more experienced instructors are associated with higher pass rates; the number of females who pass equals the number of males who fail.\n\n(iv) Any two: number of lessons; number of previous attempts; time of day of the test; weather conditions; familiarity with the car.\n\n(b)(i) Limitation: a model is a simplification that omits details, and its assumptions or data may be biased, incomplete or wrong. Benefit: models make complex systems easier to understand, reveal patterns and allow predictions and \"what if\" scenarios to be tested safely and cheaply.\n\n(ii) Abstraction lets the modeller focus on the essential elements and ignore unnecessary detail. Without it a model would be too complex to understand, analyse or simulate, and less useful for predicting outcomes.\n\n(iii) Education: simulate teaching methods or virtual classrooms to see which improve engagement and performance. Mental wellbeing: simulate stress, social interaction and lifestyle factors to identify triggers and test interventions. Environment: simulate climate or ecosystem dynamics to predict change and guide policy. Traffic management: simulate vehicle flow to find congestion points and optimise signal timings.\n\n(c)(i) Model each student and teacher as an agent with attributes such as vaccination status and infection state. Let agents interact in locations such as classrooms and the canteen, and apply rules for contact duration and mask-wearing to simulate transmission.\n\n(ii) Clusters of infection in high-interaction areas such as hallways; outbreaks linked to particular activities; higher infection rates among specific groups (superspreaders); transmission slowing as people recover.\n\n(iii) Any strategy, e.g. closing the canteen, staggered break times, mask-wearing or isolating infected students. Measure success by comparing the peak infection rate, total infections, or the time for the outbreak to end against a baseline simulation without the strategy.",
+          "rubric": [
+            {
+              "point": "Output variable: test outcome (1)",
+              "marks": 1
+            },
+            {
+              "point": "Two input variables (2)",
+              "marks": 2
+            },
+            {
+              "point": "First pattern identified (2)",
+              "marks": 2
+            },
+            {
+              "point": "Second pattern identified (2)",
+              "marks": 2
+            },
+            {
+              "point": "Two additional variables (4)",
+              "marks": 4
+            },
+            {
+              "point": "One modelling limitation (2)",
+              "marks": 2
+            },
+            {
+              "point": "One modelling benefit (2)",
+              "marks": 2
+            },
+            {
+              "point": "Importance of abstraction (4)",
+              "marks": 4
+            },
+            {
+              "point": "First area described (4)",
+              "marks": 4
+            },
+            {
+              "point": "Second area described (4)",
+              "marks": 4
+            },
+            {
+              "point": "Agent-based simulation described (3)",
+              "marks": 3
+            },
+            {
+              "point": "One emergent behaviour (2)",
+              "marks": 2
+            },
+            {
+              "point": "Containment strategy tested (2)",
+              "marks": 2
+            },
+            {
+              "point": "Success measured against a baseline (4)",
+              "marks": 4
+            }
+          ]
+        },
+        {
+          "year": 2026,
+          "number": 1,
+          "section": "A",
+          "marks": 6,
+          "chapter": "python",
+          "title": "Trace table",
+          "prompt": "Use the trace table below to show the changing states of the variables a and b during program execution.\n\n    a = 0\n    b = 7\n    while b > 0:\n        if b % 2 == 0:\n            a = a + 2\n            b = b - 2\n        else:\n            a = a + 1\n            b = b - 1",
+          "answer": "a | b\n0 | 7\n1 | 6\n3 | 4\n5 | 2\n7 | 0\n\nThe loop adds 1 and subtracts 1 when b is odd, then adds 2 and subtracts 2 while b is even.",
+          "rubric": [
+            {
+              "point": "Row 1 | 6",
+              "marks": 1
+            },
+            {
+              "point": "Row 3 | 4",
+              "marks": 1
+            },
+            {
+              "point": "Row 5 | 2",
+              "marks": 1
+            },
+            {
+              "point": "Row 7 | 0",
+              "marks": 1
+            },
+            {
+              "point": "Correct a values in order",
+              "marks": 1
+            },
+            {
+              "point": "Correct b values in order",
+              "marks": 1
+            }
+          ]
+        },
+        {
+          "year": 2026,
+          "number": 2,
+          "section": "A",
+          "marks": 6,
+          "chapter": "systems",
+          "title": "Cache and RAM",
+          "prompt": "Cache and RAM are both important types of computer memory. Compare cache and RAM under the headings: purpose and speed.",
+          "answer": "Purpose: both are volatile memory that temporarily stores data and instructions for the CPU. Cache stores frequently accessed data close to the CPU to reduce access time; RAM stores the larger set of programs and data currently used by the operating system and applications.\n\nSpeed: both are fast, but cache is significantly faster than RAM, so the CPU retrieves frequently used data from cache while RAM provides slower access to a larger working memory.",
+          "rubric": [
+            {
+              "point": "Purpose of cache and RAM compared",
+              "marks": 3
+            },
+            {
+              "point": "Speed of cache and RAM compared",
+              "marks": 3
+            }
+          ]
+        },
+        {
+          "year": 2026,
+          "number": 3,
+          "section": "A",
+          "marks": 6,
+          "chapter": "systems",
+          "title": "Login logic circuit",
+          "prompt": "A school system grants access when both the username (A) and password (B) are correct, or when an administrator override (C) is active. A, B and C are 1 when true and 0 when false.\n\nSketch the logic circuit diagram for this system using the appropriate gate symbols. (Describe the gates and connections if you cannot sketch.)",
+          "answer": "The expression is (A AND B) OR C.\n\nCircuit: feed A and B into an AND gate. Feed the output of that AND gate and input C into an OR gate. The output of the OR gate is the access decision.",
+          "rubric": [
+            {
+              "point": "AND gate in the circuit",
+              "marks": 1
+            },
+            {
+              "point": "OR gate in the circuit",
+              "marks": 1
+            },
+            {
+              "point": "A connected to AND",
+              "marks": 1
+            },
+            {
+              "point": "B connected to AND",
+              "marks": 1
+            },
+            {
+              "point": "AND output connected to OR",
+              "marks": 1
+            },
+            {
+              "point": "C connected to OR",
+              "marks": 1
+            }
+          ]
+        },
+        {
+          "year": 2026,
+          "number": 4,
+          "section": "A",
+          "marks": 6,
+          "chapter": "systems",
+          "title": "16-bit hex and binary",
+          "prompt": "Binary and hexadecimal numbers are both used in computer systems to represent digital data.\n\n(a) State the highest hexadecimal number that can be represented using 16 bits.\n\n(b) Convert the hexadecimal number 3F into its 8-bit binary equivalent.",
+          "answer": "(a) FFFF (16 bits = four hex digits, each F = 1111).\n\n(b) 3 = 0011 and F = 1111, so 3F = 0011 1111.",
+          "rubric": [
+            {
+              "point": "Highest 16-bit hex is FFFF",
+              "marks": 2
+            },
+            {
+              "point": "3F converted to 0011 1111",
+              "marks": 4
+            }
+          ]
+        },
+        {
+          "year": 2026,
+          "number": 5,
+          "section": "A",
+          "marks": 6,
+          "chapter": "systems",
+          "title": "Student records in the cloud",
+          "prompt": "A school is moving its student records from a local server to a cloud-based storage service.\n\n(a) Outline one advantage of this move to cloud storage for the school.\n(b) Explain one concern the school should consider when storing student records in the cloud.",
+          "answer": "(a) Any one: records can be accessed from anywhere with an internet connection; the school does not need to maintain its own physical servers; the provider usually handles backups and updates automatically, reducing the risk of data loss and maintenance effort; storage can scale easily.\n\n(b) Any one: student data security and privacy could be at risk if the cloud is hacked; the school depends on a reliable internet connection; the provider must comply with data-protection law; costs may rise over time.",
+          "rubric": [
+            {
+              "point": "One advantage of cloud storage",
+              "marks": 3
+            },
+            {
+              "point": "One concern explained",
+              "marks": 3
+            }
+          ]
+        },
+        {
+          "year": 2026,
+          "number": 6,
+          "section": "A",
+          "marks": 6,
+          "chapter": "python",
+          "title": "While loop algorithm",
+          "prompt": "Construct an algorithm that uses a while loop to display the values 0, 3, 6, 9 and 12. The algorithm can be expressed in a flowchart or in pseudocode.",
+          "answer": "Pseudocode:\n\n    number = 0\n    while number <= 12:\n        display number\n        number = number + 3\n\nThe loop prints 0, 3, 6, 9 and 12, then stops when number becomes 15.",
+          "rubric": [
+            {
+              "point": "Variable initialised to 0",
+              "marks": 1
+            },
+            {
+              "point": "While loop with condition number <= 12",
+              "marks": 2
+            },
+            {
+              "point": "Displays the number",
+              "marks": 1
+            },
+            {
+              "point": "Adds 3 each iteration",
+              "marks": 1
+            },
+            {
+              "point": "Produces exactly 0, 3, 6, 9, 12",
+              "marks": 1
+            }
+          ]
+        },
+        {
+          "year": 2026,
+          "number": 7,
+          "section": "A",
+          "marks": 6,
+          "chapter": "algorithms",
+          "title": "Insertion sort passes",
+          "prompt": "A student is applying insertion sort to a list. After four passes the numbers 4, 6, 9 and 12 are sorted: 4, 6, 9, 12, 5, 10, 3, 11. Four more passes are required, and the next value to insert is 5.\n\n(a) Complete the state of the list after each of the remaining four passes.\n(b) Outline how insertion sort decides where to place each new element.",
+          "answer": "(a) Pass 5: 4 5 6 9 12 10 3 11\nPass 6: 4 5 6 9 10 12 3 11\nPass 7: 3 4 5 6 9 10 12 11\nPass 8: 3 4 5 6 9 10 11 12\n\n(b) Insertion sort takes the next item and inserts it into the correct position in the already sorted part of the list. It compares the item with the values before it, shifting or swapping them right until the item is in place. It repeats until every item is sorted.",
+          "rubric": [
+            {
+              "point": "Pass 5 correct",
+              "marks": 1
+            },
+            {
+              "point": "Pass 6 correct",
+              "marks": 1
+            },
+            {
+              "point": "Pass 7 correct",
+              "marks": 1
+            },
+            {
+              "point": "Pass 8 correct",
+              "marks": 1
+            },
+            {
+              "point": "Insertion process explained",
+              "marks": 2
+            }
+          ]
+        },
+        {
+          "year": 2026,
+          "number": 8,
+          "section": "A",
+          "marks": 6,
+          "chapter": "ai",
+          "title": "Why AI makes mistakes",
+          "prompt": "Some students use AI tools such as Copilot and ChatGPT to help with schoolwork. One argument against this is that, despite good prompts, AI can give incorrect or misleading information, which may confuse students or lead them to learn inaccurate material. Explain two reasons why AI can make mistakes.",
+          "answer": "Any two:\n\n- AI does not truly understand the topic; it predicts likely output from patterns in its training data, so it can produce plausible but wrong answers (hallucination).\n- Its training data may contain errors or outdated information, which the model repeats.\n- Its training data may be biased or one-sided because it was created by humans, leading to unbalanced or misleading answers.\n- It has no awareness of the current context unless given it, and may struggle with ambiguous or very specific questions.",
+          "rubric": [
+            {
+              "point": "First reason for AI mistakes",
+              "marks": 3
+            },
+            {
+              "point": "Second reason for AI mistakes",
+              "marks": 3
+            }
+          ]
+        },
+        {
+          "year": 2026,
+          "number": 9,
+          "section": "A",
+          "marks": 6,
+          "chapter": "software",
+          "title": "Modular design",
+          "prompt": "A company is developing a program to fully manage a restaurant ordering system for customers. They will use modular design.\n\n(a) Explain what is meant by modular design in software development.\n(b) Suggest three modules that could be created for this restaurant ordering system.",
+          "answer": "(a) Modular design means dividing a large program into smaller, manageable sections called modules. Each module handles one specific task, such as orders or payments, which makes the system easier to develop, test, reuse and maintain.\n\n(b) Any three: order taking, payment processing, menu management, user accounts/staff logins, reporting, table management, inventory/stock.",
+          "rubric": [
+            {
+              "point": "Modular design explained",
+              "marks": 3
+            },
+            {
+              "point": "Three valid restaurant modules",
+              "marks": 3
+            }
+          ]
+        },
+        {
+          "year": 2026,
+          "number": 10,
+          "section": "A",
+          "marks": 6,
+          "chapter": "htmlcss",
+          "title": "Universal design in an app",
+          "prompt": "A company is designing an educational app for secondary school students with a wide range of abilities, including visual, auditory and motor impairments. Describe two examples of how the app could follow Principles of Universal Design, naming a specific principle in each example.",
+          "answer": "Any two principles, each applied:\n\n- Equitable use: all students get the same learning content; a visually impaired student can use a screen reader and receive the same information.\n- Flexibility in use: students can choose instructions as text, audio or video.\n- Simple and intuitive use: clear, consistent menus let students use the app without training.\n- Perceptible information: important instructions and alerts are given as both text and audio.\n- Tolerance for error: students can undo an action or confirm before deleting work.\n- Low physical effort: large buttons reduce the need for precise touchscreen movements.\n- Size and space for approach and use: the interface supports zooming and has enough spacing between controls.",
+          "rubric": [
+            {
+              "point": "Principle 1 named and applied",
+              "marks": 3
+            },
+            {
+              "point": "Principle 2 named and applied",
+              "marks": 3
+            }
+          ]
+        },
+        {
+          "year": 2026,
+          "number": 11,
+          "section": "A",
+          "marks": 6,
+          "chapter": "algorithms",
+          "title": "Heuristics in self-driving cars",
+          "prompt": "The algorithms that control self-driving vehicles often rely on heuristics to help them make decisions.\n\n(a) Outline one heuristic that could be used in the context of self-driving cars.\n(b) State one limitation of heuristics.",
+          "answer": "(a) Any one: keep a minimum following distance based on speed; slow down when visibility is poor; increase stopping distance in wet or icy conditions; choose the route with the least predicted congestion; leave extra space near cyclists and pedestrians.\n\n(b) Any one: heuristics do not always produce the best or correct decision; they use simple rules rather than full understanding; they can be biased by their rules or data; they may oversimplify complex situations; different heuristics can conflict.",
+          "rubric": [
+            {
+              "point": "One valid driving heuristic",
+              "marks": 4
+            },
+            {
+              "point": "One limitation of heuristics",
+              "marks": 2
+            }
+          ]
+        },
+        {
+          "year": 2026,
+          "number": 12,
+          "section": "A",
+          "marks": 6,
+          "chapter": "history",
+          "title": "Turing machine controller",
+          "prompt": "Figure 2 shows a simplified model of a Turing machine.\n\n(a) Outline the purpose of the controller.\n(b) Explain why Turing machines are considered important in computer science.",
+          "answer": "(a) The controller applies the machine's rules. From the current state and the symbol being read, it decides what symbol to write, whether to move the read/write head left or right, and what the next state should be, including when to halt.\n\n(b) Turing machines give a simple, precise model of how any computer can work. They let computer scientists reason about which problems are computable and which are not, and even though they are simple, they are powerful enough to represent any modern computer. They are a foundation of computability theory.",
+          "rubric": [
+            {
+              "point": "Purpose of the controller",
+              "marks": 3
+            },
+            {
+              "point": "Importance of Turing machines",
+              "marks": 3
+            }
+          ]
+        },
+        {
+          "year": 2026,
+          "number": 13,
+          "section": "B",
+          "marks": 38,
+          "chapter": "software",
+          "title": "Winter Solstice Lottery system",
+          "prompt": "Newgrange is a prehistoric passage tomb in Meath, famous for the beam of sunlight that lights its inner chamber at sunrise on the winter solstice. The Office of Public Works plans an information system for the 2026 Winter Solstice Lottery, allowing the public to apply for a place inside the chamber.\n\n(a) (i) Explain the term 'information system'.\n(ii) State the names of two components of every information system.\n(iii) Suggest two functional requirements (what the system does) and two non-functional requirements (how the system performs).\n\n(b) (i) For each of the three data types below, give one suitable field name and explain why it fits: String, Integer, Boolean.\n(ii) Sketch a simple wireframe for the page where users submit their lottery entry details. Include notes outlining the purpose of the main elements.\n\n(c) (i) Compare a mobile application and a responsive website under the headings: user experience and accessibility.\n(ii) Explain two validation checks and one verification check the system could use when applicants enter data.",
+          "answer": "(a)(i) An information system is software that organises and analyses business data and streamlines day-to-day transactions. More generally, it takes in data, processes it and produces useful information.\n\n(ii) Any two: hardware, software, data, people, processes/procedures.\n\n(iii) Functional requirements (any two): allow users to submit an online application; send confirmation or rejection notifications; securely store and manage applicant details; allow an administrator to review entries. Non-functional requirements (any two): security to protect personal data; reliability and availability during high demand; compliance with data-protection law; scalability for increased traffic; usability.\n\n(b)(i) String: name, email address or home address — it contains letters, spaces and symbols. Integer: age, number of tickets requested or year of birth — it is a whole number. Boolean: agree to terms and conditions, resident of Ireland or over 18 — the answer is true/false or yes/no.\n\n(ii) A suitable wireframe has: a clear heading such as \"Winter Solstice Lottery Entry\"; labelled text fields for name, email and address; a number field for tickets; checkboxes for terms and residency; a submit button; and short notes explaining each element. Marking rewards a clear heading, appropriate controls, annotations and a submit button.\n\n(c)(i) User experience: a mobile app can feel smoother and faster because it is designed for the device and can use notifications and touch controls; a responsive website opens in a browser, adjusts to screen size, and needs no installation. Accessibility: a responsive website works on phones, tablets and desktops through any browser; an app may need a compatible device and storage, but can include voice input, large text and screen-reader support.\n\n(ii) Validation (any two): range check, e.g. age between 18 and 120; format check, e.g. email contains @; presence check, e.g. required name is not blank; length check, e.g. phone number has the right digits; type check, e.g. year of birth contains only numbers. Verification (one): double entry of the email address and compare the two; a confirmation screen for the applicant to review; a confirmation email so the applicant can check the details.",
+          "rubric": [
+            {
+              "point": "Information system explained (3)",
+              "marks": 3
+            },
+            {
+              "point": "Two components of an information system (2)",
+              "marks": 2
+            },
+            {
+              "point": "Two functional and two non-functional requirements (8)",
+              "marks": 8
+            },
+            {
+              "point": "String, Integer and Boolean fields with explanations (6)",
+              "marks": 6
+            },
+            {
+              "point": "Wireframe with controls, notes and submit button (6)",
+              "marks": 6
+            },
+            {
+              "point": "App versus responsive website compared (4)",
+              "marks": 4
+            },
+            {
+              "point": "Two validation checks and one verification check (9)",
+              "marks": 9
+            }
+          ]
+        },
+        {
+          "year": 2026,
+          "number": 14,
+          "section": "B",
+          "marks": 38,
+          "chapter": "algorithms",
+          "title": "Königsberg bridges and Euler paths",
+          "prompt": "Königsberg was built around a river with two islands. Seven bridges, numbered 1 to 7, connected four areas of land A, B, C and D (Figure 3). An Euler path crosses every bridge exactly once without crossing the same bridge twice.\n\n(a) (i) Starting from A, the route 1 → 4 → 5 → 2 → 3 → 6 → 7 includes all seven bridges but is not an Euler path. Explain why.\n(ii) Figures 4 and 5 show alternative bridge networks, both containing Euler paths. Starting from C, identify an Euler path from each figure.\n(iii) For each land area, state whether the number of connected bridges is odd or even in Figures 3, 4 and 5.\n(iv) Deduce one pattern necessary for an Euler path to exist.\n\n(b) (i) Using Figure 6, explain how abstraction is applied to the Königsberg problem. State one limitation of that abstraction.\n(ii) Four friends must cross a dangerous bridge at night. Only two can cross at a time and one torch is needed. Times: Alex 1 min, Beth 3 min, Carol 6 min, David 10 min. A pair crosses at the slower speed, and the torch must be returned if anyone remains. Calculate the fastest sequence.\n\n(c) A city council may adopt a system that recommends the most efficient routes using algorithms like those used for the Königsberg problem. Appraise the potential positive and negative impacts on culture and society.",
+          "answer": "(a)(i) The route is not continuous: after crossing bridge 6 you are on land area B, but bridge 7 does not connect to B, so it cannot be crossed next.\n\n(ii) Figure 4 from C: 1 → 3 → 4 → 2 (or 2 → 4 → 3 → 1). Figure 5 from C: 1 → 3 → 4 → 2 → 5 (or 1 → 3 → 5 → 2 → 4, or the reverse of one of these).\n\n(iii) Figure 3: A odd (3), B odd (3), C odd (5), D odd (3). Figure 4: all even (2 each). Figure 5: A even (2), B even (2), C odd (3), D odd (3).\n\n(iv) An Euler path exists when every vertex has an even number of edges, or exactly two vertices have an odd number of edges. The path starts and ends at the two odd vertices.\n\n(b)(i) Abstraction turns the real city into a graph: land areas become points (vertices) and bridges become lines (edges). Details such as the river's shape, distances and bridge widths are ignored because they do not affect the problem. Limitation: the graph cannot show practical issues such as travel time, safety, bridge width or walking difficulty, and some real constraints may be missed.\n\n(ii) Fastest sequence (20 minutes):\n- Alex and Beth cross — 3 minutes\n- Alex returns — 1 minute (total 4)\n- Carol and David cross — 10 minutes (total 14)\n- Beth returns — 3 minutes (total 17)\n- Alex and Beth cross — 3 minutes (total 20)\n\n(c) Positive impacts: easier navigation and route planning; less travel time and commuter stress; reduced congestion; faster emergency response; lower fuel use and emissions; better transport, logistics and urban planning.\n\nNegative impacts: privacy concerns from location tracking; extra traffic diverted through residential or culturally significant areas; over-reliance on algorithms and loss of navigation skills; unequal access for people without smartphones, internet or digital skills; high implementation costs and disruption if the system fails.",
+          "rubric": [
+            {
+              "point": "Why the route is not continuous (3)",
+              "marks": 3
+            },
+            {
+              "point": "Euler path from Figure 4 (3)",
+              "marks": 3
+            },
+            {
+              "point": "Euler path from Figure 5 (3)",
+              "marks": 3
+            },
+            {
+              "point": "Odd/even table correct (4)",
+              "marks": 4
+            },
+            {
+              "point": "Necessary pattern for an Euler path (3)",
+              "marks": 3
+            },
+            {
+              "point": "Abstraction to a graph explained (5)",
+              "marks": 5
+            },
+            {
+              "point": "Limitation of the abstraction (3)",
+              "marks": 3
+            },
+            {
+              "point": "Fastest crossing sequence, 20 minutes (4)",
+              "marks": 4
+            },
+            {
+              "point": "Positive impacts appraised (5)",
+              "marks": 5
+            },
+            {
+              "point": "Negative impacts appraised (5)",
+              "marks": 5
+            }
+          ]
+        },
+        {
+          "year": 2026,
+          "number": 15,
+          "section": "B",
+          "marks": 38,
+          "chapter": "microbit",
+          "title": "Greenhouse controller",
+          "prompt": "A horticulture company is designing a greenhouse controller with an embedded system to automate healthy growing conditions. The device monitors the environment and controls equipment automatically.\n\n(a) (i) Name any two digital sensors and any two analogue sensors that could be used.\n(ii) List two additional outputs, other than those already in the design, that could be used.\n(iii) Describe the difference between digital and analogue sensors.\n\n(b) (i) This code is intended to set the fan based on temperature and door state:\n\n    if temperature > 30:\n        fan = \"ON\"\n    if door_open:\n        fan = \"OFF\"\n\nIdentify one problem this could cause in a real greenhouse and describe a solution.\n(ii) Suggest one additional rule using sensors that would maintain healthy growing conditions.\n(iii) The system stores sensor readings and the fan state each hour. Describe one benefit of collecting this data and explain how it could improve performance.\n\n(c) (i) State two characteristics of embedded systems and justify why each is important for a greenhouse controller.\n(ii) Choose any two stages of software testing and explain how each applies to the greenhouse system.",
+          "answer": "(a)(i) Digital: door sensor (open/closed), motion sensor (movement detected or not). Analogue: temperature sensor, humidity sensor, natural-light sensor.\n\n(ii) Any two: automatic window opener, alarm/buzzer, shade blinds.\n\n(iii) Digital sensors produce fixed outputs such as on/off or true/false. Analogue sensors produce a range of values that change smoothly, such as temperature or humidity, so they give more detailed information.\n\n(b)(i) Problem: if the temperature is above 30 and the door is open, the first if sets the fan ON and the second immediately sets it OFF. The fan can switch on and off incorrectly, so the greenhouse may overheat. Solution: check the door first and use if/else, or combine the conditions with and, so the fan is only ON when the temperature is above 30 and the door is closed.\n\n(ii) Any one: if humidity is too low, turn on the misting system; if light is too high, close the blinds; if soil moisture is low, start irrigation; if temperature is too low, turn on the heater.\n\n(iii) Benefit: the data shows patterns and trends over time, such as when the greenhouse is usually too hot. Explain: the company can adjust the fan rules to turn on earlier, detect faults (for example, the fan is on but the temperature does not fall), and improve efficiency and growing conditions.\n\n(c)(i) Any two characteristics and justifications: designed for a specific task — the controller only manages greenhouse conditions, keeping it simple and reliable; part of a larger system — it must work with sensors and actuators; limited hardware resources — minimal memory and processing keeps cost and energy low; real-time operation — it must respond immediately to temperature or humidity changes; low power — it runs continuously; fast response — plants need quick reactions; low cost — makes automation affordable.\n\n(ii) Any two stages: unit testing checks individual parts, such as the temperature-sensor code or fan rule, on their own; system testing checks the whole system with sensors, rules and outputs under real conditions; integration testing checks that sensors, control rules and outputs work together; acceptance testing checks the system meets the horticulture company's requirements.",
+          "rubric": [
+            {
+              "point": "Two digital sensors (3)",
+              "marks": 3
+            },
+            {
+              "point": "Two analogue sensors (3)",
+              "marks": 3
+            },
+            {
+              "point": "Two additional outputs (4)",
+              "marks": 4
+            },
+            {
+              "point": "Digital versus analogue sensors (4)",
+              "marks": 4
+            },
+            {
+              "point": "Fan logic problem (3)",
+              "marks": 3
+            },
+            {
+              "point": "Fan logic solution (3)",
+              "marks": 3
+            },
+            {
+              "point": "One additional rule (2)",
+              "marks": 2
+            },
+            {
+              "point": "Benefit of logging data (3)",
+              "marks": 3
+            },
+            {
+              "point": "How data improves performance (3)",
+              "marks": 3
+            },
+            {
+              "point": "Two embedded-system characteristics (2)",
+              "marks": 2
+            },
+            {
+              "point": "Justifications for both characteristics (2)",
+              "marks": 2
+            },
+            {
+              "point": "Two testing stages applied (6)",
+              "marks": 6
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

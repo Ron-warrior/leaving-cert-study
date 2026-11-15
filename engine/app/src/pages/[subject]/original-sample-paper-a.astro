@@ -1,0 +1,47 @@
+---
+import Base from "../../layouts/Base.astro";
+import StudyShell from "../../components/StudyShell.astro";
+import Mock from "../../components/Mock.svelte";
+import { getOriginalMock, subjects } from "../../lib/content";
+
+export function getStaticPaths() {
+  const subject = subjects.find((item) => item.slug === "cs");
+  const paper = subject ? getOriginalMock(subject.slug) : undefined;
+  return subject && paper
+    ? [{ params: { subject: subject.slug }, props: { subject, paper } }]
+    : [];
+}
+
+const { subject, paper } = Astro.props;
+---
+
+<Base
+  title={`${paper.title} · ${subject.name}`}
+  description={paper.blurb}
+>
+  <StudyShell subject={subject}>
+    <div class="original-paper-note">
+      <strong>Original paper — not an SEC paper.</strong>
+      <span>
+        This is a written-exam practice paper, not a coursework brief. It follows the structure
+        and level of the 2023–2026 Higher Level papers, but the questions and the marking guide
+        are original. It gives extra practice on written-exam content that recent papers sampled
+        thinly, especially analytics and AI, while leaving project-only outcomes — team roles,
+        the portfolio/report and building the artefact — to the 30% coursework. Past papers do
+        not necessarily cover every learning outcome, so check the current specification and
+        your teacher's guidance.
+      </span>
+    </div>
+
+    <Mock
+      client:load
+      subject={subject}
+      questions={paper.questions}
+      title={paper.title}
+      minutes={paper.minutes}
+      blurb={paper.blurb}
+      storageId="original-sample-a"
+      original={true}
+    />
+  </StudyShell>
+</Base>

@@ -1,0 +1,139 @@
+---
+import Base from "../../layouts/Base.astro";
+import StudyShell from "../../components/StudyShell.astro";
+import CodeRunner from "../../components/CodeRunner.svelte";
+import { getLab, subjects } from "../../lib/content";
+
+export function getStaticPaths() {
+  return subjects
+    .filter((subject) => getLab(subject.slug).length > 0)
+    .map((subject) => ({
+      params: { subject: subject.slug },
+      props: { subject },
+    }));
+}
+
+const { subject } = Astro.props;
+const papers = [...getLab(subject.slug)].sort((a, b) => b.year - a.year);
+---
+
+<Base
+  title={`Section C programming lab · ${subject.name}`}
+  description={`${subject.name} Section C programming papers with starter files, official sample output, solutions and marking schemes.`}
+>
+  <StudyShell subject={subject}>
+    <div class="section-c-page lab-page">
+    <h1 class="sr-only">Section C programming lab</h1>
+    <section class="section-c-head">
+      <h2>Section C programming lab</h2>
+      <p>
+        The compulsory 80-mark programming section, practised with the real 2023–2026
+        tasks. Run your code here, then compare it with the official marking scheme. The
+        real Section C is one hour.
+      </p>
+    </section>
+
+    <div class="bank-filter lab-years" role="group" aria-label="Choose a paper">
+      <span class="bf-label">Paper</span>
+      {papers.map((paper, paperIndex) => (
+        <button
+          class:list={["bf-btn", paperIndex === 0 && "is-active"]}
+          type="button"
+          data-lab-year={paper.year}
+          aria-pressed={paperIndex === 0 ? "true" : "false"}
+        >
+          {paper.year}
+        </button>
+      ))}
+    </div>
+
+    {
+      papers.map((paper, paperIndex) => (
+        <section
+          class="lab-paper"
+          id={`paper-${paper.year}`}
+          data-lab-year={paper.year}
+          hidden={paperIndex > 0}
+        >
+          <div class="lab-summary">
+            <div>
+              <span class="lab-summary-year">{paper.year}</span>
+              <strong>{paper.split}</strong>
+            </div>
+            <span class="lab-summary-meta">80 marks · 60 minutes</span>
+          </div>
+          <p class="lab-note">{paper.note}</p>
+
+          {paper.parts.map((part) => (
+            <article class="lab-task" id={`paper-${paper.year}-${part.letter.replace(/[()]/g, "")}`}>
+              <div class="lab-task-head">
+                <span class="lab-part">{part.letter}</span>
+                <div>
+                  <h3>{part.title}</h3>
+                  <p class="lab-task-meta">{part.marks} · {part.split}</p>
+                </div>
+              </div>
+              <div class="lab-prompt">{part.prompt}</div>
+              <ol class="lab-steps">
+                {part.tasks.map((task) => <li>{task}</li>)}
+              </ol>
+              <CodeRunner
+                client:load
+                title="Your working file"
+                blurb="Edit this file and press Run. Add one value per line under Program input, in the order the program asks for input."
+                lang="python"
+                code={part.starter}
+                showInput
+              />
+              <details class="lab-sample">
+                <summary>Official sample output</summary>
+                <pre>{part.sample}</pre>
+              </details>
+              <details class="lab-solution">
+                <summary>Official solution</summary>
+                <pre class="lab-code">{part.solution}</pre>
+              </details>
+              <details class="lab-scheme">
+                <summary>Official marking scheme</summary>
+                <ul>
+                  {part.scheme.map((point) => <li>{point}</li>)}
+                </ul>
+              </details>
+            </article>
+          ))}
+        </section>
+      ))
+    }
+
+    <p class="lab-source">{subject.labNote}</p>
+    </div>
+  </StudyShell>
+
+  <script is:inline>
+    (function () {
+      var buttons = Array.prototype.slice.call(document.querySelectorAll("[data-lab-year]"));
+      var papers = Array.prototype.slice.call(document.querySelectorAll(".lab-paper[data-lab-year]"));
+      if (!buttons.length || !papers.length) return;
+
+      function show(year) {
+        buttons.forEach(function (button) {
+          var active = button.dataset.labYear === String(year);
+          button.classList.toggle("is-active", active);
+          button.setAttribute("aria-pressed", active ? "true" : "false");
+        });
+        papers.forEach(function (paper) {
+          paper.hidden = paper.dataset.labYear !== String(year);
+        });
+      }
+
+      buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          show(button.dataset.labYear);
+        });
+      });
+
+      var match = location.hash.match(/paper-(\d{4})/);
+      show(match ? match[1] : papers[0].dataset.labYear);
+    })();
+  </script>
+</Base>

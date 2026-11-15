@@ -1,0 +1,30 @@
+---
+import Base from "../layouts/Base.astro";
+import Icon from "../components/Icon.astro";
+import NavDrawer from "../components/NavDrawer.astro";
+import Search from "../components/Search.svelte";
+---
+
+<Base
+  title="Search · Leaving Cert Study"
+  description="Search every note, past-paper question, listening item, oral prompt and programming task."
+>
+  <main id="main" class="wrap search-page">
+    <div class="subject-bar">
+      <NavDrawer />
+      <span class="subject-bar-name">Search</span>
+      <a class="web-back" href="/">← All subjects</a>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle dark mode"><Icon name="sun" /><Icon name="moon" /></button>
+    </div>
+
+    <header class="search-head">
+      <p class="eyebrow">Across the study guide</p>
+      <h1>Find a note or a question.</h1>
+      <p>
+        Search the full notes and every practice item. Results link straight to the chapter, question, listening section, oral prompt or lab task.
+      </p>
+    </header>
+
+    <Search client:load />
+  </main>
+</Base>

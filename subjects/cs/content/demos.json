@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "subjects": [
+    {
+      "slug": "cs",
+      "demos": [
+      {
+        "note": "python",
+        "title": "Variables, an f-string and a counted loop",
+        "lang": "python",
+        "blurb": "Edit the name or the range, then press Run. Section A rewards correct syntax and clear variable names.",
+        "code": "# Variables, an f-string and a counted loop.\n# Exam tip: the loop and the output carry the marks, so name things clearly.\nname = \"Ada\"\nyear = 2026\n\nfor i in range(1, 4):\n    print(f\"{i}. Hello {name} — LC Computer Science {year}\")\n"
+      },
+      {
+        "note": "microbit",
+        "title": "Read a sensor, decide, act",
+        "lang": "python",
+        "blurb": "The exam often asks for a program that reads a sensor and responds. No board is attached, so random readings stand in for the sensor.",
+        "code": "# The micro:bit reads a sensor, decides, then acts.\n# There is no board here, so random readings stand in for the sensor.\nimport random\n\nfor _ in range(5):\n    temp = random.randint(14, 30)\n    if temp > 25:\n        print(f\"{temp}C  fan ON\")\n    else:\n        print(f\"{temp}C  fan OFF\")\n"
+      },
+      {
+        "note": "analytics",
+        "title": "Mean, median and mode from a data set",
+        "lang": "python",
+        "blurb": "Section A regularly asks for these three summaries. Change the scores and watch each one move.",
+        "code": "# Mean, median and mode — the three summaries Section A asks for.\nfrom collections import Counter\n\nscores = [12, 15, 11, 18, 15, 20, 15, 9]\nscores.sort()\nn = len(scores)\n\nmean = sum(scores) / n\nmedian = scores[n // 2] if n % 2 else (scores[n // 2 - 1] + scores[n // 2]) / 2\nmode = Counter(scores).most_common(1)[0]\n\nprint(\"sorted:\", scores)\nprint(f\"mean   = {mean:.2f}\")\nprint(f\"median = {median}\")\nprint(f\"mode   = {mode[0]} (appears {mode[1]} times)\")\n"
+      },
+      {
+        "note": "htmlcss",
+        "title": "A styled page, rendered live",
+        "lang": "html",
+        "blurb": "Edit the markup or the CSS and press Run. HTML gives structure, CSS gives presentation — the distinction the scheme looks for.",
+        "code": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\" />\n    <style>\n      body {\n        font-family: system-ui, sans-serif;\n        margin: 0;\n        padding: 24px;\n        background: #f4f7fb;\n        color: #12233d;\n      }\n      h1 { font-size: 22px; margin: 0 0 6px; }\n      .card {\n        background: #fff;\n        border: 1px solid #d6e0ee;\n        border-radius: 12px;\n        padding: 18px 20px;\n        max-width: 420px;\n      }\n      .tag {\n        display: inline-block;\n        background: #16b8d4;\n        color: #04212a;\n        font-size: 11px;\n        letter-spacing: .08em;\n        text-transform: uppercase;\n        padding: 3px 8px;\n        border-radius: 999px;\n      }\n      li { margin: 6px 0; }\n    </style>\n  </head>\n  <body>\n    <div class=\"card\">\n      <span class=\"tag\">HTML + CSS</span>\n      <h1>Leaving Cert Computer Science</h1>\n      <p>Edit the markup or the CSS, then press Run to re-render.</p>\n      <ul>\n        <li>HTML gives structure.</li>\n        <li>CSS gives presentation.</li>\n        <li>JavaScript gives behaviour.</li>\n      </ul>\n    </div>\n  </body>\n</html>\n"
+      },
+      {
+        "note": "systems",
+        "title": "Binary, hexadecimal and two's complement",
+        "lang": "js",
+        "blurb": "The conversions Section A asks for, computed in the browser. Change the values in the array.",
+        "code": "// Binary and hexadecimal, computed in the browser.\n// Try 42, 255 or 2026.\nconst values = [42, 255, 2026];\n\nfor (const n of values) {\n  console.log(\n    n,\n    \"->\",\n    \"0b\" + n.toString(2),\n    \"|\",\n    \"0x\" + n.toString(16).toUpperCase()\n  );\n}\n\n// Two's complement for an 8-bit negative number.\nconst x = -42;\nconsole.log(\"-42 in 8-bit two's complement:\", (x & 0xff).toString(2).padStart(8, \"0\"));\n"
+      },
+      {
+        "note": "algorithms",
+        "title": "Linear search vs binary search",
+        "lang": "python",
+        "blurb": "Same target, two algorithms. Count the comparisons — this is the evidence for O(n) versus O(log n).",
+        "code": "# Linear search vs binary search: count the comparisons.\ndata = list(range(0, 100, 2))   # 50 even numbers, sorted\ntarget = 74\n\nlinear_steps = 0\nfor value in data:\n    linear_steps += 1\n    if value == target:\n        break\n\nlo, hi, binary_steps = 0, len(data) - 1, 0\nwhile lo <= hi:\n    binary_steps += 1\n    mid = (lo + hi) // 2\n    if data[mid] == target:\n        break\n    if data[mid] < target:\n        lo = mid + 1\n    else:\n        hi = mid - 1\n\nprint(f\"{len(data)} items, target {target}\")\nprint(\"linear comparisons:\", linear_steps)\nprint(\"binary comparisons:\", binary_steps)\nprint(\"binary search is O(log n); linear search is O(n)\")\n"
+      },
+      {
+        "note": "software",
+        "title": "Tests first, then the function",
+        "lang": "python",
+        "blurb": "Each assert is a test. Silence means they all passed — this is verification, as the marking scheme uses the word.",
+        "code": "# Test-first development: write the tests, then the function.\ndef average(numbers):\n    \"\"\"Return the mean, or 0 for an empty list.\"\"\"\n    if not numbers:\n        return 0\n    return sum(numbers) / len(numbers)\n\n# Each assert is a test. No output means every test passed.\nassert average([10, 20, 30]) == 20\nassert average([5]) == 5\nassert average([]) == 0\nassert round(average([2, 3]), 2) == 2.5\n\nprint(\"4 tests passed\")\n"
+      },
+      {
+        "note": "morepython",
+        "title": "Recursion, lists and dictionaries",
+        "lang": "python",
+        "blurb": "A recursive function needs a base case and a recursive case. The dictionary sort is a common Section B ask.",
+        "code": "# Recursion, lists and dictionaries.\ndef factorial(n):\n    if n <= 1:                     # base case\n        return 1\n    return n * factorial(n - 1)    # recursive case\n\nprint(\"5! =\", factorial(5))\n\nresults = {\"Ada\": 88, \"Grace\": 91, \"Alan\": 74}\nfor name, mark in sorted(results.items(), key=lambda kv: -kv[1]):\n    print(f\"{name:<6} {mark}  {'H1' if mark >= 90 else 'H2'}\")\n"
+      },
+      {
+        "note": "javascript",
+        "title": "Arrays, objects and a loop",
+        "lang": "js",
+        "blurb": "The same logic as the Python chapter, in JavaScript syntax. The console output appears below.",
+        "code": "// Arrays, objects and a loop — same logic as Python, different syntax.\nconst results = [\n  { name: \"Ada\", mark: 88 },\n  { name: \"Grace\", mark: 91 },\n  { name: \"Alan\", mark: 74 }\n];\n\nconst average =\n  results.reduce((sum, r) => sum + r.mark, 0) / results.length;\nconsole.log(\"average:\", average.toFixed(1));\n\nfor (const r of results) {\n  console.log(`${r.name}: ${r.mark}`);\n}\n"
+      },
+      {
+        "note": "databases",
+        "title": "Create and query a real SQLite database",
+        "lang": "python",
+        "blurb": "A real database, created in memory and queried with SQL. Edit the WHERE clause or add a row.",
+        "code": "# SQLite runs inside the browser: real SQL, real rows.\nimport sqlite3\n\ndb = sqlite3.connect(\":memory:\")\ndb.execute(\"CREATE TABLE student (id INTEGER PRIMARY KEY, name TEXT, mark INTEGER)\")\ndb.executemany(\n    \"INSERT INTO student (name, mark) VALUES (?, ?)\",\n    [(\"Ada\", 88), (\"Grace\", 91), (\"Alan\", 74)],\n)\n\nprint(\"H1 students (mark >= 90):\")\nfor row in db.execute(\n    \"SELECT name, mark FROM student WHERE mark >= 90 ORDER BY mark DESC\"\n):\n    print(\" \", row)\n\nprint(\"average mark:\", db.execute(\"SELECT AVG(mark) FROM student\").fetchone()[0])\n"
+      },
+      {
+        "note": "modelling",
+        "title": "A Monte Carlo simulation of two dice",
+        "lang": "python",
+        "blurb": "More trials move the simulated mean towards the theoretical 7.00 — the point a modelling question wants you to make.",
+        "code": "# A Monte Carlo simulation: roll two dice 10,000 times.\nimport random\n\ntrials = 10_000\ntotal = 0\nsevens = 0\n\nfor _ in range(trials):\n    roll = random.randint(1, 6) + random.randint(1, 6)\n    total += roll\n    if roll == 7:\n        sevens += 1\n\nprint(\"trials:\", trials)\nprint(f\"mean roll: {total / trials:.2f}  (true mean 7.00)\")\nprint(f\"sevens: {sevens} ({sevens / trials:.1%}, true 16.7%)\")\n"
+      },
+      {
+        "note": "ai",
+        "title": "A nearest-centroid classifier from scratch",
+        "lang": "python",
+        "blurb": "Features, distance, label — a classifier with no libraries. Change the test points and watch the decision boundary.",
+        "code": "# A nearest-centroid classifier, written from scratch.\n# Features: [hours studied, hours slept]\nh1_students = [[8, 7], [7, 8], [9, 6]]\npass_students = [[2, 5], [3, 4], [1, 6]]\n\ndef centroid(points):\n    n = len(points)\n    return [sum(p[i] for p in points) / n for i in range(len(points[0]))]\n\ndef distance(a, b):\n    return sum((x - y) ** 2 for x, y in zip(a, b)) ** 0.5\n\nc_h1 = centroid(h1_students)\nc_pass = centroid(pass_students)\n\nfor student in [[8, 6], [3, 5], [6, 7]]:\n    d1 = distance(student, c_h1)\n    d2 = distance(student, c_pass)\n    label = \"H1\" if d1 < d2 else \"pass\"\n    print(f\"{student}: H1 {d1:.2f} vs pass {d2:.2f} -> {label}\")\n"
+      }
+      ]
+    }
+  ]
+}

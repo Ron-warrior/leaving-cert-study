@@ -1,0 +1,420 @@
+{
+  "schemaVersion": 1,
+  "subjects": [
+    {
+      "slug": "spanish",
+      "roleplays": [
+      {
+        "title": "Tourist office — the Alhambra",
+        "situation": "You are in a tourist office in Granada. You want information about a day trip to the Alhambra.",
+        "points": [
+          "Say you are interested in visiting the Alhambra.",
+          "Ask whether there is a guided tour in English.",
+          "Say you would prefer a morning visit.",
+          "Ask how much the ticket costs and what it includes.",
+          "Thank the assistant and ask where to meet."
+        ],
+        "phrases": [
+          "Estoy interesado/a en ...",
+          "¿Hay una visita guiada en inglés?",
+          "Preferiría ir por la mañana.",
+          "¿Está incluida la entrada?"
+        ],
+        "model": [
+          "Buenos días, estoy interesado/a en visitar la Alhambra.",
+          "¿Hay una visita guiada en inglés? Me gustaría entender bien la historia.",
+          "Preferiría ir por la mañana porque por la tarde tengo otro plan.",
+          "¿Cuánto cuesta la entrada y está incluida la visita guiada?",
+          "Muchas gracias por su ayuda. ¿Dónde tenemos que reunirnos?"
+        ]
+      },
+      {
+        "title": "Hotel — lost phone",
+        "situation": "You are at the reception desk of your hotel. You think you left your phone in the restaurant.",
+        "points": [
+          "Explain that you cannot find your phone.",
+          "Say where you last used it.",
+          "Describe the phone.",
+          "Ask the receptionist to call the number.",
+          "Ask what you should do next."
+        ],
+        "phrases": [
+          "Creo que he dejado mi móvil ...",
+          "Lo usé por última vez ...",
+          "Es un móvil negro con una funda azul.",
+          "¿Podría llamarlo, por favor?"
+        ],
+        "model": [
+          "Buenas tardes, no encuentro mi móvil. Creo que lo he dejado en el restaurante.",
+          "Lo usé por última vez durante el desayuno, en la mesa cerca de la ventana.",
+          "Es un móvil negro con una funda azul y una pegatina en la parte de atrás.",
+          "¿Podría llamarlo, por favor? Así podremos oírlo si está cerca.",
+          "Gracias. Si no aparece, ¿qué me recomienda hacer?"
+        ]
+      },
+      {
+        "title": "Language school — change course",
+        "situation": "You are at a language school in Salamanca. Your course is too easy and you want to change groups.",
+        "points": [
+          "Say which course you are doing.",
+          "Explain that the class is too easy.",
+          "Ask to move to a more advanced group.",
+          "Say why you prefer an afternoon class.",
+          "Ask whether there is an extra cost."
+        ],
+        "phrases": [
+          "Estoy haciendo un curso de ...",
+          "Me resulta demasiado fácil.",
+          "¿Sería posible pasar a ...?",
+          "¿Tengo que pagar algo más?"
+        ],
+        "model": [
+          "Buenos días, estoy haciendo el curso de nivel intermedio.",
+          "La verdad es que me resulta demasiado fácil porque ya estudié este nivel en el instituto.",
+          "¿Sería posible pasar a un grupo más avanzado esta semana?",
+          "Preferiría una clase por la tarde porque trabajo por la mañana.",
+          "Muchas gracias. ¿Tengo que pagar algo más por el cambio?"
+        ]
+      },
+      {
+        "title": "Hostel — book a room",
+        "situation": "You are phoning a hostel in Valencia to book a room for a short holiday.",
+        "points": [
+          "Say you want to book a room.",
+          "Give the dates and the number of people.",
+          "Ask about the price and breakfast.",
+          "Ask whether there is a cancellation policy.",
+          "Confirm the booking and give your name."
+        ],
+        "phrases": [
+          "Quería reservar ...",
+          "Somos dos personas.",
+          "¿El desayuno está incluido?",
+          "¿Cuál es la política de cancelación?"
+        ],
+        "model": [
+          "Hola, quería reservar una habitación para tres noches.",
+          "Llegamos el viernes y nos vamos el lunes. Somos dos personas.",
+          "¿Cuánto cuesta la habitación y el desayuno está incluido?",
+          "¿Cuál es la política de cancelación? Todavía no estoy seguro de la fecha.",
+          "Perfecto, me gustaría confirmar la reserva. Me llamo Ciara Murphy."
+        ]
+      },
+      {
+        "title": "Pharmacy — an allergy",
+        "situation": "You are at a pharmacy. You have a bad cold, but you are allergic to penicillin.",
+        "points": [
+          "Explain that you have a cold.",
+          "Say you are allergic to penicillin.",
+          "Ask for a medicine that is safe for you.",
+          "Ask how often you should take it.",
+          "Thank the pharmacist."
+        ],
+        "phrases": [
+          "Tengo un resfriado bastante fuerte.",
+          "Soy alérgico/a a la penicilina.",
+          "¿Hay algo que pueda tomar sin riesgo?",
+          "¿Cuántas veces al día tengo que tomarlo?"
+        ],
+        "model": [
+          "Buenos días, tengo un resfriado bastante fuerte y me duele la garganta.",
+          "Es importante que sepa que soy alérgico/a a la penicilina.",
+          "¿Hay algún medicamento que pueda tomar sin riesgo?",
+          "¿Cuántas veces al día tengo que tomarlo y durante cuántos días?",
+          "Muchas gracias por su ayuda. ¿Necesito receta?"
+        ]
+      },
+      {
+        "title": "Train station — missed connection",
+        "situation": "You are at the train station. Your train to Seville was delayed and you missed your connection.",
+        "points": [
+          "Explain which train you were on.",
+          "Say that you missed the connection.",
+          "Ask when the next train leaves.",
+          "Ask whether you need a new ticket.",
+          "Ask which platform it leaves from."
+        ],
+        "phrases": [
+          "Mi tren llevaba retraso.",
+          "He perdido el enlace con ...",
+          "¿Cuándo sale el próximo tren?",
+          "¿Tengo que comprar otro billete?"
+        ],
+        "model": [
+          "Buenas tardes, venía en el tren de Madrid y llevaba casi una hora de retraso.",
+          "Por eso he perdido el enlace con el tren a Sevilla.",
+          "¿Cuándo sale el próximo tren y llega a tiempo para mi reserva?",
+          "¿Tengo que comprar otro billete o vale el mío?",
+          "Gracias. ¿De qué andén sale?"
+        ]
+      },
+      {
+        "title": "School exchange — hosting a student",
+        "situation": "You are talking to a Spanish student who may come to your school on an exchange.",
+        "points": [
+          "Welcome the student to your school.",
+          "Give the dates of the exchange.",
+          "Explain where the student will sleep.",
+          "Suggest two activities.",
+          "Ask what the student would like to see."
+        ],
+        "phrases": [
+          "Estamos encantados de recibirte.",
+          "El intercambio será ...",
+          "Te vas a alojar ...",
+          "¿Te apetece ...?"
+        ],
+        "model": [
+          "¡Hola! Estamos encantados de recibirte en nuestro instituto.",
+          "El intercambio será del diez al diecisiete de marzo.",
+          "Te vas a alojar en mi casa; tienes tu propia habitación y el baño está al lado.",
+          "Podríamos visitar Dublín y hacer una excursión a la costa. También podemos ir a un partido de hurling.",
+          "¿Qué te gustaría ver? Quiero preparar un plan que te guste."
+        ]
+      },
+      {
+        "title": "Shop — return faulty headphones",
+        "situation": "You are in an electronics shop. You bought headphones last week and they have stopped working.",
+        "points": [
+          "Say what you bought and when.",
+          "Explain the problem.",
+          "Show the receipt.",
+          "Ask for a refund or a replacement.",
+          "Thank the assistant."
+        ],
+        "phrases": [
+          "Compré estos auriculares ...",
+          "Solo funcionan ...",
+          "Aquí tiene el recibo.",
+          "¿Podría cambiarlos o devolverme el dinero?"
+        ],
+        "model": [
+          "Buenos días, compré estos auriculares la semana pasada.",
+          "El auricular derecho ha dejado de funcionar y solo se oye el izquierdo.",
+          "Aquí tiene el recibo; los compré el martes por la tarde.",
+          "¿Podría cambiarlos por otros o devolverme el dinero?",
+          "Muchas gracias. ¿Necesita algo más de mí?"
+        ]
+      },
+      {
+        "title": "Restaurant — birthday booking",
+        "situation": "You are phoning a restaurant to book a table for a birthday dinner.",
+        "points": [
+          "Say you want to book a table.",
+          "Give the day, time and number of people.",
+          "Explain that it is a birthday.",
+          "Ask whether there is a vegetarian option.",
+          "Confirm the booking."
+        ],
+        "phrases": [
+          "Quería reservar una mesa ...",
+          "Somos seis personas.",
+          "Es el cumpleaños de ...",
+          "¿Tienen platos vegetarianos?"
+        ],
+        "model": [
+          "Hola, quería reservar una mesa para el sábado.",
+          "Seríamos seis personas y nos gustaría cenar a las ocho.",
+          "Es el cumpleaños de mi hermana, así que queremos hacer algo especial.",
+          "¿Tienen platos vegetarianos? Una de las invitadas no come carne.",
+          "Perfecto, confirmo la reserva para seis personas el sábado a las ocho. Gracias."
+        ]
+      },
+      {
+        "title": "Sports centre — join a class",
+        "situation": "You are at a sports centre. You want to join a class and find out about prices and times.",
+        "points": [
+          "Say you want to join the centre.",
+          "Ask about the different prices.",
+          "Ask which classes are available.",
+          "Ask about the timetable.",
+          "Ask whether you can try a class first."
+        ],
+        "phrases": [
+          "Me gustaría hacerme socio/a.",
+          "¿Cuánto cuesta al mes?",
+          "¿Qué clases hay?",
+          "¿Puedo probar una clase?"
+        ],
+        "model": [
+          "Hola, me gustaría hacerme socio/a del centro.",
+          "¿Cuánto cuesta al mes y hay una cuota de inscripción?",
+          "¿Qué clases hay por la tarde? Me interesan el yoga y el baloncesto.",
+          "¿Me puede dar el horario de las clases para adultos?",
+          "¿Puedo probar una clase antes de decidirme?"
+        ]
+      }
+      ],
+      "conversation": [
+      {
+        "title": "Family and friends",
+        "questions": [
+          {
+            "question": "¿Cómo es tu familia?",
+            "answer": "Somos cinco en casa: mis padres, mis dos hermanos y yo. Me llevo muy bien con mi hermana mayor porque tenemos los mismos intereses, aunque a veces discutimos por tonterías."
+          },
+          {
+            "question": "¿Quién es tu mejor amigo/a y qué hacéis juntos?",
+            "answer": "Mi mejor amiga se llama Laura. Nos conocimos en el instituto y quedamos casi todos los fines de semana. Normalmente vamos al cine o damos un paseo, y el verano pasado fuimos juntas a Galway."
+          },
+          {
+            "question": "¿Cómo era tu familia cuando eras pequeño/a?",
+            "answer": "Cuando era pequeño/a, vivíamos en una casa más pequeña y mis abuelos venían a comer todos los domingos. Era una casa muy ruidosa, pero me encantaba porque siempre había alguien con quien hablar."
+          },
+          {
+            "question": "¿Qué harás este fin de semana con tu familia?",
+            "answer": "El sábado vamos a celebrar el cumpleaños de mi madre. Vamos a comer en un restaurante y después mis hermanos y yo le hemos preparado una sorpresa. El domingo probablemente descansaremos en casa."
+          }
+        ]
+      },
+      {
+        "title": "Home and area",
+        "questions": [
+          {
+            "question": "¿Dónde vives y cómo es tu casa?",
+            "answer": "Vivo en un pueblo cerca de Cork, en el sur de Irlanda. Mi casa es bastante grande; tiene cuatro dormitorios, una cocina amplia y un jardín pequeño donde mi padre cultiva verduras."
+          },
+          {
+            "question": "¿Qué es lo que más te gusta de tu barrio?",
+            "answer": "Lo que más me gusta es que es muy tranquilo y está bien comunicado. Hay un parque cerca de casa y una biblioteca a diez minutos a pie. Lo peor es que por la noche no hay muchos autobuses."
+          },
+          {
+            "question": "¿Qué cambiarías de tu casa o de tu zona?",
+            "answer": "Cambiaría el transporte público, porque los autobuses pasan muy poco y los fines de semana casi no hay servicio. También me gustaría que hubiera más espacios para practicar deporte."
+          },
+          {
+            "question": "¿Prefieres vivir en la ciudad o en el campo? ¿Por qué?",
+            "answer": "Prefiero vivir en una ciudad pequeña porque tiene las ventajas del campo y de la ciudad. Hay tiendas y actividades, pero también puedo caminar sin mucho ruido. Sin embargo, en el futuro me gustaría probar vivir en el extranjero."
+          }
+        ]
+      },
+      {
+        "title": "School and routine",
+        "questions": [
+          {
+            "question": "¿Cómo es un día normal en tu instituto?",
+            "answer": "Normalmente me levanto a las siete y media y empiezo las clases a las nueve. Tenemos seis clases al día y el recreo es a las once. Después del instituto hago los deberes y, si tengo tiempo, salgo a correr."
+          },
+          {
+            "question": "¿Qué asignaturas estudias y cuál es tu favorita?",
+            "answer": "Estudio inglés, irlandés, matemáticas, español, biología y economía. Mi asignatura favorita es el español porque me gusta comunicarme y aprender sobre otras culturas. También me interesa la biología."
+          },
+          {
+            "question": "¿Qué opinas de las normas del instituto?",
+            "answer": "En general, creo que las normas son necesarias, pero algunas son demasiado estrictas. Por ejemplo, no me parece justo prohibir el móvil durante todo el día; podría usarse para aprender si hubiera reglas claras."
+          },
+          {
+            "question": "¿Qué hiciste ayer después del instituto?",
+            "answer": "Ayer fui a la biblioteca con una amiga porque teníamos que preparar un proyecto de historia. Después volví a casa, cené con mi familia y estudié español durante una hora. Fue un día bastante tranquilo."
+          }
+        ]
+      },
+      {
+        "title": "Free time and sport",
+        "questions": [
+          {
+            "question": "¿Qué haces en tu tiempo libre?",
+            "answer": "En mi tiempo libre me gusta hacer deporte y quedar con mis amigos. Juego al baloncesto dos veces por semana y también leo novelas. Cuando hace buen tiempo, voy a la playa con mi familia."
+          },
+          {
+            "question": "¿Qué deporte practicabas cuando eras niño/a?",
+            "answer": "Cuando era niño/a, jugaba al fútbol cada sábado en un equipo local. No era muy bueno/a, pero me divertía mucho. Lo dejé cuando empecé el instituto porque tenía demasiados deberes."
+          },
+          {
+            "question": "¿Prefieres ver deporte o practicarlo?",
+            "answer": "Prefiero practicarlo porque me ayuda a relajarme y a sentirme bien. Ver deporte también me gusta, sobre todo el rugby, pero no lo cambiaría por jugar un partido con mis amigos."
+          },
+          {
+            "question": "¿Qué te gustaría probar en el futuro?",
+            "answer": "Me gustaría probar el surf porque vivo cerca del mar y nunca lo he hecho. También quiero hacer un viaje de senderismo con amigos cuando termine los exámenes."
+          }
+        ]
+      },
+      {
+        "title": "Holidays and travel",
+        "questions": [
+          {
+            "question": "¿Adónde fuiste de vacaciones el verano pasado?",
+            "answer": "El verano pasado fui a España con mi familia. Pasamos una semana en Valencia y visitamos la Ciudad de las Artes y las Ciencias. Me encantó la comida y la playa, aunque hacía mucho calor."
+          },
+          {
+            "question": "¿Cómo prefieres viajar y por qué?",
+            "answer": "Prefiero viajar en tren porque es más cómodo y puedo ver el paisaje. Además, llego al centro de la ciudad sin tener que buscar aparcamiento. En avión solo viajo cuando la distancia es muy larga."
+          },
+          {
+            "question": "¿Qué planes tienes para las próximas vacaciones?",
+            "answer": "El año que viene me gustaría hacer un intercambio en España. Si tengo suficiente dinero, también quiero visitar el norte, porque me han dicho que Galicia es preciosa y muy diferente del sur."
+          },
+          {
+            "question": "¿Qué es lo más importante para ti cuando viajas?",
+            "answer": "Para mí lo más importante es conocer la cultura local y probar la comida típica. No me gusta pasar todo el día en un hotel; prefiero caminar por las calles y hablar con la gente."
+          }
+        ]
+      },
+      {
+        "title": "Work and future",
+        "questions": [
+          {
+            "question": "¿Has tenido algún trabajo?",
+            "answer": "El verano pasado trabajé en una cafetería los fines de semana. Aprendí a tratar con los clientes y a trabajar en equipo, aunque a veces era cansado. Con el dinero ahorré para un viaje."
+          },
+          {
+            "question": "¿Qué te gustaría estudiar después del instituto?",
+            "answer": "Me gustaría estudiar una carrera relacionada con los idiomas o con la comunicación. Siempre me ha interesado viajar y entender otras culturas, así que creo que sería una buena opción."
+          },
+          {
+            "question": "¿Prefieres trabajar solo/a o en equipo?",
+            "answer": "Prefiero trabajar en equipo porque se comparten ideas y el trabajo sale mejor. Sin embargo, también me gusta tener momentos para concentrarme solo/a, sobre todo cuando tengo que escribir."
+          },
+          {
+            "question": "¿Qué trabajo no te gustaría hacer? ¿Por qué?",
+            "answer": "No me gustaría trabajar en un sitio con un horario muy fijo y sin contacto con la gente. Necesito variedad y me gusta hablar con personas, así que un trabajo repetitivo me resultaría aburrido."
+          }
+        ]
+      },
+      {
+        "title": "Technology and environment",
+        "questions": [
+          {
+            "question": "¿Cuánto tiempo pasas en las redes sociales?",
+            "answer": "Paso demasiado tiempo, sobre todo por la noche. Intento limitarlo a una hora al día porque me doy cuenta de que afecta a mi concentración. Los fines de semana casi no las uso."
+          },
+          {
+            "question": "¿Cuáles son las ventajas y desventajas de la tecnología?",
+            "answer": "La tecnología nos permite comunicarnos y aprender cosas nuevas, pero también puede crear dependencia y distraernos. En mi opinión, la clave es usarla con equilibrio y no dejar que controle nuestro tiempo."
+          },
+          {
+            "question": "¿Qué haces para cuidar el medio ambiente?",
+            "answer": "En casa reciclamos y intentamos no desperdiciar agua. Además, voy al instituto en autobús o a pie. Creo que las pequeñas acciones son importantes, pero los gobiernos también tienen que tomar medidas."
+          },
+          {
+            "question": "¿Crees que la gente se preocupa suficiente por el cambio climático?",
+            "answer": "Creo que mucha gente se preocupa, pero no siempre cambia sus hábitos. Es fácil estar de acuerdo con el problema y seguir haciendo lo mismo. Por eso hacen falta educación y soluciones prácticas."
+          }
+        ]
+      },
+      {
+        "title": "Opinions and culture",
+        "questions": [
+          {
+            "question": "¿Por qué estudias español?",
+            "answer": "Estudio español porque me gusta el idioma y quiero viajar por España y Latinoamérica. También creo que hablar otro idioma abre muchas puertas en el trabajo y ayuda a entender otras formas de ver el mundo."
+          },
+          {
+            "question": "¿Qué te llama la atención de la cultura española?",
+            "answer": "Me llama la atención que la vida social sea tan importante. En España la gente sale mucho y las comidas pueden durar horas. Me gusta esa idea de pasar tiempo juntos, aunque estoy acostumbrado/a a cenar más temprano."
+          },
+          {
+            "question": "¿Qué opinas de aprender de memoria en el instituto?",
+            "answer": "Creo que aprender de memoria puede ser útil para algunos datos, pero no debería ser la única forma de estudiar. Es mejor entender las ideas y saber aplicarlas, sobre todo en asignaturas como historia o ciencias."
+          },
+          {
+            "question": "Si pudieras cambiar una cosa del mundo, ¿qué cambiarías?",
+            "answer": "Cambiaría la desigualdad en la educación, porque todos los niños deberían tener las mismas oportunidades. Si hubiera más acceso a una buena educación, muchos problemas sociales mejorarían a largo plazo."
+          }
+        ]
+      }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+---
+import Base from "../../layouts/Base.astro";
+import StudyShell from "../../components/StudyShell.astro";
+import { getOral, subjects } from "../../lib/content";
+
+export function getStaticPaths() {
+  return subjects
+    .filter((subject) => getOral(subject.slug).roleplays.length > 0)
+    .map((subject) => ({
+      params: { subject: subject.slug },
+      props: { subject },
+    }));
+}
+
+const { subject } = Astro.props;
+const { roleplays, conversation } = getOral(subject.slug);
+const questionCount = conversation.reduce((sum, topic) => sum + topic.questions.length, 0);
+---
+
+<Base
+  title={`Oral trainer · ${subject.name}`}
+  description={`${subject.name} oral practice: five-point roleplays, useful phrases, model answers and conversation questions.`}
+>
+  <StudyShell subject={subject}>
+    <div class="section-c-page oral-page">
+    <h1 class="sr-only">Oral trainer</h1>
+    <section class="section-c-head">
+      <h2>Oral trainer</h2>
+      <p>
+        Rehearse the two parts of the oral: a five-point roleplay and a conversation that keeps
+        moving. Answer aloud, add a reason or example, and record yourself.
+      </p>
+    </section>
+
+    <div class="oral-banner">
+      <strong>{roleplays.length} roleplays · {questionCount} conversation questions</strong>
+      <span>Original practice situations, not the current SEC roleplay list. Check the official list before the exam.</span>
+    </div>
+
+    <section class="oral-block">
+      <div class="oral-block-head">
+        <h3>Roleplays</h3>
+        <p>
+          Each card gives you a situation, five points to communicate and a model answer. Cover the
+          model, speak your own answer, then compare.
+        </p>
+      </div>
+      <div class="oral-cards">
+        {
+          roleplays.map((roleplay, index) => (
+            <article class="oral-card" id={`rp-${index + 1}`}>
+              <div class="oral-card-head">
+                <span class="oral-index">RP {String(index + 1).padStart(2, "0")}</span>
+                <h4>{roleplay.title}</h4>
+              </div>
+              <p class="oral-situation">{roleplay.situation}</p>
+              <div class="oral-columns">
+                <div>
+                  <h5>Your five points</h5>
+                  <ol class="oral-points">
+                    {roleplay.points.map((point) => <li>{point}</li>)}
+                  </ol>
+                </div>
+                <div>
+                  <h5>Useful language</h5>
+                  <ul class="oral-phrases">
+                    {roleplay.phrases.map((phrase) => <li>{phrase}</li>)}
+                  </ul>
+                </div>
+              </div>
+              <details class="qscheme oral-model">
+                <summary>
+                  <span>Model answer</span>
+                  <span class="qchev" aria-hidden="true">⌄</span>
+                </summary>
+                <div class="qanswer">
+                  <ol>
+                    {roleplay.model.map((line) => <li>{line}</li>)}
+                  </ol>
+                </div>
+              </details>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="oral-block">
+      <div class="oral-block-head">
+        <h3>Conversation bank</h3>
+        <p>
+          Open a question, answer it aloud for 30–45 seconds, then read the model. Aim for answer,
+          reason, example and a future or opinion sentence.
+        </p>
+      </div>
+      <div class="oral-topics">
+        {
+          conversation.map((topic, topicIndex) => (
+            <article class="oral-topic" id={`topic-${topicIndex + 1}`}>
+              <h4>{topic.title}</h4>
+              {topic.questions.map((question, questionIndex) => (
+                <details
+                  class="oral-question"
+                  id={`conversation-${topicIndex + 1}-${questionIndex + 1}`}
+                >
+                  <summary>{question.question}</summary>
+                  <p class="oral-answer">{question.answer}</p>
+                </details>
+              ))}
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <p class="lab-source">{subject.oralNote}</p>
+    </div>
+  </StudyShell>
+
+  <script is:inline>
+    (function () {
+      if (!location.hash.startsWith("#conversation-")) return;
+      var target = document.querySelector(location.hash);
+      if (target instanceof HTMLDetailsElement) target.open = true;
+      requestAnimationFrame(function () {
+        target?.scrollIntoView({ block: "start" });
+      });
+    })();
+  </script>
+</Base>

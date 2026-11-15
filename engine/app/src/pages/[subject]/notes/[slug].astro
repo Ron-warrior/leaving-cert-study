@@ -1,0 +1,164 @@
+---
+import Base from "../../../layouts/Base.astro";
+import CodeRunner from "../../../components/CodeRunner.svelte";
+import StudyFooter from "../../../components/StudyFooter.astro";
+import StudySidebar from "../../../components/StudySidebar.astro";
+import {
+  subjects,
+  readNote,
+  noteHref,
+  shortTitle,
+  wordCount,
+  readMinutes,
+  getDemos,
+} from "../../../lib/content";
+import { renderMarkdown } from "../../../lib/markdown";
+
+export function getStaticPaths() {
+  return subjects.flatMap((subject) =>
+    subject.notes.map((note, index) => ({
+      params: { subject: subject.slug, slug: note.slug },
+      props: { subject, note, index },
+    })),
+  );
+}
+
+const { subject, note, index } = Astro.props;
+const body = readNote(note);
+const words = wordCount(body);
+const minutes = readMinutes(body);
+const previous = index > 0 ? subject.notes[index - 1] : null;
+const next = index + 1 < subject.notes.length ? subject.notes[index + 1] : null;
+const kicker = subject.hasGuide && index === 0 ? "Exam guide" : `Chapter ${index}`;
+const demos = getDemos(subject.slug, note.slug);
+const resumeKey = `gk2-resume-${subject.slug}`;
+const resumeTitle = index > 0 ? `Chapter ${index} — ${shortTitle(note.title)}` : shortTitle(note.title);
+
+const toc: { id: string; text: string }[] = [];
+let section = 0;
+const html = renderMarkdown(body).replace(/<h([1-5])>(.*?)<\/h\1>/g, (_match, rawLevel, inner) => {
+  const level = Math.min(6, Number(rawLevel) + 1);
+  if (rawLevel === "2") {
+    section += 1;
+    const id = `section-${section}`;
+    const text = String(inner).replace(/<[^>]+>/g, "").trim();
+    toc.push({ id, text });
+    return `<h${level} id="${id}">${inner}</h${level}>`;
+  }
+  return `<h${level}>${inner}</h${level}>`;
+});
+---
+
+<Base title={`${shortTitle(note.title)} · ${subject.name}`} description={`${subject.name} revision notes: ${shortTitle(note.title)}.`}>
+  <button
+    class="float-menu"
+    type="button"
+    data-menu
+    aria-controls="side-menu"
+    aria-expanded="false"
+    aria-label="Open subject menu"
+  >☰</button>
+
+  <main id="main" class="wrap layout">
+    <StudySidebar subject={subject} />
+
+    <div class="col">
+      <div class="readbar" data-readbar aria-hidden="true"><span></span></div>
+      <h1 class="sr-only">{shortTitle(note.title)}</h1>
+
+      <div class="note-kicker">
+        <span>{kicker}</span>
+        <div class="note-kicker-tools">
+          <span>{words.toLocaleString()} words · ~{minutes} min read</span>
+          <button
+            class="note-tool"
+            type="button"
+            data-focus-toggle
+            aria-pressed="false"
+            title="Hide the sidebar and widen the notes"
+          >Focus</button>
+          <button class="note-tool" type="button" data-print>Print</button>
+        </div>
+      </div>
+
+      {toc.length >= 2 && (
+        <details class="chapter-toc">
+          <summary>
+            <span>In this chapter</span>
+            <span class="toc-count">{toc.length} sections</span>
+          </summary>
+          <ol>
+            {toc.map((item) => (
+              <li><a href={`#${item.id}`}>{item.text}</a></li>
+            ))}
+          </ol>
+        </details>
+      )}
+
+      <article class="note-page" set:html={html} />
+
+      {demos.length > 0 && (
+        <section class="demos">
+          <div class="demos-head">
+            <h3>Runnable demo</h3>
+            <p>Edit the code, press Run, and see the output without leaving the chapter.</p>
+          </div>
+          {demos.map((demo) => (
+            <CodeRunner
+              client:load
+              title={demo.title}
+              blurb={demo.blurb}
+              lang={demo.lang}
+              code={demo.code}
+            />
+          ))}
+        </section>
+      )}
+
+      <nav class="note-pager" aria-label="Previous and next chapter">
+        {previous ? (
+          <a class="pager-card prev" href={noteHref(subject, previous)}>
+            <span class="pager-dir">← Previous</span>
+            <span class="pager-title">{shortTitle(previous.title)}</span>
+          </a>
+        ) : (
+          <span class="pager-spacer" />
+        )}
+        {next ? (
+          <a class="pager-card next" href={noteHref(subject, next)}>
+            <span class="pager-dir">Next →</span>
+            <span class="pager-title">{shortTitle(next.title)}</span>
+          </a>
+        ) : null}
+      </nav>
+    </div>
+  </main>
+
+  <script is:inline>
+    (function () {
+      var bar = document.querySelector("[data-readbar] span");
+      if (bar) {
+        function update() {
+          var doc = document.documentElement;
+          var distance = doc.scrollHeight - window.innerHeight;
+          var passed = window.scrollY;
+          bar.style.width = distance > 0 ? Math.min(100, (passed / distance) * 100) + "%" : "100%";
+        }
+        window.addEventListener("scroll", update, { passive: true });
+        window.addEventListener("resize", update);
+        update();
+      }
+    })();
+  </script>
+
+  <script is:inline define:vars={{ resumeKey, resumeTitle }}>
+    try {
+      localStorage.setItem(
+        resumeKey,
+        JSON.stringify({ href: location.pathname, title: resumeTitle }),
+      );
+    } catch (e) {}
+  </script>
+
+  <StudyFooter subject={subject} />
+</Base>

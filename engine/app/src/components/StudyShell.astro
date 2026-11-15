@@ -1,0 +1,30 @@
+---
+import StudyFooter from "./StudyFooter.astro";
+import StudySidebar from "./StudySidebar.astro";
+import type { Subject } from "../lib/content";
+
+interface Props {
+  subject: Subject;
+  pageClass?: string;
+}
+
+const { subject, pageClass = "" } = Astro.props;
+---
+
+<button
+  class="float-menu"
+  type="button"
+  data-menu
+  aria-controls="side-menu"
+  aria-expanded="false"
+  aria-label="Open subject menu"
+>☰</button>
+
+<main id="main" class:list={["wrap", "layout", pageClass]}>
+  <StudySidebar subject={subject} />
+  <div class="col">
+    <slot />
+  </div>
+</main>
+
+<StudyFooter subject={subject} />

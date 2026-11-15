@@ -1,0 +1,33 @@
+---
+import Base from "../../layouts/Base.astro";
+import StudyShell from "../../components/StudyShell.astro";
+import Mock from "../../components/Mock.svelte";
+import { getQuestions, subjects } from "../../lib/content";
+
+export function getStaticPaths() {
+  return subjects.map((subject) => ({
+    params: { subject: subject.slug },
+    props: { subject },
+  }));
+}
+
+const { subject } = Astro.props;
+const questions = getQuestions(subject.slug);
+---
+
+<Base
+  title={`${subject.mockTitle} · ${subject.name}`}
+  description={`${subject.name} timed mock: ${subject.mockBlurb}`}
+>
+  <StudyShell subject={subject}>
+    <Mock
+      client:load
+      subject={subject}
+      questions={questions}
+      title={subject.mockTitle}
+      minutes={subject.mockMinutes}
+      blurb={subject.mockBlurb}
+      extraLink={subject.slug === "cs" ? "/cs/original-sample-paper-a/" : ""}
+    />
+  </StudyShell>
+</Base>

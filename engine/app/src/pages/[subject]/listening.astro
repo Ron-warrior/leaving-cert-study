@@ -1,0 +1,32 @@
+---
+import Base from "../../layouts/Base.astro";
+import StudyShell from "../../components/StudyShell.astro";
+import Listening from "../../components/Listening.svelte";
+import { getListening, subjects } from "../../lib/content";
+
+export function getStaticPaths() {
+  return subjects
+    .filter((subject) => getListening(subject.slug).length > 0)
+    .map((subject) => ({
+      params: { subject: subject.slug },
+      props: { subject },
+    }));
+}
+
+const { subject } = Astro.props;
+const papers = getListening(subject.slug);
+---
+
+<Base
+  title={`Listening practice · ${subject.name}`}
+  description={`${subject.name} listening papers with full audio, questions, answer points and transcripts.`}
+>
+  <StudyShell subject={subject} pageClass="listening-page">
+    <Listening
+      client:load
+      subject={subject}
+      papers={papers}
+      note={subject.listeningNote ?? ""}
+    />
+  </StudyShell>
+</Base>

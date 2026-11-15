@@ -1,0 +1,22 @@
+---
+import Base from "../../layouts/Base.astro";
+import StudyShell from "../../components/StudyShell.astro";
+import Bank from "../../components/Bank.svelte";
+import { getQuestions, subjects } from "../../lib/content";
+
+export function getStaticPaths() {
+  return subjects.map((subject) => ({
+    params: { subject: subject.slug },
+    props: { subject },
+  }));
+}
+
+const { subject } = Astro.props;
+const questions = getQuestions(subject.slug);
+---
+
+<Base title={`${subject.name} question bank · Leaving Cert Study`} description={`${subject.name} past-paper questions with self-marking rubrics.`}>
+  <StudyShell subject={subject}>
+    <Bank client:load subject={subject} questions={questions} />
+  </StudyShell>
+</Base>

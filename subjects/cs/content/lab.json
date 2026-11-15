@@ -1,0 +1,253 @@
+{
+  "schemaVersion": 1,
+  "subjects": [
+    {
+      "slug": "cs",
+      "papers": [
+      {
+        "year": 2023,
+        "split": "50 + 30 marks",
+        "note": "The first Section C paper. Part (a) is a guided modification of a guessing game; part (b) is a from-scratch scoring game.",
+        "parts": [
+        {
+          "letter": "(a)",
+          "title": "Guessing game",
+          "marks": "50 marks",
+          "split": "(10, 10, 5, 5, 10, 10)",
+          "prompt": "Open the program called Question16_A.py from your device. The source code is shown below.\n\nThe program defines a function called guess_game which simulates a guessing game. When the function is called, the program generates a secret number between 1 and 5 inclusive. This is stored in a variable called secret_number.\n\nThe program then enters a loop in which the user is prompted to guess the number. The user's guess is stored in the variable user_guess. Every time the user enters a guess the program increases the variable guess_count by one. If the user's guess matches the computer's secret number, the message 'Congratulations! You win!' is displayed. The loop continues until the user guesses the secret number.",
+          "tasks": [
+            "Change the program to display an extra line of output when the user wins, showing the number of guesses taken.",
+            "The program does not display a message unless the user guesses the secret number. Change the program so that it displays one of the following messages as a hint to the user: 'Sorry! Your guess was too low' or 'Sorry! Your guess was too high'.",
+            "Currently the program has no way of ending unless the user guesses the secret number. Change the program so that it does not allow the user more than three guesses. This is the value currently being passed into the function. Hint: You will need to change the loop so that it continues as long as the user's guess is not equal to the secret number and the number of guesses is less than max_guesses_allowed.",
+            "Currently the number of guesses that the user is allowed is hard coded to three. Modify the program so that the user is presented with the prompt: Enter the maximum number of guesses allowed. Store the value entered as an integer and pass this value into the function guess_game.",
+            "Currently the secret number is always between 1 and 5 inclusive. Modify the program so that it prompts the user to enter a difficulty level – 'E' for easy and 'H' for hard. If the user chooses 'H' the secret number should be between 1 and 100 inclusive. A value of anything other than 'H' can be interpreted as easy.",
+            "Modify the code so that if the user guesses a number that was already guessed the following message is displayed: 'You already guessed this number.'"
+          ],
+          "sample": "Welcome to the guessing game!\nEnter the maximum number of guesses allowed: 3\nEnter difficulty E(asy) or H(ard): E\nEnter your guess: 1\nSorry! Your guess was too low\nEnter your guess: 1\nYou already guessed this number.\nSorry! Your guess was too low\nEnter your guess: 3\nCongratulations! You win!\nYou took 3 guesses.",
+          "starter": "# Question 16(a)\n# Examination Number:\nfrom random import randint\n\ndef guess_game(max_guesses_allowed):\n    secret_number = randint(1, 5)\n    guess_count = 0\n    user_guess = 0\n\n    while (user_guess != secret_number):\n        user_guess = int(input(\"Enter your guess: \"))\n        guess_count += 1   # Increase guess_count by 1\n        if user_guess == secret_number:\n            print(\"Congratulations! You win!\")\n\nprint(\"Welcome to the guessing game!\")\nguess_game(3)",
+          "solution": "from random import randint\n\ndef guess_game(max_guesses_allowed):\n    # (v) choose the difficulty, and therefore the range\n    difficulty = input(\"Enter difficulty E(asy) or H(ard): \")\n    if difficulty.upper() == \"H\":\n        secret_number = randint(1, 100)\n    else:\n        secret_number = randint(1, 5)\n\n    guess_count = 0\n    user_guess = 0\n    guesses = []  # (vi)\n\n    while (user_guess != secret_number) and (guess_count < max_guesses_allowed):\n        user_guess = int(input(\"Enter your guess: \"))\n        guess_count += 1\n\n        # (vi) warn before counting the repeated guess as a fresh hint\n        if user_guess in guesses:\n            print(\"You already guessed this number.\")\n        guesses.append(user_guess)\n\n        if user_guess == secret_number:\n            print(\"Congratulations! You win!\")\n            print(\"You took\", guess_count, \"guesses\")  # (i)\n        elif user_guess < secret_number:\n            print(\"Sorry! Your guess was too low\")  # (ii)\n        else:\n            print(\"Sorry! Your guess was too high\")  # (ii)\n\nprint(\"Welcome to the guessing game!\")\nnum_guesses_allowed = int(input(\"Enter the maximum number of guesses allowed: \"))\nguess_game(num_guesses_allowed)",
+          "scheme": [
+            "Marks: (i) 10, (ii) 10, (iii) 5, (iv) 5, (v) 10, (vi) 10.",
+            "10-mark B/C bands: 10 correct; 7 almost correct with a minor syntax or semantic error; 3 some merit. The C-10 parts also award 5 for a half-right, significant-error response.",
+            "5-mark B/C bands: 5 correct; 3 almost correct; 2 some merit.",
+            "The scheme accepts a correct implementation 'or similar'; the checks are behaviour and output, not identical code."
+          ]
+        },
+        {
+          "letter": "(b)",
+          "title": "Number guessing game with scoring",
+          "marks": "30 marks",
+          "split": "Holistic: 5 + 5 + 10 + 10",
+          "prompt": "Implement a number guessing game in Python. The game requires the user to guess a random number between 1 and 100 and they are awarded points based on how close they get to the number. You should use comments throughout your program to explain your code. You may wish to reuse some of the code you used in part (a) as part of your solution.",
+          "tasks": [
+            "The user's score is set to zero.",
+            "At the start of every new round the computer generates a random number between 1 and 100. This is the secret number that the user is trying to guess.",
+            "The user is then prompted to enter a guess as shown below. Enter your guess:",
+            "Calculate the difference between the secret number and the user guess.",
+            "The numbers are then displayed in a meaningful message on a single line as shown below. Secret number is 55. You guessed 50. Difference is 5.",
+            "If the user's guess and the secret number are the same then the score is increased by 100 and the message 'JACKPOT!!! You score 100 points' is displayed.",
+            "If the user's guess is within 20 (either side) of the secret number the user's score is increased by 20 and the message 'You score 20 points' is displayed.",
+            "If the user's guess is more than 30 away from the secret number the user's score is decreased by 30 and the message 'You lose 30 points' is displayed.",
+            "At the end of each round the score is displayed and the user is prompted with the message 'Play again? (Y/N):'.",
+            "The game ends when the user enters anything other than the single letter 'Y'."
+          ],
+          "sample": "Enter your guess: 35\nSecret number is 31. You guessed 35. Difference is 4.\nYou score 20 points\nYour total score is: 20\nPlay again? (Y/N): Y\nEnter your guess: 91\nSecret number is 6. You guessed 91. Difference is 85.\nYou lose 30 points\nYour total score is: -10\nPlay again? (Y/N): Y\nEnter your guess: 54\nSecret number is 54. You guessed 54. Difference is 0.\nJACKPOT!!! You score 100 points\nYour total score is: 90\nPlay again? (Y/N): N",
+          "starter": "# Question 16(b)\n# Examination Number:\n\n# Write your solution here, then press Run.\n",
+          "solution": "from random import randint\n\nuser_score = 0\n\nwhile True:\n    secret_number = randint(1, 100)\n    user_guess = int(input(\"Enter your guess: \"))\n\n    difference = abs(user_guess - secret_number)\n    print(\"Secret number is %d. You guessed %d. Difference is %d\"\n          % (secret_number, user_guess, difference))\n\n    if user_guess == secret_number:\n        user_score += 100\n        print(\"JACKPOT!!! You score 100 points\")\n    elif difference < 20:\n        user_score += 20\n        print(\"You score 20 points\")\n    elif difference > 30:\n        user_score -= 30\n        print(\"You lose 30 points\")\n\n    print(\"Your total score is:\", user_score)\n\n    play_again = input(\"Play again? (Y/N): \")\n    if play_again != \"Y\":\n        break",
+          "scheme": [
+            "Holistic 30 marks: Programming Standards 5; Program Inputs 5; Program Logic 10; Program Outputs 10.",
+            "High level: all features implemented correctly and efficiently. Moderate: a reasonable attempt at at least two of each feature. Low: a poor attempt.",
+            "Inputs: random number 1–100, guess prompt, play-again prompt, correct initialisation and assignment.",
+            "Logic: game loop / play-again logic, score for each round, correctly accumulated total.",
+            "Outputs: secret number, guess and difference; round outcome; total score at the end of each round.",
+            "The published scheme's sample prints 'Your lose 30 points'; the paper requires 'You lose 30 points'."
+          ]
+        }
+        ]
+      },
+      {
+        "year": 2024,
+        "split": "50 + 30 marks",
+        "note": "Part (a) develops a fruit-selection program step by step; part (b) is a fruit-machine simulation.",
+        "parts": [
+        {
+          "letter": "(a)",
+          "title": "Random fruit selection",
+          "marks": "50 marks",
+          "split": "(5, 5, 5, 5, 5, 10, 15)",
+          "prompt": "Open the program called Question16_A.py from your device. The source code is shown below.\n\nThe program initialises a list called fruits with three elements – apple, cherry and orange. Line 7 of the program is an assignment statement in which a random fruit is selected from the list and assigned to the variable called random_fruit_1.\n\nThe program does not display any output.",
+          "tasks": [
+            "Write a line of code to display the value of the variable random_fruit_1 in a message. Example: Random Fruit 1: cherry",
+            "Add statements to initialise two new variables with fruits chosen randomly from the list. You should also display the values of the variables which should be called random_fruit_2 and random_fruit_3.",
+            "Add code to display the message 'First fruit is cherry' if the first random fruit is a cherry.",
+            "Add code to display the message 'First pair match' if the first two fruits are the same.",
+            "Add code to display the message 'First pair are cherries' if the first two fruits are both cherries.",
+            "Add code to display the message 'Matching pair' if any two fruits are the same.",
+            "Extend the program with a loop that iterates 100 times. The loop should generate a random fruit on each iteration. After the loop is executed, the program should display a count of the number of times each fruit was generated. There is no need to display the names of the 100 fruits."
+          ],
+          "sample": "Random Fruit 1: orange\nRandom Fruit 2: cherry\nRandom Fruit 3: cherry\n\nMatching pair\n\napple 33\ncherry 36\norange 31",
+          "starter": "# Question 16(a)\n# Examination Number:\nfrom random import choice\n\nfruits = ['apple', 'cherry', 'orange']\n\nrandom_fruit_1 = choice(fruits)",
+          "solution": "from random import choice\n\nfruits = ['apple', 'cherry', 'orange']\n\nrandom_fruit_1 = choice(fruits)\nprint(\"Random Fruit 1:\", random_fruit_1)  # (i)\n\nrandom_fruit_2 = choice(fruits)  # (ii)\nprint(\"Random Fruit 2:\", random_fruit_2)\nrandom_fruit_3 = choice(fruits)\nprint(\"Random Fruit 3:\", random_fruit_3)\nprint()\n\nif random_fruit_1 == \"cherry\":  # (iii)\n    print(\"First fruit is cherry\")\n\nif random_fruit_1 == random_fruit_2:  # (iv)\n    print(\"First pair match\")\n\nif random_fruit_1 == random_fruit_2 and random_fruit_1 == \"cherry\":  # (v)\n    print(\"First pair are cherries\")\n\nif (random_fruit_1 == random_fruit_2 or\n        random_fruit_1 == random_fruit_3 or\n        random_fruit_2 == random_fruit_3):  # (vi)\n    print(\"Matching pair\")\n\nrandom_fruits = []  # (vii)\nfor i in range(100):\n    random_fruits.append(choice(fruits))\n\nfor fruit in fruits:\n    print(fruit, random_fruits.count(fruit))",
+          "scheme": [
+            "Marks: (i) 5, (ii) 5, (iii) 5, (iv) 5, (v) 5, (vi) 10, (vii) 15.",
+            "5-mark C bands: 5 correct; 3 minor syntax or semantic error; 2 some merit. B-5 parts award 5 or 3.",
+            "10-mark D bands: 10 correct; 7 almost correct; 5 about half-right; 3 some merit.",
+            "15-mark D bands: 15 correct; 12 almost correct; 8 about half-right; 5 some merit.",
+            "The scheme accepts 'or similar'; output wording and the boolean conditions carry the marks."
+          ]
+        },
+        {
+          "letter": "(b)",
+          "title": "Fruit machine simulation",
+          "marks": "30 marks",
+          "split": "Holistic: 10 + 5 + 10 + 5",
+          "prompt": "Implement a simulation of a fruit machine in Python. You should use comments throughout your program to explain your code. You may wish to reuse some of the code you used in part (a) as part of your solution.",
+          "tasks": [
+            "Initialise a list called fruits with three elements – apple, cherry and orange.",
+            "Display the initial list of fruits as shown. The initial list of fruits is: ['apple', 'cherry', 'orange']",
+            "Prompt the user to enter an additional fruit, for example kiwi, pear or lemon and append the value entered to fruits. Enter an additional fruit: kiwi",
+            "Display the list of four fruits, for example: The list of four fruits is: ['apple', 'cherry', 'orange', 'kiwi']",
+            "Prompt the user to nominate their winning fruit which must be in the above list. If the user enters a fruit that is not in fruits, the program should display an error message and prompt the user to nominate their winning fruit again. This should continue as long as the winning fruit entered is not in fruits.",
+            "Display the winning fruit, as shown below. The winning fruit you selected is cherry",
+            "Write code to select three random fruits from fruits. Compare the selected fruits to the winning fruit entered earlier and keep going until all three fruits match the winning fruit.",
+            "The program should keep a count of the number of tries taken and display this with a 'Winner' message at the end, as shown below. Winner after 38 tries"
+          ],
+          "sample": "The initial list of fruits is:\n['apple', 'cherry', 'orange']\n\nEnter an additional fruit: kiwi\nThe list of 4 fruits is:\n['apple', 'cherry', 'orange', 'kiwi']\n\nNominate your winning fruit: cherry\nThe winning fruit you selected is cherry\n\nWinner after 38 tries",
+          "starter": "# Question 16(b)\n# Examination Number:\n\n# Write your solution here, then press Run.\n",
+          "solution": "from random import choice\n\nfruits = ['apple', 'cherry', 'orange']\nprint(\"The initial list of fruits is:\")\nprint(fruits)\nprint()\n\nfruit = input(\"Enter an additional fruit: \")\nfruits.append(fruit)\n\nprint(\"The list of 4 fruits is:\")\nprint(fruits)\nprint()\n\nwinning_fruit = input(\"Nominate your winning fruit: \")\nwhile winning_fruit not in fruits:\n    print(\"Error: winning fruit must be in the list\")\n    winning_fruit = input(\"Nominate your winning fruit: \")\n\nprint(\"The winning fruit you selected is\", winning_fruit)\nprint()\n\nrandom_fruit_1 = choice(fruits)\nrandom_fruit_2 = choice(fruits)\nrandom_fruit_3 = choice(fruits)\n\ncount = 1\nwhile True:\n    if (random_fruit_1 == random_fruit_2 and\n            random_fruit_1 == random_fruit_3 and\n            random_fruit_1 == winning_fruit):\n        break\n    random_fruit_1 = choice(fruits)\n    random_fruit_2 = choice(fruits)\n    random_fruit_3 = choice(fruits)\n    count = count + 1\n\nprint(\"Winner after\", count, \"tries\")",
+          "scheme": [
+            "Holistic 30 marks: Programming Standards 10; Program Inputs 5; Program Logic 10; Program Outputs 5.",
+            "High level: all features correct and efficient. Moderate: reasonable attempt at at least two of each feature. Low: poor attempt.",
+            "Inputs: initialise the fruit list, prompt for an extra fruit and a winning fruit, generate three random fruits.",
+            "Logic: append the extra fruit, validate the winning fruit in a loop, simulate the machine and maintain the try counter.",
+            "Outputs: initial list, four-fruit list, winning fruit and the winner message with the counter.",
+            "The published error message differs slightly from the paper; either clear error wording is acceptable if the loop repeats."
+          ]
+        }
+        ]
+      },
+      {
+        "year": 2025,
+        "split": "50 + 30 marks",
+        "note": "Part (a) works through a results list and a grade function; part (b) is the median program.",
+        "parts": [
+        {
+          "letter": "(a)",
+          "title": "Test results and grades",
+          "marks": "50 marks",
+          "split": "(5, 5, 5, 5, 5, 10, 15)",
+          "prompt": "Open the program called Question16_A.py from your device. The source code is shown below.\n\nLine 15 of the program initialises a list called results with nine values. Each value represents a percentage mark obtained by an individual student in nine class tests all in the same subject. The final percentage for the subject is calculated by averaging the nine results.\n\nThe for loop adds up the values in results and stores the answer in the variable called total. Line 24 of the program calculates the mean (average) of all the results by dividing total by 9. The mean is saved in the variable called arithmetic_mean.",
+          "tasks": [
+            "Round the mean percentage to two decimal places. The output should become: The mean percentage mark is 61.78",
+            "Currently, the code divides the total by 9 to calculate the mean. Modify the code so that it divides the total by the number of elements in the results list, regardless of its size.",
+            "Complete the function get_grade so that it sets the variable grade to the correct grade using the parameter result and the information provided in the table below.\n    Result  Grade\n    >= 80   Distinction\n    >= 65   Upper Merit\n    >= 50   Lower Merit\n    >= 40   Pass\n    < 40    Unsuccessful",
+            "Extend the program so that it calls the function get_grade and displays the grade in a message such as: The grade for the average result is [grade]. You will need to pass arithmetic_mean into the function.",
+            "Add code so that the program finds the lowest and highest scores in results. The program should display this information in two separate messages such as: The lowest score is [lowest score] / The highest score is [highest score]",
+            "Add two features to count how many scores in results are a) less than 40 and b) between 50 and 79 inclusive. The program should display both counts in two separate messages such as: The number of scores below 40 is [count1] / The number of scores between 50 and 79 inclusive is [count2]",
+            "Extend the program so that it determines and displays the longest run (sequence) of consecutive result increases.\nExample:\nInput: results = [39, 32, 62, 88, 51, 62, 64, 81, 77]\nOutput: [51, 62, 64, 81]\nExplanation: The sub-list [51, 62, 64, 81] is the longest run of result increases. The value 77 breaks the sequence because it is less than its previous value, 81."
+          ],
+          "sample": "The mean percentage mark is 61.78\nThe grade for the average result is Lower Merit\nThe lowest score is 32\nThe highest score is 88\nThe number of scores below 40 is 2\nThe number of scores between 50 and 79 inclusive is 5\nThe longest run of result increases is [51, 62, 64, 81]",
+          "starter": "# Question 16 (a)\n# Examination Number:\n\ndef get_grade(result):\n    grade = \"Unsuccessful\"\n\n    if result >= 80:\n        grade = \"Distinction\"\n    elif result >= 65:\n        grade = \"Upper Merit\"\n\n    return grade\n\n# Calculate and display the mean of a list of results\nresults = [39, 32, 62, 88, 51, 62, 64, 81, 77]\nN = len(results)\ntotal = 0\n\nfor i in range(N):\n    total = total + results[i]\n\narithmetic_mean = total / 9\nprint(\"The mean percentage mark is\", arithmetic_mean)",
+          "solution": "def get_grade(result):\n    grade = \"Unsuccessful\"\n\n    if result >= 80:\n        grade = \"Distinction\"\n    elif result >= 65:\n        grade = \"Upper Merit\"\n    elif result >= 50:\n        grade = \"Lower Merit\"\n    elif result >= 40:\n        grade = \"Pass\"\n\n    return grade\n\nresults = [39, 32, 62, 88, 51, 62, 64, 81, 77]\nN = len(results)\ntotal = 0\n\nfor i in range(N):\n    total = total + results[i]\n\narithmetic_mean = total / N  # (ii)\narithmetic_mean = round(arithmetic_mean, 2)  # (i)\nprint(\"The mean percentage mark is\", arithmetic_mean)\n\n# (iv)\ngrade = get_grade(arithmetic_mean)\nprint(\"The grade for the average result is\", grade)\n\n# (v)\nhighest = max(results)\nlowest = min(results)\nprint(\"The lowest score is\", lowest)\nprint(\"The highest score is\", highest)\n\n# (vi)\na = 0\nb = 0\nfor result in results:\n    if result < 40:\n        a += 1\n    elif result >= 50 and result <= 79:\n        b += 1\nprint(\"The number of scores below 40 is\", a)\nprint(\"The number of scores between 50 and 79 inclusive is\", b)\n\n# (vii)\nlongest_run = []\ncurrent_run = [results[0]]\n\nfor i in range(1, N):\n    if results[i] > results[i - 1]:\n        current_run.append(results[i])\n    else:\n        if len(current_run) > len(longest_run):\n            longest_run = current_run\n        current_run = [results[i]]\n\nif len(current_run) > len(longest_run):\n    longest_run = current_run\n\nprint(\"The longest run of result increases is\", longest_run)",
+          "scheme": [
+            "Marks: (i) 5, (ii) 5, (iii) 5, (iv) 5, (v) 5, (vi) 10, (vii) 15.",
+            "B-5 parts: 5 correct; 3 some merit. C-5 parts: 5 correct; 3 almost correct; 2 some merit.",
+            "D-10 bands: 10 correct; 7 almost correct; 5 about half-right; 3 some merit.",
+            "D-15 bands: 15 correct; 10 almost correct; 7 about half-right; 3 some merit.",
+            "The longest-run answer must return the actual sub-list, not only its length."
+          ]
+        },
+        {
+          "letter": "(b)",
+          "title": "Median of a list",
+          "marks": "30 marks",
+          "split": "Holistic: 5 + 10 + 5 + 10",
+          "prompt": "The median of a list of values is the middle value in that list after it has been sorted in either ascending or descending order. If the number of values in the list is odd the median is the middle value. However, if the number of values in the list is even the median is found by calculating the mean of the two middle values i.e. by adding both middle values and then dividing the result by two.\n\nWrite a Python program to find the median of a list of zero or more values. You may not make use of statistics.median(), numpy.median() or any other Python library median function. You must write the code to calculate the median yourself. Test with an even and odd number of values, and with an empty list.",
+          "tasks": [
+            "Initialise a list of integers.",
+            "Display the list.",
+            "Sort the list.",
+            "Display the sorted list.",
+            "Determine the median by examining the list length.",
+            "Odd: The number of elements divided by 2 will have a remainder of 1. In this case the median is the element at the middle position of the sorted list.",
+            "Even: The number of elements divided by 2 will have no remainder. In this case the median is the mean of the two middle elements in the sorted list.",
+            "Display the median.",
+            "Display an error message if the list is empty."
+          ],
+          "sample": "Sample 1\n\nThe initial list of values is: [27, 13, 32, 50, 16]\nThe sorted list of values is: [13, 16, 27, 32, 50]\n\nThe median is 27\n\nSample 2\n\nThe initial list of values is: [27, 13, 32, 50, 16, 29]\nThe sorted list of values is: [13, 16, 27, 29, 32, 50]\n\nThe median is 28.0\n\nSample 3\n\nThe initial list of values is: []\n\nThe list is empty. Cannot compute the median.",
+          "starter": "# Question 16(b)\n# Examination Number:\n\n# Write your solution here, then press Run.\n",
+          "solution": "# Initialise the list\nnums = [27, 13, 32, 50, 16]\n\n# Display the list\nprint(\"The initial list of values is:\", nums)\n\n# Sort the list\nnums.sort()\n\n# Display the sorted list\nprint(\"The sorted list of values is:\", nums)\n\n# Determine the median\nN = len(nums)\nif N == 0:\n    print(\"The list is empty. Cannot compute the median.\")\nelse:\n    if N % 2 != 0:\n        median = nums[N // 2]\n    else:\n        median = (nums[N // 2 - 1] + nums[N // 2]) / 2\n\n    print(\"The median is\", median)",
+          "scheme": [
+            "Holistic 30 marks: Program Inputs 5; Program Logic 10; Program Outputs 5; Programming Standards 10.",
+            "Inputs: initial list of integers correctly initialised; list sorted correctly; variable initialisation and assignment.",
+            "Logic: length calculated; even/odd test; median calculation for both cases; empty-list test.",
+            "Outputs: initial list, sorted list, median and the empty-list error message.",
+            "Standards: runs without syntax/runtime errors, meets requirements, explained with comments, meaningful names."
+          ]
+        }
+        ]
+      },
+      {
+        "year": 2026,
+        "split": "60 + 20 marks",
+        "note": "The split changed for 2026: part (a) is worth 60 marks and part (b) 20, still 80 marks in 60 minutes.",
+        "parts": [
+        {
+          "letter": "(a)",
+          "title": "Readability score",
+          "marks": "60 marks",
+          "split": "(10, 10, 10, 10, 5, 5, 10)",
+          "prompt": "Open the program called Question16_A.py from your device. The source code is shown below.\n\nA readability score is an estimate of how easy or difficult it is to read a piece of text. This program contains a function called calculate_readability_score that determines and returns the readability score of a piece of text passed into it. The score is calculated on line 19 by multiplying the number of words (word_count) by the number of sentences (sentence_count).\n\nLines 25 and 26 initialise two variables - text1 and text2 - with sentences for the function to process. Line 29 calls the function calculate_readability_score for text1 and stores the result in score1.",
+          "tasks": [
+            "Modify the program so that it displays the readability score for text1 followed by a blank line: Readability Score 1: 9",
+            "Extend the program so that it calls calculate_readability_score for text2 and stores the result in a variable called score2. Display the readability score for text2 followed by a blank line.",
+            "The program uses a full stop to determine a sentence ending. Modify the program so that it also counts exclamation marks (!) as sentence endings.",
+            "Extend the program to compare the two scores - score1 and score2 - as follows:\n• If the scores are the same display the message: Both scores are the same.\n• If score1 is less than score2 display the message: The first text is easier to read.\n• If score2 is less than score1 display the message: The second text is easier to read.",
+            "Line 13 in the original program initialises a variable called short_word_count to 0. A short word is any word that contains two characters or less. Modify the program so that it counts the number of short words in each piece of text. Store the result in short_word_count and display its value.",
+            "Update the code that calculates the readability score to use the formula:\n    0.4 × ( total words / total sentences + 100 × ( total words − short words ) / total words )\nwhere total words is word_count, total sentences is sentence_count and short words is short_word_count.",
+            "Modify the program so that it counts the number of complex words in each sentence. A word is counted as complex if it contains three or more syllables. A simple heuristic for counting syllables is to count each vowel (a, e, i, o, u) as a syllable and then subtract 1 if the word ends with the letter 'e', known as 'the silent e rule'. Examples: make has one syllable because it has two vowels but ends in an 'e'; readability has five syllables because it has five vowels (e, a, a, i and i)."
+          ],
+          "sample": "The list of words in the text is:\n['Elaborate', 'sentences', 'influence', 'readability', 'in', 'subtle', 'and', 'unpredictable', 'ways.']\nShort Words: 1\nComplex Words: 5\nReadability Score 1: 39.16\n\nThe list of words in the text is:\n['I', 'do', 'not', 'like', 'green', 'eggs', 'and', 'ham!', 'I', 'do', 'not', 'like', 'them', 'Sam', 'I', 'am!']\nShort Words: 5\nComplex Words: 0\nReadability Score 2: 30.7\n\nThe second text is easier to read.",
+          "starter": "# Question 16 (a)\n# Examination Number:\n\n# Function to calculate readability score of text\ndef calculate_readability_score(text):\n\n    # Split the text into a list of words\n    words = text.split()\n    print(\"The list of words in the text is:\\n\", words)\n\n    # Initialise the word counters\n    word_count = len(words)\n    short_word_count = 0\n\n    # Initialise the number of sentences\n    sentence_count = text.count(\".\")\n\n    # Calculate the readability score\n    score = word_count * sentence_count\n    score = round(score, 2)\n\n    return score\n\n# Set the text for analysis\ntext1 = \"Elaborate sentences influence readability in subtle and unpredictable ways.\"\ntext2 = \"I do not like green eggs and ham! I do not like them Sam I am!\"\n\n# Calculate the score for text1\nscore1 = calculate_readability_score(text1)",
+          "solution": "def calculate_readability_score(text):\n    words = text.split()\n    print(\"The list of words in the text is:\\n\", words)\n\n    word_count = len(words)\n\n    short_word_count = 0\n    for word in words:\n        if len(word) <= 2:\n            short_word_count += 1\n    print(\"Short Words:\", short_word_count)\n\n    complex_word_count = 0\n    vowels = \"AEIOUaeiou\"\n    for word in words:\n        syllable_count = 0\n        for ch in word:\n            if ch in vowels:\n                syllable_count += 1\n\n        if word[len(word) - 1] == \"e\":\n            syllable_count -= 1\n\n        if syllable_count >= 3:\n            complex_word_count += 1\n\n    print(\"Complex Words:\", complex_word_count)\n\n    sentence_count = text.count(\".\") + text.count(\"!\")  # (iii)\n\n    score = 0.4 * (word_count / sentence_count +\n                   100 * ((word_count - short_word_count) / word_count))\n    score = round(score, 2)\n    return score\n\ntext1 = \"Elaborate sentences influence readability in subtle and unpredictable ways.\"\ntext2 = \"I do not like green eggs and ham! I do not like them Sam I am!\"\n\nscore1 = calculate_readability_score(text1)\nprint(\"Readability Score 1:\", score1)\nprint()\n\nscore2 = calculate_readability_score(text2)\nprint(\"Readability Score 2:\", score2)\nprint()\n\nif score1 == score2:\n    print(\"Both scores are the same\")\nelif score1 < score2:\n    print(\"The first text is easier to read.\")\nelse:\n    print(\"The second text is easier to read.\")",
+          "scheme": [
+            "Marks: (i) 10, (ii) 10, (iii) 10, (iv) 10, (v) 5, (vi) 5, (vii) 10.",
+            "B-10 parts: 10 correct; 7 some merit. C-10 part: 10 correct; 7 almost correct; 3 some merit.",
+            "C-5 parts: 5 correct; 3 almost correct; 2 some merit.",
+            "D-10 part: 10 correct; 7 almost correct; 5 about half-right; 3 some merit.",
+            "The formula is marked as written: 0.4 × (words / sentences + 100 × (words - short words) / words).",
+            "Complex words are counted, displayed, and do not change the score formula in this part."
+          ]
+        },
+        {
+          "letter": "(b)",
+          "title": "Word scoring game",
+          "marks": "20 marks",
+          "split": "Holistic: 5 + 5 + 5 + 5",
+          "prompt": "You are required to implement a word scoring game. You should use comments throughout your program to explain your code. You may wish to reuse some of the code you used in part (a) as part of your solution.",
+          "tasks": [
+            "Ask the user to enter a word using the prompt: Enter a word:",
+            "The word must contain only letters (A-Z or a-z). If the user enters any digits, spaces or punctuation, the program should display an error message and ask for the word again.",
+            "Convert the word to uppercase before scoring it.",
+            "Score the word according to the following rules:\n• 1 point for each of the letters: A, E, I, O and U\n• 5 points for each of the letters: V, W, X, Y and Z\n• 3 points for all other letters.",
+            "After scoring each word the program should:\n• display the word and its score and the total score so far in an appropriate message\n• keep track of the highest scoring word so far, so that it can be displayed at the end of the game.",
+            "The program should then ask the user if they want to play again using the prompt: Play again? [Y/N]: If the user enters Y or y, the game is repeated. If the user enters anything other than Y or y the game ends and the program should display a message with the highest scoring word along with its score."
+          ],
+          "sample": "Enter a word: python\nWord: PYTHON, Score: 18, Total score: 18\nPlay again? [Y/N]: y\nEnter a word: exam\nWord: EXAM, Score: 10, Total score: 28\nPlay again? [Y/N]: n\n\nYour total score was: 28\nThe highest scoring word was PYTHON, 18 points",
+          "starter": "# Question 16(b)\n# Examination Number:\n\n# Write your solution here, then press Run.\n",
+          "solution": "# Scrabble-like word scoring game\n\ntotal_score = 0\nhigh_score = 0\nhighest_scoring_word = \"\"\n\nwhile True:\n    word = input(\"Enter a word: \")\n\n    while word.isalpha() == False:\n        print(\"Invalid word.\")\n        word = input(\"Enter a word: \")\n\n    word = word.upper()\n\n    score = 0\n    for letter in word:\n        if letter in \"AEIOU\":\n            score += 1\n        elif letter in \"VWXYZ\":\n            score += 5\n        else:\n            score += 3\n\n    total_score = total_score + score\n    print(f\"Word: {word}, Score: {score}, Total score: {total_score}\")\n\n    if score > high_score:\n        high_score = score\n        highest_scoring_word = word\n\n    play_again = input(\"Play again? [Y/N]: \")\n    if play_again.upper() != \"Y\":\n        break\n\nprint()\nprint(\"Your total score was:\", total_score)\nprint(f\"The highest scoring word was {highest_scoring_word}, {high_score} points\")",
+          "scheme": [
+            "Holistic 20 marks: Program Inputs 5; Program Logic 5; Program Outputs 5; Programming Standards 5.",
+            "Inputs: word read correctly, play-again read correctly, variables initialised and assigned.",
+            "Logic: uppercase conversion, letters-only validation, score calculation and update, high-score tracking, play-again loop.",
+            "Outputs: word, score and total score; high score; invalid-word error message.",
+            "Standards: runs without errors, meets the requirements, explained with comments.",
+            "The published sample solution stops after the highest word; the paper's sample also prints the final total, so this lab's solution prints both."
+          ]
+        }
+        ]
+      }
+      ]
+    }
+  ]
+}

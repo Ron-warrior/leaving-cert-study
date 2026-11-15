@@ -1,0 +1,122 @@
+---
+import Base from "../layouts/Base.astro";
+import {
+  getDemos,
+  getLab,
+  getListening,
+  getOral,
+  getQuestions,
+  subjects,
+} from "../lib/content";
+
+const title = "Leaving Cert Study — Notes, Papers & Practice";
+const totalChapters = subjects.reduce((total, subject) => total + subject.chapters, 0);
+const totalQuestions = subjects.reduce(
+  (total, subject) => total + getQuestions(subject.slug).length,
+  0,
+);
+
+function indexStats(subject: (typeof subjects)[number]) {
+  const questions = getQuestions(subject.slug);
+  const demos = subject.notes.reduce(
+    (total, note) => total + getDemos(subject.slug, note.slug).length,
+    0,
+  );
+  const rows = [
+    { value: String(subject.chapters), label: "chapters" },
+    { value: String(questions.length), label: "exam questions" },
+    {
+      value: String(questions.reduce((total, question) => total + question.marks, 0)),
+      label: "practice marks",
+    },
+  ];
+  if (demos) rows.push({ value: String(demos), label: "runnable demos" });
+  const lab = getLab(subject.slug);
+  if (lab.length) rows.push({ value: String(lab.length), label: "lab papers" });
+  const listening = getListening(subject.slug);
+  if (listening.length) rows.push({ value: String(listening.length), label: "listening papers" });
+  const oral = getOral(subject.slug);
+  if (oral.roleplays.length) {
+    rows.push({ value: String(oral.roleplays.length), label: "oral roleplays" });
+  }
+  return rows;
+}
+---
+
+<Base title={title}>
+  <header class="site-head root-head">
+    <div class="wrap head-top">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">LC</span>
+        <div class="brand-text">
+          <h1>Leaving Cert <span>Study</span></h1>
+          <p class="sub">Notes, runnable demos and exam practice, by subject</p>
+        </div>
+      </div>
+      <div class="head-actions">
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle dark mode">
+          <span class="icon-glyph" aria-hidden="true">☀</span>
+        </button>
+      </div>
+    </div>
+    <div class="wrap">
+      <p class="head-meta">
+        <span>{subjects.length} subjects</span>
+        <span>{totalChapters} chapter notes</span>
+        <span>{totalQuestions} exam questions</span>
+      </p>
+    </div>
+  </header>
+
+  <main id="main" class="wrap subjects-page">
+    <section class="subjects-hero">
+      <p class="eyebrow">Leaving Certificate</p>
+      <h2>Choose a subject.</h2>
+      <p class="lede">
+        Each subject has its own notes, runnable demos, exam questions and timed
+        practice. Pick one to open its home page.
+      </p>
+    </section>
+
+    <div class="subject-grid">
+      {
+        subjects.map((subject) => (
+          <article class="subject-card">
+            <p class="subject-level">{subject.level}</p>
+            <h3>{subject.name}</h3>
+            <p class="subject-blurb">{subject.brandSub}</p>
+            <dl class="subject-stats">
+              {indexStats(subject).map((stat) => (
+                <div>
+                  <dt>{stat.value}</dt>
+                  <dd>{stat.label}</dd>
+                </div>
+              ))}
+            </dl>
+            <a class="cta" href={`/${subject.slug}/`}>
+              Open {subject.shortName} <span aria-hidden="true">→</span>
+            </a>
+          </article>
+        ))
+      }
+    </div>
+
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-grid">
+      <div class="foot-brand">
+        <span class="foot-mark" aria-hidden="true">LC</span>
+        <div>
+          <p class="foot-title">Leaving Cert Study</p>
+          <p>Subject packs for revision notes, runnable code, exam questions, timed mocks and programming practice. Everything runs in your browser.</p>
+        </div>
+      </div>
+      <nav class="foot-links" aria-label="Footer">
+        {subjects.map((subject) => (
+          <a href={`/${subject.slug}/`}>{subject.name}</a>
+        ))}
+      </nav>
+    </div>
+  </footer>
+</Base>

@@ -1,0 +1,65 @@
+---
+import type { Subject } from "../lib/content";
+import {
+  getLab,
+  getListening,
+  getOral,
+  noteHref,
+  subjectHref,
+} from "../lib/content";
+
+interface Props {
+  subject: Subject;
+}
+
+const { subject } = Astro.props;
+const startNote = subject.notes[0];
+const isSpanish = subject.slug === "spanish";
+const practice = [
+  { href: `/${subject.slug}/questions/`, label: "Questions" },
+  { href: `/${subject.slug}/mock/`, label: "Mock" },
+  ...(getLab(subject.slug).length
+    ? [{ href: `/${subject.slug}/section-c/`, label: "Section C lab" }]
+    : []),
+  ...(isSpanish && getOral(subject.slug).roleplays.length
+    ? [{ href: `/${subject.slug}/oral/`, label: "Oral" }]
+    : []),
+  ...(getListening(subject.slug).length
+    ? [{ href: `/${subject.slug}/listening/`, label: "Listening" }]
+    : []),
+  ...(!isSpanish && getOral(subject.slug).roleplays.length
+    ? [{ href: `/${subject.slug}/oral/`, label: "Oral" }]
+    : []),
+];
+---
+
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <span class="foot-mark" aria-hidden="true">LC</span>
+      <div>
+                  <p class="foot-title">Leaving Cert {subject.name}</p>
+          {isSpanish ? (
+            <p>
+              Written for the Leaving Certificate Higher Level Spanish course. The
+              paper bank uses the 2024–2026 SEC papers and marking schemes; the oral
+              trainer contains original practice situations. Check the current SEC
+              paper and roleplay list before relying on date-specific details.
+            </p>
+          ) : (
+            <p>
+              Notes aligned to the 2023–2026 Higher Level marking schemes, written for
+              <em>Golden Key: Computer Science for Leaving Certificate</em> by Brett A.
+              Becker and Keith Quille. Code runs entirely in your browser; nothing is
+              sent to a server.
+            </p>
+          )}
+      </div>
+    </div>
+    <nav class="foot-links" aria-label="Footer">
+      <a href={subjectHref(subject)}>Home</a>
+      <a href={noteHref(subject, startNote)}>Start here</a>
+      {practice.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+  </div>
+</footer>

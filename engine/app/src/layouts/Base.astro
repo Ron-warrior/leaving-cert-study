@@ -1,0 +1,230 @@
+---
+import "../styles/base.css";
+import "../styles/app.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Leaving Certificate study packs with chapter notes, exam papers, listening audio, oral practice and timed mocks, organised by subject.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0b1220" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script is:inline>
+      try {
+        var saved = localStorage.getItem("gk-web-theme");
+        document.documentElement.dataset.theme = saved === "light" ? "light" : "dark";
+        var focus = localStorage.getItem("gk-web-focus");
+        document.documentElement.dataset.focus = focus === "on" ? "on" : "off";
+      } catch (e) {
+        document.documentElement.dataset.theme = "dark";
+        document.documentElement.dataset.focus = "off";
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <slot />
+    <script is:inline>
+      document.querySelectorAll("[data-theme-toggle]").forEach(function (button) {
+        function paint() {
+          var dark = document.documentElement.dataset.theme !== "light";
+          button.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+          button.setAttribute("aria-pressed", dark ? "true" : "false");
+          var label = button.querySelector("[data-theme-label]");
+          if (label) label.textContent = dark ? "Light mode" : "Dark mode";
+        }
+        paint();
+        button.addEventListener("click", function () {
+          var dark = document.documentElement.dataset.theme !== "light";
+          var next = dark ? "light" : "dark";
+          document.documentElement.dataset.theme = next;
+          try {
+            localStorage.setItem("gk-web-theme", next);
+          } catch (e) {}
+          paint();
+        });
+      });
+
+      (function () {
+        var match = location.pathname.match(
+          /^\/([a-z0-9-]+)\/(notes|questions|mock|listening|oral|section-c)(?:\/|$)/,
+        );
+        if (!match) return;
+        var key = "gk2-activity-" + match[1];
+        var today = new Date().toISOString().slice(0, 10);
+        var days = [];
+        try {
+          var saved = JSON.parse(localStorage.getItem(key) || "[]");
+          if (Array.isArray(saved)) {
+            days = saved.filter(function (date) {
+              return typeof date === "string";
+            });
+          }
+        } catch (e) {}
+        if (days.indexOf(today) === -1) {
+          days.push(today);
+          days = days.sort().slice(-90);
+          try {
+            localStorage.setItem(key, JSON.stringify(days));
+          } catch (e) {}
+        }
+      })();
+
+      (function () {
+        var drawer = document.querySelector("[data-nav-drawer]");
+        var toggle = document.querySelector("[data-nav-toggle]");
+        if (!drawer || !toggle) return;
+        var panel = drawer.querySelector(".nav-panel");
+        var returnFocus = null;
+
+        function setOpen(open) {
+          drawer.classList.toggle("is-open", open);
+          drawer.setAttribute("aria-hidden", open ? "false" : "true");
+          toggle.setAttribute("aria-expanded", open ? "true" : "false");
+          document.documentElement.classList.toggle("nav-open", open);
+          if (open) {
+            returnFocus = document.activeElement;
+            setTimeout(function () {
+              var first = panel.querySelector(".nav-link");
+              (first || panel).focus();
+            }, 60);
+          } else if (returnFocus && document.contains(returnFocus)) {
+            returnFocus.focus();
+            returnFocus = null;
+          }
+        }
+
+        toggle.addEventListener("click", function () {
+          setOpen(!drawer.classList.contains("is-open"));
+        });
+
+        drawer.addEventListener("click", function (event) {
+          if (event.target.closest("[data-nav-close]") || event.target.closest(".nav-link") || event.target.closest(".nav-footer a")) {
+            setOpen(false);
+          }
+        });
+
+        document.addEventListener("keydown", function (event) {
+          if (!drawer.classList.contains("is-open")) return;
+          if (event.key === "Escape") {
+            event.preventDefault();
+            setOpen(false);
+            return;
+          }
+          if (event.key !== "Tab") return;
+          var items = panel.querySelectorAll('a[href], button:not([disabled])');
+          if (!items.length) return;
+          var first = items[0];
+          var last = items[items.length - 1];
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+          }
+        });
+      })();
+
+      document.querySelectorAll("[data-focus-toggle]").forEach(function (button) {
+        function paintFocus() {
+          var on = document.documentElement.dataset.focus === "on";
+          button.textContent = on ? "Exit focus" : "Focus";
+          button.setAttribute("aria-label", on ? "Exit focus mode" : "Enter focus mode");
+          button.setAttribute("aria-pressed", on ? "true" : "false");
+          document.documentElement.classList.toggle("focus-reading", on);
+        }
+        paintFocus();
+        button.addEventListener("click", function () {
+          var on = document.documentElement.dataset.focus === "on";
+          var next = on ? "off" : "on";
+          document.documentElement.dataset.focus = next;
+          try {
+            localStorage.setItem("gk-web-focus", next);
+          } catch (e) {}
+          paintFocus();
+        });
+      });
+
+      document.querySelectorAll("[data-print]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          window.print();
+        });
+      });
+
+      (function () {
+        var side = document.querySelector(".side");
+        if (!side) return;
+        var panel = side.querySelector(".side-menu");
+        if (!panel) return;
+        var returnFocus = null;
+
+        function setOpen(open) {
+          side.classList.toggle("is-open", open);
+          document.documentElement.classList.toggle("menu-open", open);
+          document.querySelectorAll("[data-menu]").forEach(function (button) {
+            button.setAttribute("aria-expanded", open ? "true" : "false");
+          });
+          if (open) {
+            returnFocus = document.activeElement;
+            setTimeout(function () {
+              var first = panel.querySelector(".chapter-btn");
+              (first || panel).focus({ preventScroll: true });
+            }, 80);
+          } else if (returnFocus && document.contains(returnFocus)) {
+            returnFocus.focus({ preventScroll: true });
+            returnFocus = null;
+          }
+        }
+
+        document.querySelectorAll("[data-menu]").forEach(function (button) {
+          button.addEventListener("click", function () {
+            setOpen(!side.classList.contains("is-open"));
+          });
+        });
+        side.querySelectorAll("[data-scrim]").forEach(function (scrim) {
+          scrim.addEventListener("click", function () {
+            setOpen(false);
+          });
+        });
+
+        document.addEventListener("keydown", function (event) {
+          if (!side.classList.contains("is-open")) return;
+          if (event.key === "Escape") {
+            event.preventDefault();
+            setOpen(false);
+            return;
+          }
+          if (event.key !== "Tab") return;
+          var items = panel.querySelectorAll(
+            'a[href], button:not([disabled]), summary, [tabindex]:not([tabindex="-1"])',
+          );
+          if (!items.length) return;
+          var first = items[0];
+          var last = items[items.length - 1];
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+          }
+        });
+      })();
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,309 @@
+{
+  "schemaVersion": 1,
+  "subjects": [
+    {
+      "slug": "cs",
+      "name": "Computer Science",
+      "shortName": "Computer Science",
+      "level": "Leaving Certificate · Higher Level",
+      "brandSub": "Notes and runnable demos — based on the Golden Key textbook",
+      "homeTitle": "Notes and runnable demos,<br>built around the marking schemes.",
+      "homeLede": "Fourteen chapter notes plus an H1 exam guide, twelve browser demos, four years of exam questions with the official answer points, a 90-minute mock and a four-paper Section C programming lab.",
+      "startLabel": "Start with the H1 guide",
+      "mockTitle": "90-minute mock",
+      "mockMinutes": 90,
+      "mockBlurb": "One complete Higher Level paper from the bank: Sections A and B only. Answer any nine short questions and any two long questions. The marking schemes stay locked until you finish the mock, so you cannot peek while writing.",
+      "labNote": "2023–2026 Section C papers and official solutions. The code is stored without the printed line numbers so it can run in the editor. Check the current SEC paper and marking scheme before relying on date-specific details.",
+      "hasGuide": true,
+      "chapters": 14,
+      "topics": [
+        {
+          "slug": "python",
+          "label": "Python"
+        },
+        {
+          "slug": "microbit",
+          "label": "micro:bit"
+        },
+        {
+          "slug": "analytics",
+          "label": "Analytics"
+        },
+        {
+          "slug": "htmlcss",
+          "label": "HTML & CSS"
+        },
+        {
+          "slug": "history",
+          "label": "History"
+        },
+        {
+          "slug": "systems",
+          "label": "Computer systems"
+        },
+        {
+          "slug": "algorithms",
+          "label": "Algorithms"
+        },
+        {
+          "slug": "software",
+          "label": "Software dev"
+        },
+        {
+          "slug": "morepython",
+          "label": "More Python"
+        },
+        {
+          "slug": "javascript",
+          "label": "JavaScript"
+        },
+        {
+          "slug": "databases",
+          "label": "Databases"
+        },
+        {
+          "slug": "modelling",
+          "label": "Modelling"
+        },
+        {
+          "slug": "ai",
+          "label": "AI & ML"
+        },
+        {
+          "slug": "ethics",
+          "label": "Ethics"
+        }
+      ],
+      "stats": [
+        {
+          "value": "14",
+          "label": "chapter notes"
+        },
+        {
+          "value": "12",
+          "label": "runnable demos"
+        },
+        {
+          "value": "60",
+          "label": "exam questions"
+        },
+        {
+          "value": "17k",
+          "label": "words of notes"
+        }
+      ],
+      "notes": [
+        {
+          "slug": "h1",
+          "title": "H1 exam guide",
+          "file": "subjects/cs/notes/00-h1-exam-guide.md"
+        },
+        {
+          "slug": "python",
+          "title": "1 · Getting started with Python",
+          "file": "subjects/cs/notes/01-getting-started-with-python.md"
+        },
+        {
+          "slug": "microbit",
+          "title": "2 · The BBC micro:bit",
+          "file": "subjects/cs/notes/02-micro-bit.md"
+        },
+        {
+          "slug": "analytics",
+          "title": "3 · Analytics",
+          "file": "subjects/cs/notes/03-analytics.md"
+        },
+        {
+          "slug": "htmlcss",
+          "title": "4 · HTML and CSS",
+          "file": "subjects/cs/notes/04-html-and-css.md"
+        },
+        {
+          "slug": "history",
+          "title": "5 · A brief history of computing",
+          "file": "subjects/cs/notes/05-a-brief-history-of-computing.md"
+        },
+        {
+          "slug": "systems",
+          "title": "6 · Computer systems",
+          "file": "subjects/cs/notes/06-computer-systems.md"
+        },
+        {
+          "slug": "algorithms",
+          "title": "7 · Computational thinking and algorithms",
+          "file": "subjects/cs/notes/07-computational-thinking-algorithms-data.md"
+        },
+        {
+          "slug": "software",
+          "title": "8 · Software development",
+          "file": "subjects/cs/notes/08-software-development.md"
+        },
+        {
+          "slug": "morepython",
+          "title": "9 · More about Python",
+          "file": "subjects/cs/notes/09-more-about-python.md"
+        },
+        {
+          "slug": "javascript",
+          "title": "10 · JavaScript",
+          "file": "subjects/cs/notes/10-javascript.md"
+        },
+        {
+          "slug": "databases",
+          "title": "11 · Databases",
+          "file": "subjects/cs/notes/11-databases.md"
+        },
+        {
+          "slug": "modelling",
+          "title": "12 · Modelling and simulation",
+          "file": "subjects/cs/notes/12-modelling.md"
+        },
+        {
+          "slug": "ai",
+          "title": "13 · AI and machine learning",
+          "file": "subjects/cs/notes/13-ai-and-machine-learning.md"
+        },
+        {
+          "slug": "ethics",
+          "title": "14 · Ethics and computing",
+          "file": "subjects/cs/notes/14-ethics-and-computing.md"
+        }
+      ]
+    },
+    {
+      "slug": "spanish",
+      "name": "Spanish",
+      "shortName": "Spanish",
+      "level": "Leaving Certificate · Higher Level",
+      "brandSub": "Notes, 2024–2026 papers, listening audio and oral training for Higher Level Spanish",
+      "homeTitle": "Spanish for the<br>Higher Level exam.",
+      "homeLede": "Fifteen study chapters plus an exam guide, a 2024–2026 paper bank, three full listening papers, and an oral trainer with roleplays and conversation practice.",
+      "startLabel": "Start with the exam guide",
+      "mockTitle": "2-hour 30-minute written mock",
+      "mockMinutes": 150,
+      "mockBlurb": "A full 2-hour 30-minute written paper. Choose one Question 1 option, answer the Section B reading and opinion task, then choose one Section C Question 1 task and one Question 2 task. All options are shown; the clock runs for the full exam and the schemes stay locked until you finish.",
+      "listeningNote": "Full audio and official transcripts for 2024, 2025 and 2026. The English transcript is a study translation, not an official SEC translation.",
+      "oralNote": "Roleplays and conversation questions are original practice for this guide. The SEC roleplay list, format and oral arrangements can change; check the current SEC material and your teacher's guidance.",
+      "hasGuide": true,
+      "chapters": 15,
+      "topics": [
+        {
+          "slug": "cultura",
+          "label": "Literature & culture"
+        },
+        {
+          "slug": "lectura",
+          "label": "Reading"
+        },
+        {
+          "slug": "escritura",
+          "label": "Writing"
+        }
+      ],
+      "stats": [
+        {
+          "value": "15",
+          "label": "chapter notes"
+        },
+        {
+          "value": "30",
+          "label": "exam questions"
+        },
+        {
+          "value": "3",
+          "label": "listening papers"
+        },
+        {
+          "value": "10",
+          "label": "oral roleplays"
+        },
+        {
+          "value": "21k",
+          "label": "words of notes"
+        }
+      ],
+      "notes": [
+        {
+          "slug": "examen",
+          "title": "HL exam guide",
+          "file": "subjects/spanish/notes/00-exam-guide.md"
+        },
+        {
+          "slug": "oral",
+          "title": "1 · The oral",
+          "file": "subjects/spanish/notes/01-oral.md"
+        },
+        {
+          "slug": "aural",
+          "title": "2 · Listening",
+          "file": "subjects/spanish/notes/02-aural.md"
+        },
+        {
+          "slug": "lectura",
+          "title": "3 · Reading",
+          "file": "subjects/spanish/notes/03-reading.md"
+        },
+        {
+          "slug": "gramatica",
+          "title": "4 · Grammar",
+          "file": "subjects/spanish/notes/04-grammar.md"
+        },
+        {
+          "slug": "escritura",
+          "title": "5 · Writing",
+          "file": "subjects/spanish/notes/05-writing.md"
+        },
+        {
+          "slug": "vocabulario",
+          "title": "6 · Vocabulary",
+          "file": "subjects/spanish/notes/06-vocabulary.md"
+        },
+        {
+          "slug": "cultura",
+          "title": "7 · Culture and literature",
+          "file": "subjects/spanish/notes/07-culture.md"
+        },
+        {
+          "slug": "practica",
+          "title": "8 · Exam-style practice",
+          "file": "subjects/spanish/notes/08-practice.md"
+        },
+        {
+          "slug": "modelos",
+          "title": "9 · Model answers",
+          "file": "subjects/spanish/notes/09-model-answers.md"
+        },
+        {
+          "slug": "cuaderno",
+          "title": "10 · Grammar workbook",
+          "file": "subjects/spanish/notes/10-grammar-workbook.md"
+        },
+        {
+          "slug": "antologia",
+          "title": "11 · Reading anthology",
+          "file": "subjects/spanish/notes/11-reading-anthology.md"
+        },
+        {
+          "slug": "modismos",
+          "title": "12 · Idioms & false friends",
+          "file": "subjects/spanish/notes/12-idioms.md"
+        },
+        {
+          "slug": "pronunciacion",
+          "title": "13 · Pronunciation",
+          "file": "subjects/spanish/notes/13-pronunciation.md"
+        },
+        {
+          "slug": "plan",
+          "title": "14 · 12-week plan",
+          "file": "subjects/spanish/notes/14-study-plan.md"
+        },
+        {
+          "slug": "verbos",
+          "title": "15 · Verb tenses",
+          "file": "subjects/spanish/notes/15-verb-tenses.md"
+        }
+      ]
+    }
+  ]
+}

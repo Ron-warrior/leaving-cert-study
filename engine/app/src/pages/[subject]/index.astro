@@ -1,0 +1,218 @@
+---
+import Base from "../../layouts/Base.astro";
+import StudyFooter from "../../components/StudyFooter.astro";
+import StudySidebar from "../../components/StudySidebar.astro";
+import {
+  subjects,
+  noteHref,
+  shortTitle,
+  getListening,
+  getOral,
+  getLab,
+  getQuestions,
+} from "../../lib/content";
+
+export function getStaticPaths() {
+  return subjects.map((subject) => ({
+    params: { subject: subject.slug },
+    props: { subject },
+  }));
+}
+
+const { subject } = Astro.props;
+const chapters = subject.notes.filter((_, index) => !subject.hasGuide || index > 0);
+const startNote = subject.notes[0];
+const resumeIndex = subject.notes.length - 1;
+const resumeNote = subject.notes[resumeIndex];
+const resumeTitle =
+  resumeIndex > 0
+    ? `Chapter ${resumeIndex} — ${shortTitle(resumeNote.title)}`
+    : shortTitle(resumeNote.title);
+const listening = getListening(subject.slug);
+const oral = getOral(subject.slug);
+const lab = getLab(subject.slug);
+const questions = getQuestions(subject.slug);
+const isSpanish = subject.slug === "spanish";
+
+const extraPractice = lab.length
+  ? { href: `/${subject.slug}/section-c/`, label: "Section C lab" }
+  : listening.length
+    ? { href: `/${subject.slug}/listening/`, label: "Listening practice" }
+    : oral.roleplays.length
+      ? { href: `/${subject.slug}/oral/`, label: "Oral trainer" }
+      : null;
+---
+
+<Base title={`${subject.name} · Leaving Cert Study`} description={subject.brandSub}>
+  <main id="main" class="wrap home">
+    <h1 class="sr-only">{subject.name} study guide</h1>
+
+    <div class="subject-bar">
+      <button
+        class="subject-menu"
+        type="button"
+        data-menu
+        aria-controls="side-menu"
+        aria-expanded="false"
+        aria-label="Open subject menu"
+      >☰</button>
+      <span class="subject-bar-name">{subject.name}</span>
+    </div>
+
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h2 set:html={subject.homeTitle} />
+          <p class="lede">{subject.homeLede}</p>
+          <div class="hero-actions">
+            <a class="cta" href={noteHref(subject, startNote)}>{subject.startLabel}</a>
+            <a class="cta ghost" href={`/${subject.slug}/questions/`}>Question bank</a>
+            {isSpanish ? (
+              <>
+                <a class="cta ghost" href={`/${subject.slug}/oral/`}>Oral trainer</a>
+                <a class="cta ghost" href={`/${subject.slug}/listening/`}>Listening practice</a>
+              </>
+            ) : (
+              extraPractice && (
+                <a class="cta ghost" href={extraPractice.href}>{extraPractice.label}</a>
+              )
+            )}
+          </div>
+        </div>
+
+        <aside class="start-card" aria-label="How to use this guide">
+          <p class="sc-kicker">Start here</p>
+          <ol class="sc-steps">
+            <li>
+              <span class="sc-num">1</span>
+              <div>
+                <strong>Read the chapter</strong>
+                <p>Definitions, exam wording and worked examples for every topic.</p>
+              </div>
+            </li>
+            {isSpanish ? (
+              <>
+                <li>
+                  <span class="sc-num">2</span>
+                  <div>
+                    <strong>Mark a question</strong>
+                    <p>Tick the scheme points you hit in the exam questions.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="sc-num">3</span>
+                  <div>
+                    <strong>Listen and check</strong>
+                    <p>Play the paper, answer the seven sections, then reveal the scheme.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="sc-num">4</span>
+                  <div>
+                    <strong>Practise the oral</strong>
+                    <p>Work through a roleplay and record a full conversation answer.</p>
+                  </div>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <span class="sc-num">2</span>
+                  <div>
+                    <strong>Run the demo</strong>
+                    <p>Edit the code and see the output without leaving the page.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="sc-num">3</span>
+                  <div>
+                    <strong>Mark a question</strong>
+                    <p>Tick the scheme points you hit in the exam questions.</p>
+                  </div>
+                </li>
+              </>
+            )}
+          </ol>
+        </aside>
+      </div>
+
+      <dl class="hero-stats">
+        {subject.stats.map((stat) => (
+          <div>
+            <dt>{stat.value}</dt>
+            <dd>{stat.label}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    <a class="resume" id="resume-row" href={noteHref(subject, resumeNote)} hidden>
+      <span class="resume-k">Pick up where you left off</span>
+      <span class="resume-t" id="resume-title">{resumeTitle}</span>
+      <span class="resume-arrow" aria-hidden="true">→</span>
+    </a>
+
+    <section class="practice-strip">
+      <div class="ps-copy">
+        <p class="eyebrow">Practice</p>
+        <h3>{isSpanish ? "Practise the real paper." : "Mark yourself against the scheme."}</h3>
+        {isSpanish ? (
+          <p>
+            {questions.length} questions. Work through the 2024–2026 Higher Level texts
+            and tasks, check each answer against the SEC scheme, then sit a timed paper
+            with the marking schemes locked.
+          </p>
+        ) : (
+          <p>
+            {questions.length} questions. From 2023–2026, Sections A and B. Each paper
+            asks for any nine short answers and any two long questions; tick each scheme
+            point you hit as you write, and the score updates immediately. Then sit a full
+            {subject.mockMinutes}-minute mock or take on the compulsory Section C
+            programming paper.
+          </p>
+        )}
+      </div>
+      <a class="cta light" href={`/${subject.slug}/questions/`}>Open the question bank →</a>
+    </section>
+
+    <section class="home-chapters">
+      <div class="home-head">
+        <h3>Chapters</h3>
+        <p>Pick a chapter to read or run its demo.</p>
+      </div>
+      <div class="chapter-grid">
+        {chapters.map((note, index) => (
+          <a class="home-chapter" href={noteHref(subject, note)}>
+            <span class="home-num">{String(index + 1).padStart(2, "0")}</span>
+            <span class="home-title">{shortTitle(note.title)}</span>
+            <span class="home-arrow" aria-hidden="true">→</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <StudySidebar subject={subject} home />
+
+  <script is:inline define:vars={{ resumeKey: `gk2-resume-${subject.slug}` }}>
+    try {
+      const saved = JSON.parse(localStorage.getItem(resumeKey) || "null");
+      const link = document.getElementById("resume-row");
+      const title = document.getElementById("resume-title");
+      if (
+        link &&
+        title &&
+        saved &&
+        typeof saved.href === "string" &&
+        saved.href.startsWith("/") &&
+        typeof saved.title === "string"
+      ) {
+        link.href = saved.href;
+        title.textContent = saved.title;
+        link.hidden = false;
+      }
+    } catch (e) {}
+  </script>
+
+  <StudyFooter subject={subject} />
+</Base>

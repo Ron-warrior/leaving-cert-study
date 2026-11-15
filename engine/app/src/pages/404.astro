@@ -1,0 +1,34 @@
+---
+import Base from "../layouts/Base.astro";
+import Icon from "../components/Icon.astro";
+import NavDrawer from "../components/NavDrawer.astro";
+---
+
+<Base
+  title="Page not found · Leaving Cert Study"
+  description="That page is not part of the study guide. Return to the subjects or search the notes."
+>
+  <main id="main" class="wrap search-page">
+    <div class="subject-bar">
+      <NavDrawer />
+      <span class="subject-bar-name">Not found</span>
+      <a class="web-back" href="/">← All subjects</a>
+      <a class="icon-btn" href="/search/" aria-label="Search notes and questions"><Icon name="search" /></a>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle dark mode"><Icon name="sun" /><Icon name="moon" /></button>
+    </div>
+
+    <header class="search-head">
+      <p class="eyebrow">404</p>
+      <h1>That page is not here.</h1>
+      <p>
+        The link may be out of date, or the chapter may have moved. Go back to the subjects or
+        search every note and practice item.
+      </p>
+    </header>
+
+    <div class="notfound-actions">
+      <a class="cta" href="/">All subjects</a>
+      <a class="cta ghost" href="/search/">Search the guide</a>
+    </div>
+  </main>
+</Base>

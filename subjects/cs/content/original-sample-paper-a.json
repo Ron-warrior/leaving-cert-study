@@ -1,0 +1,646 @@
+{
+  "schemaVersion": 1,
+  "subjects": [
+    {
+      "slug": "cs",
+      "year": 2027,
+      "title": "Original Sample Paper A",
+      "minutes": 90,
+      "blurb": "A full-length original sample paper for written-exam practice. It follows the 2023–2026 Higher Level structure and draws on those papers and the chapter notes. It adds practice on content the recent papers sampled thinly, especially analytics and AI, but leaves project-only outcomes such as team roles, the portfolio/report and building the artefact to the 30% coursework. Past papers do not necessarily cover every course learning outcome. This is not an official SEC paper or marking scheme.",
+      "questions": [
+        {
+          "year": 2027,
+          "number": 1,
+          "section": "A",
+          "marks": 6,
+          "chapter": "python",
+          "title": "Tracing a loop",
+          "prompt": "Complete the trace table for the Python program below. Show the values of n, total and step after each iteration of the loop.\n\n    n = 4\n    total = 0\n    step = 1\n    while n > 0:\n        if n % 2 == 0:\n            total = total + n\n        else:\n            total = total - step\n        n = n - 1\n        step = step + 2",
+          "answer": "After iteration | n | total | step\n1 | 3 | 4 | 3\n2 | 2 | 1 | 5\n3 | 1 | 3 | 7\n4 | 0 | -4 | 9\n\nThe loop stops when n becomes 0. The final value of total is -4.",
+          "rubric": [
+            {
+              "point": "Iteration 1 gives n = 3, total = 4, step = 3",
+              "marks": 1
+            },
+            {
+              "point": "Iteration 2 gives n = 2, total = 1, step = 5",
+              "marks": 1
+            },
+            {
+              "point": "Iteration 3 gives n = 1, total = 3, step = 7",
+              "marks": 1
+            },
+            {
+              "point": "Iteration 4 gives n = 0, total = -4, step = 9",
+              "marks": 1
+            },
+            {
+              "point": "Final value of total is -4",
+              "marks": 1
+            },
+            {
+              "point": "Explains that the loop stops when n = 0",
+              "marks": 1
+            }
+          ]
+        },
+        {
+          "year": 2027,
+          "number": 2,
+          "section": "A",
+          "marks": 6,
+          "chapter": "systems",
+          "title": "SSD or HDD for a laptop trolley",
+          "prompt": "Solid-state drives (SSDs) and magnetic hard-disk drives (HDDs) are both used for secondary storage in school computer labs.\n\nCompare SSDs and HDDs under the headings:\n\n(a) access speed\n(b) durability when a laptop is moved\n\nRecommend one type for a set of laptops that are carried between classrooms, and justify your choice.",
+          "answer": "(a) Access speed: an SSD has no moving parts and can read and write data much faster, with no seek time. An HDD must wait for its spinning platters and moving read/write head, so it is slower.\n\n(b) Durability: an SSD is more resistant to knocks and movement because it has no moving parts. An HDD is more likely to be damaged if a laptop is bumped while the disk is spinning.\n\nRecommendation: choose SSDs. The laptops will start and load applications faster, are less likely to be damaged by being carried around, use less power and are silent. An SSD usually costs more per gigabyte, but the reliability and speed are worth it for portable school devices.",
+          "rubric": [
+            {
+              "point": "SSD is faster because it has no moving parts / no seek time",
+              "marks": 1
+            },
+            {
+              "point": "HDD is slower because of spinning platters and a moving head",
+              "marks": 1
+            },
+            {
+              "point": "SSD is more durable/shock-resistant when moved",
+              "marks": 1
+            },
+            {
+              "point": "HDD is more easily damaged by knocks or movement",
+              "marks": 1
+            },
+            {
+              "point": "Recommends SSD for the laptop trolley",
+              "marks": 1
+            },
+            {
+              "point": "Justifies with speed, durability or portability",
+              "marks": 1
+            }
+          ]
+        },
+        {
+          "year": 2027,
+          "number": 3,
+          "section": "A",
+          "marks": 6,
+          "chapter": "systems",
+          "title": "Server-room alarm logic",
+          "prompt": "A server-room alarm is controlled by four inputs:\n\nS = 1 when smoke is detected\nD = 1 when the server-room door is closed\nM = 1 when the manual alarm button is pressed\nT = 1 when maintenance mode is on\n\nThe alarm (Q) should sound when smoke is detected and the door is closed, or when the manual button is pressed. It must never sound while maintenance mode is on.\n\n(a) Write the Boolean expression for Q.\n(b) Draw the logic circuit, or describe the gates and connections clearly.\n(c) Complete the truth table for the case S = 1, D = 1, M = 1 and T = 1.",
+          "answer": "(a) Q = ((S AND D) OR M) AND NOT T\n\n(b) Connect S and D to an AND gate. Connect the output of that AND gate and M to an OR gate. Connect T to a NOT gate. Connect the output of the OR gate and the output of the NOT gate to a final AND gate. The output of the final AND gate is Q.\n\n(c) S = 1, D = 1, M = 1, T = 1:\n\nS AND D = 1\n(S AND D) OR M = 1\nNOT T = 0\nQ = 1 AND 0 = 0\n\nThe alarm does not sound because maintenance mode is active.",
+          "rubric": [
+            {
+              "point": "Correct expression ((S AND D) OR M) AND NOT T",
+              "marks": 2
+            },
+            {
+              "point": "S and D connected to an AND gate",
+              "marks": 1
+            },
+            {
+              "point": "AND output and M connected to an OR gate",
+              "marks": 1
+            },
+            {
+              "point": "T connected through a NOT gate to a final AND gate",
+              "marks": 1
+            },
+            {
+              "point": "Truth-table result Q = 0",
+              "marks": 1
+            }
+          ]
+        },
+        {
+          "year": 2027,
+          "number": 4,
+          "section": "A",
+          "marks": 6,
+          "chapter": "systems",
+          "title": "Uncompressed image size",
+          "prompt": "A bitmap image is 800 pixels wide and 600 pixels high. Each pixel uses 24 bits to store its colour. The image is stored without compression.\n\n(a) Calculate the size of the image file in megabytes. Use 1 MB = 1,000,000 bytes and show your working.\n(b) Explain one effect of reducing the colour depth from 24 bits to 8 bits.",
+          "answer": "(a) Number of pixels = 800 × 600 = 480,000.\nTotal bits = 480,000 × 24 = 11,520,000 bits.\nBytes = 11,520,000 ÷ 8 = 1,440,000 bytes.\nSize = 1,440,000 ÷ 1,000,000 = 1.44 MB.\n\n(b) With 8 bits there are only 256 possible colours instead of over 16 million. The file is smaller (about 0.48 MB uncompressed), but the image may show banding or lose subtle colour detail. It is a good trade-off for simple graphics or smaller downloads.",
+          "rubric": [
+            {
+              "point": "Number of pixels = 480,000",
+              "marks": 1
+            },
+            {
+              "point": "Total bits = 480,000 × 24 = 11,520,000",
+              "marks": 1
+            },
+            {
+              "point": "Bytes = 1,440,000",
+              "marks": 1
+            },
+            {
+              "point": "Size = 1.44 MB",
+              "marks": 1
+            },
+            {
+              "point": "States that 8 bits gives fewer colours / 256 colours",
+              "marks": 1
+            },
+            {
+              "point": "Explains a consequence: smaller file and possible loss of colour detail",
+              "marks": 1
+            }
+          ]
+        },
+        {
+          "year": 2027,
+          "number": 5,
+          "section": "A",
+          "marks": 6,
+          "chapter": "systems",
+          "title": "Connecting two campuses",
+          "prompt": "A school has 30 computers and a printer in one building. It also has a second campus 5 km away with 20 computers.\n\n(a) Explain the difference between a local area network (LAN) and a wide area network (WAN).\n(b) State which type of network is used within each campus, and which type connects the two campuses.\n(c) Name one device used to connect the computers within a campus and one device used to connect the two campuses.",
+          "answer": "(a) A LAN connects devices over a small geographic area, such as one building. It is usually owned and managed by the organisation, and it offers high speed and low delay. A WAN connects devices or LANs over a large geographic area. It normally uses external telecommunications infrastructure or leased lines, and it can be more expensive and slower than a LAN.\n\n(b) Each campus uses a LAN. The connection between the two campuses is a WAN.\n\n(c) Within a campus: a switch or wireless access point. Between the campuses: a router connected to a leased line, fibre link or broadband service.",
+          "rubric": [
+            {
+              "point": "LAN covers a small area / one building",
+              "marks": 1
+            },
+            {
+              "point": "LAN is locally owned/managed and fast",
+              "marks": 1
+            },
+            {
+              "point": "WAN covers a large area and connects separate sites",
+              "marks": 1
+            },
+            {
+              "point": "WAN uses external infrastructure and is usually slower/costlier",
+              "marks": 1
+            },
+            {
+              "point": "Both campuses identified as LANs and the link identified as a WAN",
+              "marks": 1
+            },
+            {
+              "point": "Correct device for each part: switch/access point and router/leased line",
+              "marks": 1
+            }
+          ]
+        },
+        {
+          "year": 2027,
+          "number": 6,
+          "section": "A",
+          "marks": 6,
+          "chapter": "microbit",
+          "title": "Automatic plant watering",
+          "prompt": "A school garden uses a micro:bit to water a raised bed. A soil-moisture sensor returns a value from 0 (dry) to 100 (wet). A pump waters the bed and a buzzer warns of a sensor fault.\n\nThe pump should switch on when the moisture reading falls below 30. It should switch off when the reading rises above 60. If the reading is above 90, the buzzer should sound.\n\n(a) Write pseudocode for the control program.\n(b) Explain why two different thresholds (30 and 60) are used instead of one threshold.",
+          "answer": "(a) One suitable program:\n\nforever:\n    moisture = read_analog(P0)\n    if moisture < 30:\n        pump = 1\n    elif moisture > 60:\n        pump = 0\n    if moisture > 90:\n        buzzer = 1\n    else:\n        buzzer = 0\n\n(b) The two thresholds create hysteresis. If the pump switched on and off around a single value, small changes or sensor noise could make it start and stop repeatedly. The soil also takes time to absorb water. With these thresholds, the pump stays on until the soil has become properly wet (above 60), then stays off until it has dried out (below 30). This protects the pump and gives more stable watering.",
+          "rubric": [
+            {
+              "point": "Reads the moisture sensor repeatedly",
+              "marks": 1
+            },
+            {
+              "point": "Switches the pump on below 30",
+              "marks": 1
+            },
+            {
+              "point": "Switches the pump off above 60",
+              "marks": 1
+            },
+            {
+              "point": "Sounds the buzzer above 90",
+              "marks": 1
+            },
+            {
+              "point": "Explains that two thresholds prevent rapid on/off switching",
+              "marks": 1
+            },
+            {
+              "point": "Refers to sensor noise, water absorption or stable watering",
+              "marks": 1
+            }
+          ]
+        },
+        {
+          "year": 2027,
+          "number": 7,
+          "section": "A",
+          "marks": 6,
+          "chapter": "algorithms",
+          "title": "Binary search on a name list",
+          "prompt": "A sorted list contains 15 names:\n\nAisling, Cian, Darragh, Eimear, Fionn, Grace, Hannah, Liam, Maeve, Niamh, Oisín, Róisín, Saoirse, Tadhg, Úna\n\n(a) Using a binary search, list the names compared, in order, when searching for Niamh. State the index of each name compared.\n(b) Explain why the list must be sorted before a binary search can be used.\n(c) State the maximum number of comparisons a binary search needs for a sorted list of 1,000 names.",
+          "answer": "(a) Using zero-based indexes: compare Liam at index 7, then Róisín at index 11, then Niamh at index 9. Niamh is found after three comparisons. (One-based indexes 8, 12 and 10 are equally valid.)\n\n(b) Binary search compares the target with the middle item and then discards one half of the list. That decision only works if the items are in order; in an unsorted list, the target could be in either half, so the algorithm cannot safely discard anything.\n\n(c) 10 comparisons. 2^9 = 512 and 2^10 = 1,024, so ten halvings are enough to narrow 1,000 names down to one.",
+          "rubric": [
+            {
+              "point": "Compares Liam (index 7 or 8)",
+              "marks": 1
+            },
+            {
+              "point": "Compares Róisín (index 11 or 12)",
+              "marks": 1
+            },
+            {
+              "point": "Compares Niamh (index 9 or 10)",
+              "marks": 1
+            },
+            {
+              "point": "Explains that the list must be ordered for halving to work",
+              "marks": 2
+            },
+            {
+              "point": "States a maximum of 10 comparisons",
+              "marks": 1
+            }
+          ]
+        },
+        {
+          "year": 2027,
+          "number": 8,
+          "section": "A",
+          "marks": 6,
+          "chapter": "ai",
+          "title": "Facial recognition at the library",
+          "prompt": "A university library plans to use facial recognition instead of student cards for entry. The system is trained on photographs labelled with each student's identity. The photos used to train it were supplied mostly by final-year students.\n\n(a) The system uses supervised learning. Explain what this means in this example.\n(b) Explain one consequence of using this training set for other students.\n(c) Describe one change that would make the system fairer.",
+          "answer": "(a) Supervised learning uses labelled examples to learn a mapping from input to output. In this system, each training photo is labelled with the correct student identity. The model learns from many photo–label pairs so that it can predict the identity of a new face. A human has supplied the correct answers during training.\n\n(b) The training set is not representative of the whole student population. The system may be less accurate for first-year students, international students or people whose appearance differs from the final-year group. They may be wrongly rejected and have to wait for staff, so access is unfair even if the system works well for the original group.\n\n(c) Collect a representative, consented set of photos from all student groups, test accuracy separately for each group, keep a student-card or staff fallback, and allow students to opt out. The key is to train and test on the people who will actually use the system, not only on one subgroup.",
+          "rubric": [
+            {
+              "point": "Supervised learning uses labelled examples",
+              "marks": 1
+            },
+            {
+              "point": "Applies it to the labelled student photos and predicted identity",
+              "marks": 1
+            },
+            {
+              "point": "Consequence: training data is unrepresentative",
+              "marks": 1
+            },
+            {
+              "point": "Explains the effect: unequal accuracy, false rejection or unfair access",
+              "marks": 1
+            },
+            {
+              "point": "Change: representative/consented training data or testing across groups",
+              "marks": 1
+            },
+            {
+              "point": "Adds a fallback, opt-out or human review",
+              "marks": 1
+            }
+          ]
+        },
+        {
+          "year": 2027,
+          "number": 9,
+          "section": "A",
+          "marks": 6,
+          "chapter": "software",
+          "title": "Testing a trip-payment app",
+          "prompt": "A school is developing an app that lets parents pay for school trips.\n\nExplain unit testing, integration testing and acceptance testing. Give one example of each for this app.",
+          "answer": "Unit testing checks one small part of the program in isolation. Example: test the function that checks whether a card number has the correct number of digits, using valid and invalid numbers.\n\nIntegration testing checks that separate parts work correctly together. Example: test that completing the payment form saves the booking, sends the confirmation and updates the amount paid.\n\nAcceptance testing checks whether the finished system meets the users' requirements and is fit for purpose. Example: a parent and a staff member carry out a real trip-booking scenario, including paying and cancelling, and confirm that it works as required.",
+          "rubric": [
+            {
+              "point": "Unit testing defined as testing one component in isolation",
+              "marks": 1
+            },
+            {
+              "point": "Suitable unit-test example for the app",
+              "marks": 1
+            },
+            {
+              "point": "Integration testing defined as testing components together",
+              "marks": 1
+            },
+            {
+              "point": "Suitable integration-test example",
+              "marks": 1
+            },
+            {
+              "point": "Acceptance testing defined as checking requirements/user readiness",
+              "marks": 1
+            },
+            {
+              "point": "Suitable acceptance-test example",
+              "marks": 1
+            }
+          ]
+        },
+        {
+          "year": 2027,
+          "number": 10,
+          "section": "A",
+          "marks": 6,
+          "chapter": "javascript",
+          "title": "A JavaScript quiz check",
+          "prompt": "A quiz page contains a radio group named answer and a paragraph with id=\"feedback\". The correct value is \"b\".\n\nWrite the HTML for the three answer options and a Check button. Write a JavaScript function checkAnswer() that displays \"Correct\" in the feedback paragraph when \"b\" is selected, and \"Try again\" otherwise.\n\nExplain one accessibility feature you included.",
+          "answer": "One suitable answer:\n\n<fieldset>\n  <legend>Which option is correct?</legend>\n  <label><input type=\"radio\" name=\"answer\" value=\"a\"> Option A</label>\n  <label><input type=\"radio\" name=\"answer\" value=\"b\"> Option B</label>\n  <label><input type=\"radio\" name=\"answer\" value=\"c\"> Option C</label>\n</fieldset>\n<button type=\"button\" onclick=\"checkAnswer()\">Check</button>\n<p id=\"feedback\" aria-live=\"polite\"></p>\n\n<script>\nfunction checkAnswer() {\n  const choice = document.querySelector('input[name=\"answer\"]:checked');\n  const feedback = document.getElementById('feedback');\n  feedback.textContent = choice && choice.value === 'b' ? 'Correct' : 'Try again';\n}\n</script>\n\nAccessibility: the fieldset and legend group the question, and every radio button has a label, so a screen reader can announce what each option means. The aria-live attribute also announces the feedback when it changes.",
+          "rubric": [
+            {
+              "point": "Three radio inputs with the same name",
+              "marks": 1
+            },
+            {
+              "point": "Labels and a legend/grouping used",
+              "marks": 1
+            },
+            {
+              "point": "Check button calls checkAnswer()",
+              "marks": 1
+            },
+            {
+              "point": "JavaScript reads the selected radio value",
+              "marks": 1
+            },
+            {
+              "point": "Correct/incorrect message written to #feedback",
+              "marks": 1
+            },
+            {
+              "point": "One accessibility feature explained",
+              "marks": 1
+            }
+          ]
+        },
+        {
+          "year": 2027,
+          "number": 11,
+          "section": "A",
+          "marks": 6,
+          "chapter": "ethics",
+          "title": "Tracking delivery drivers",
+          "prompt": "A delivery company wants to track drivers' GPS locations throughout the day. It says the data will be used to plan faster routes, but managers will also see how long drivers stop for.\n\nOutline two ethical concerns with this use of location data. Suggest one safeguard the company should put in place.",
+          "answer": "Any two concerns:\n\n- Constant location tracking is surveillance and reduces drivers' privacy, including during breaks.\n- Drivers may feel pressured to skip breaks, speed or take unsafe routes because managers can see every stop.\n- The data could be used for disciplinary action without context, or shared with third parties without clear consent.\n- Location data is personal data and could reveal home addresses, medical appointments or other private information if it is lost or misused.\n\nSafeguard: collect location only during working hours, explain clearly what is recorded and why, limit who can see it and how long it is kept, use aggregated data for route planning, and require human review before any disciplinary decision. Drivers should give informed consent and be able to challenge inaccurate data.",
+          "rubric": [
+            {
+              "point": "First concern: privacy/surveillance from constant tracking",
+              "marks": 1
+            },
+            {
+              "point": "Explains the effect on drivers or their breaks",
+              "marks": 1
+            },
+            {
+              "point": "Second concern: pressure, misuse or data security",
+              "marks": 1
+            },
+            {
+              "point": "Explains the effect of the second concern",
+              "marks": 1
+            },
+            {
+              "point": "Safeguard: consent/transparency",
+              "marks": 1
+            },
+            {
+              "point": "Safeguard: limits on collection, access, retention or disciplinary use",
+              "marks": 1
+            }
+          ]
+        },
+        {
+          "year": 2027,
+          "number": 12,
+          "section": "A",
+          "marks": 6,
+          "chapter": "history",
+          "title": "From valves to integrated circuits",
+          "prompt": "The development of the transistor and the integrated circuit changed computer hardware.\n\n(a) Explain two ways transistors improved on vacuum tubes.\n(b) Explain how integrated circuits continued this change.",
+          "answer": "(a) Any two:\n\n- Transistors were much smaller than vacuum tubes, so computers could be built in a much smaller space.\n- They were faster and generated far less heat, making large systems more practical.\n- They were more reliable because they did not have fragile glass tubes or filaments that burned out.\n- They used less power and were cheaper to manufacture at scale.\n\n(b) An integrated circuit places many transistors, and their connections, on a single small silicon chip. This made computers smaller, faster, cheaper and more reliable, and allowed mass production. It led directly to microprocessors, which put the CPU on a chip and made personal computers possible.",
+          "rubric": [
+            {
+              "point": "Transistors were smaller than vacuum tubes",
+              "marks": 1
+            },
+            {
+              "point": "Transistors were faster or used less power / produced less heat",
+              "marks": 1
+            },
+            {
+              "point": "Transistors were more reliable or cheaper",
+              "marks": 1
+            },
+            {
+              "point": "Integrated circuit places many transistors on one chip",
+              "marks": 1
+            },
+            {
+              "point": "Made computers smaller, faster or cheaper through mass production",
+              "marks": 1
+            },
+            {
+              "point": "Links integrated circuits to microprocessors or personal computers",
+              "marks": 1
+            }
+          ]
+        },
+        {
+          "year": 2027,
+          "number": 13,
+          "section": "B",
+          "marks": 38,
+          "chapter": "databases",
+          "title": "Community library room booking",
+          "prompt": "Fingal Community Library is introducing a study-room booking system. Members can book one room for up to two hours, with no more than two bookings per day. Staff can block a room for maintenance. If no room is free, a member can join a waiting list.\n\n(a) (i) Explain what is meant by an information system.\n\n(ii) State two functional requirements and two non-functional requirements for the booking system.\n\n(b) (i) Design one database table to store bookings. Name six fields, state a suitable data type for each and explain what each field stores.\n\n(ii) Describe two validation checks and one verification check that could be used when a member submits a booking.\n\n(c) (i) Sketch a wireframe of the booking form. Label the main controls and add short notes explaining their purpose.\n\n(ii) Write an SQL query that lists the room, member and start time for every booking on 12 May 2027, in start-time order.\n\n(d) Explain how unit testing and integration testing would be used on this system. Give one example of each.",
+          "answer": "(a)(i) An information system takes data in, processes and stores it, and produces useful information for people. It includes people, processes, data, hardware and software working together.\n\n(ii) Functional requirements (any two): allow a member to search for a free room; create, view and cancel a booking; enforce the two-hour and two-booking limits; let staff block a room; add a member to a waiting list. Non-functional requirements (any two): the site must be secure and protect personal data; it must work on a phone; it must respond quickly; it must be available during library opening hours; it must be accessible to users with disabilities.\n\n(b)(i) One suitable table, Bookings:\n\n- BookingID — Integer — unique identifier for the booking.\n- MemberID — Integer — identifies the member making the booking.\n- RoomID — String or Integer — identifies the room.\n- BookingDate — Date — the day of the booking.\n- StartTime — Time — when the booking begins.\n- EndTime — Time — when the booking ends.\n\n(Other valid fields include NumberOfPeople, Status or CreatedAt, as long as six are explained.)\n\n(ii) Validation (any two): presence check that required fields are filled; range check that the booking is no more than two hours; date check that the date is not in the past; type check that MemberID is numeric; a business-rule check that the member does not already have two bookings that day. Verification (one): show a confirmation screen or send a confirmation email so the member can check the details; double-entry of the email address.\n\n(c)(i) A suitable wireframe should include: a heading; a room selector; a date picker; start-time and end-time controls; a submit button; a clear error/status area; and an option to join the waiting list when no room is available. Notes should explain what each control does and show the order in which the user completes the form.\n\n(c)(ii) A suitable query:\n\nSELECT RoomID, MemberID, StartTime\nFROM Bookings\nWHERE BookingDate = '2027-05-12'\nORDER BY StartTime;\n\n(d) Unit testing checks one small part in isolation. Example: test the validation function with a three-hour booking and confirm that it is rejected, and with a two-hour booking and confirm that it is accepted. Integration testing checks that parts work together. Example: submit a booking through the form and confirm that it is saved in the database, appears in the member's bookings and prevents a double booking.",
+          "rubric": [
+            {
+              "point": "Information system explained (input, process, output, people)",
+              "marks": 3
+            },
+            {
+              "point": "Two functional requirements",
+              "marks": 4
+            },
+            {
+              "point": "Two non-functional requirements",
+              "marks": 4
+            },
+            {
+              "point": "Six fields named with suitable data types",
+              "marks": 3
+            },
+            {
+              "point": "Six fields explained",
+              "marks": 3
+            },
+            {
+              "point": "Two validation checks",
+              "marks": 4
+            },
+            {
+              "point": "One verification check",
+              "marks": 2
+            },
+            {
+              "point": "Wireframe has the main controls and annotations",
+              "marks": 6
+            },
+            {
+              "point": "Correct SQL selection, condition and ordering",
+              "marks": 5
+            },
+            {
+              "point": "Unit testing explained with an example",
+              "marks": 2
+            },
+            {
+              "point": "Integration testing explained with an example",
+              "marks": 2
+            }
+          ]
+        },
+        {
+          "year": 2027,
+          "number": 14,
+          "section": "B",
+          "marks": 38,
+          "chapter": "modelling",
+          "title": "Modelling the school canteen queue",
+          "prompt": "A school canteen has 600 students and two tills. Students arrive at lunchtime at unpredictable times, and each student takes a different amount of time to be served. The principal wants to know whether a third till is needed.\n\n(a) (i) Explain why a computer simulation is suitable for investigating this problem.\n\n(ii) State two inputs the simulation would need and one output it would produce.\n\n(iii) State one assumption the model makes and explain how a wrong assumption could affect the result.\n\n(b) (i) Name two data items the school should collect and describe how each could be collected.\n\n(ii) Describe one validation or data-cleaning step that should be applied to the collected data.\n\n(c) (i) Explain how random numbers could be used to model student arrivals.\n\n(ii) The following is a dry run with one till open. Students arrive at 0, 2, 4, 5 and 8 minutes. Their service times are 3, 2, 4, 1 and 3 minutes. Complete a table showing the arrival, service start, waiting time and finish time for each student, then calculate the average waiting time.\n\n(d) (i) Outline two benefits of using the simulation.\n\n(ii) Outline one limitation of the model.\n\n(iii) Recommend whether the school should install a third till. Justify your answer using the evidence a simulation could provide.",
+          "answer": "(a)(i) A simulation can model many lunchtimes quickly and cheaply without changing the real canteen. It can test different numbers of tills, arrival patterns and service speeds, including rare busy days, and produce average queues and waiting times.\n\n(ii) Inputs (any two): number of students, arrival rate or arrival pattern, number of tills, service time for each student, length of lunch break. Output (any one): average waiting time, maximum queue length, number of students unserved at the end, utilisation of each till.\n\n(iii) One assumption: students arrive independently at a steady average rate, or all students join one queue. If arrivals actually cluster immediately after the bell, the model will underestimate queues and waiting times.\n\n(b)(i) Any two: count arrivals at the canteen every minute by observation or a tally sheet; time individual service at the till with a stopwatch; use till transaction timestamps; survey students about when they arrive. Explain the method for each.\n\n(ii) Remove impossible or negative times; check that each finish time is after its start time; discard incomplete records; round timestamps consistently; check that the number of students is within the school population.\n\n(c)(i) Use the observed arrival gaps to choose a random gap for each new student. For example, if gaps between arrivals range from 0 to 4 minutes, generate a random number in that range and add it to the previous arrival time. Repeating the simulation with many random values produces a spread of possible lunchtimes.\n\n(c)(ii) With one till:\n\nStudent 1: arrival 0, start 0, wait 0, finish 3\nStudent 2: arrival 2, start 3, wait 1, finish 5\nStudent 3: arrival 4, start 5, wait 1, finish 9\nStudent 4: arrival 5, start 9, wait 4, finish 10\nStudent 5: arrival 8, start 10, wait 2, finish 13\n\nTotal waiting time = 0 + 1 + 1 + 4 + 2 = 8 minutes. Average wait = 8 ÷ 5 = 1.6 minutes.\n\n(d)(i) Benefits: test a third till before spending money; compare average queues for different arrival patterns; identify the busiest times; repeat a rare bad day safely; support a decision with data rather than guesswork.\n\n(d)(ii) Limitation: the model is only as good as its assumptions and data; it may not capture students leaving because the queue is long, staff breaks, or different food choices. Averages can also hide very long waits for a few students.\n\n(d)(iii) Recommendation: install a third till only if the simulation shows that the current two tills produce unacceptable queues on normal and busy days, and that the third till reduces them enough to justify its cost. Otherwise, try staggering lunch times or improving service speed first. The answer should refer to simulated average/maximum waits and the cost.",
+          "rubric": [
+            {
+              "point": "Simulation suitability explained (cheap, fast, repeatable, test scenarios)",
+              "marks": 3
+            },
+            {
+              "point": "Two suitable inputs",
+              "marks": 2
+            },
+            {
+              "point": "One suitable output",
+              "marks": 2
+            },
+            {
+              "point": "One assumption stated",
+              "marks": 2
+            },
+            {
+              "point": "Explains how a wrong assumption affects the result",
+              "marks": 1
+            },
+            {
+              "point": "Two data items with collection methods",
+              "marks": 4
+            },
+            {
+              "point": "One validation or cleaning step described",
+              "marks": 3
+            },
+            {
+              "point": "Random arrivals explained (random gaps or distributions)",
+              "marks": 3
+            },
+            {
+              "point": "Dry-run table has correct start times",
+              "marks": 3
+            },
+            {
+              "point": "Dry-run table has correct waiting/finish times",
+              "marks": 3
+            },
+            {
+              "point": "Total waiting time is 8 minutes",
+              "marks": 1
+            },
+            {
+              "point": "Average waiting time is 1.6 minutes",
+              "marks": 1
+            },
+            {
+              "point": "Two benefits of the simulation",
+              "marks": 4
+            },
+            {
+              "point": "One limitation of the model",
+              "marks": 3
+            },
+            {
+              "point": "Clear recommendation justified by simulated evidence",
+              "marks": 3
+            }
+          ]
+        },
+        {
+          "year": 2027,
+          "number": 15,
+          "section": "B",
+          "marks": 38,
+          "chapter": "analytics",
+          "title": "Analysing test scores",
+          "prompt": "A school uses a dashboard to identify students who may need extra support. The dashboard combines assessment scores, attendance and homework completion. A sample of ten students' most recent test scores is:\n\nStudent | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10\nScore   | 45 | 52 | 52 | 60 | 65 | 70 | 70 | 78 | 85 | 98\n\n(a) (i) Explain the difference between data and information.\n\n(ii) Calculate the mean, median and mode of the scores. Explain which of these is most useful for describing the class.\n\n(b) (i) Describe two data-cleaning steps the school should carry out before using the dashboard.\n\n(ii) Suggest one suitable chart for showing the distribution of scores and explain why it is suitable.\n\n(c) (i) Describe one pattern in the scores and one decision the school could make from it.\n\n(ii) Explain two limitations of using this sample to draw conclusions about the whole school.\n\n(d) (i) Outline two ethical concerns with using this dashboard.\n\n(ii) Suggest one safeguard.\n\n(iii) Recommend whether the school should use the dashboard, and justify your answer.",
+          "answer": "(a)(i) Data is a collection of raw facts and figures, such as the ten test scores. Information is the meaning produced when data is processed and interpreted, such as “three students scored below 60 and may need support”. The dashboard turns data into information for teachers.\n\n(a)(ii) Sum of scores = 45 + 52 + 52 + 60 + 65 + 70 + 70 + 78 + 85 + 98 = 675.\nMean = 675 ÷ 10 = 67.5.\nThe middle two scores are 65 and 70, so median = (65 + 70) ÷ 2 = 67.5.\nThe modes are 52 and 70, because each appears twice.\nThe mean and median are both 67.5, so either is a useful measure of the typical score. The mode is less useful here because there are two modes and it does not represent the middle of the class.\n\n(b)(i) Any two: check every score is in the range 0–100 and correct impossible values such as 980; identify missing scores and decide whether to exclude them or follow up; remove duplicate records; standardise scores that were entered as fractions or percentages; anonymise student names by replacing them with IDs; check that attendance figures are in days or percentages consistently.\n\n(b)(ii) A histogram is suitable because it groups the scores into intervals and shows the shape and spread of the distribution, including clusters and gaps. A box plot would also work because it shows the median, quartiles and possible outliers. A bar chart of the individual scores would show each value but would not summarise the distribution as clearly.\n\n(c)(i) One pattern: three students scored below 60, while the rest scored 60 or above. Decision: the school could invite those three students to a support session or investigate their attendance and homework completion. They should not assume the score alone explains why a student is struggling. Another valid pattern is the cluster at 52 and the higher cluster around 70, which suggests two groups with different needs.\n\n(c)(ii) Any two: the sample is only ten students from one class and may not represent the whole school; one test is a snapshot and may not reflect later performance; the data may contain errors or missing values; attendance and homework may be incomplete; a low score does not prove the cause, and other factors such as illness or access to a computer may matter. Conclusions should be checked with larger and more representative data before being applied school-wide.\n\n(d)(i) Any two: student data is personal and could be exposed if the dashboard is not secure; students may be labelled as “weak” or treated unfairly by a prediction; the data may be biased against students with disabilities or those who have less access to technology; students and parents may not have consented to the data being combined; inaccurate data could lead to the wrong support being offered.\n\n(d)(ii) Safeguard: restrict access to named teachers, anonymise or aggregate data where possible, obtain informed consent, allow students to correct errors, and require a teacher to review any recommendation before acting. Do not use the dashboard to make automatic decisions about a student.\n\n(d)(iii) Recommendation: use the dashboard as a support tool, not as an automatic judgement. It can help teachers notice students who need help, but only with anonymised or restricted data, consent, human review and a way to correct errors. If those safeguards are absent, the school should not launch it. The recommendation should be justified with both the potential benefit and the ethical risk.",
+          "rubric": [
+            {
+              "point": "Data versus information explained, with the dashboard as an example",
+              "marks": 3
+            },
+            {
+              "point": "Mean = 67.5",
+              "marks": 2
+            },
+            {
+              "point": "Median = 67.5",
+              "marks": 2
+            },
+            {
+              "point": "Modes = 52 and 70",
+              "marks": 1
+            },
+            {
+              "point": "Explains that mean/median are most useful; mode is bimodal",
+              "marks": 1
+            },
+            {
+              "point": "First data-cleaning step with detail",
+              "marks": 3
+            },
+            {
+              "point": "Second data-cleaning step with detail",
+              "marks": 3
+            },
+            {
+              "point": "Suitable chart chosen",
+              "marks": 2
+            },
+            {
+              "point": "Chart choice justified for distribution",
+              "marks": 2
+            },
+            {
+              "point": "Pattern in the scores described",
+              "marks": 3
+            },
+            {
+              "point": "Reasonable decision from the pattern",
+              "marks": 2
+            },
+            {
+              "point": "First limitation of the sample/conclusion",
+              "marks": 3
+            },
+            {
+              "point": "Second limitation of the sample/conclusion",
+              "marks": 3
+            },
+            {
+              "point": "First ethical concern",
+              "marks": 2
+            },
+            {
+              "point": "Second ethical concern",
+              "marks": 2
+            },
+            {
+              "point": "One safeguard",
+              "marks": 2
+            },
+            {
+              "point": "Clear recommendation with justification",
+              "marks": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

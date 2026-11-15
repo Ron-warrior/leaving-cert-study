@@ -1,0 +1,144 @@
+---
+import Icon from "./Icon.astro";
+import type { Subject } from "../lib/content";
+import {
+  getLab,
+  getListening,
+  getOral,
+  noteHref,
+  shortTitle,
+  subjects,
+} from "../lib/content";
+
+interface Props {
+  subject?: Subject;
+  floating?: boolean;
+}
+
+const { subject, floating = false } = Astro.props;
+const path = Astro.url.pathname;
+const chapters = subject
+  ? subject.notes.map((note, index) => ({
+      href: noteHref(subject, note),
+      label: shortTitle(note.title),
+      number: String(index).padStart(2, "0"),
+    }))
+  : [];
+
+const practice = subject
+  ? [
+      { href: `/${subject.slug}/questions/`, label: "Question bank" },
+      { href: `/${subject.slug}/mock/`, label: "Timed mock" },
+      ...(getLab(subject.slug).length
+        ? [{ href: `/${subject.slug}/section-c/`, label: "Section C lab" }]
+        : []),
+      ...(getListening(subject.slug).length
+        ? [{ href: `/${subject.slug}/listening/`, label: "Listening practice" }]
+        : []),
+      ...(getOral(subject.slug).roleplays.length
+        ? [{ href: `/${subject.slug}/oral/`, label: "Oral trainer" }]
+        : []),
+    ]
+  : [];
+
+const title = subject ? "Chapters & practice" : "Subjects & practice";
+---
+
+<div class="nav-menu">
+  <button
+    class:list={["subject-menu", "nav-toggle", floating && "nav-toggle-float"]}
+    type="button"
+    data-nav-toggle
+    aria-label={subject ? "Open chapters and practice" : "Open study menu"}
+    aria-expanded="false"
+    aria-controls="site-nav-drawer"
+  >
+    <Icon name="menu" />
+  </button>
+
+  <div class="nav-drawer" id="site-nav-drawer" data-nav-drawer aria-hidden="true">
+    <button class="nav-scrim" type="button" data-nav-close tabindex="-1" aria-label="Close menu"></button>
+    <div class="nav-panel" role="dialog" aria-modal="true" aria-labelledby="site-nav-title" tabindex="-1">
+      <div class="nav-head">
+        <p id="site-nav-title">{title}</p>
+        <button class="nav-close" type="button" data-nav-close aria-label="Close menu">
+          <Icon name="close" />
+        </button>
+      </div>
+
+      <nav class="nav-body" aria-label="Study guide">
+        {subject ? (
+          <>
+            <a
+              class="nav-link nav-home"
+              href={`/${subject.slug}/`}
+              aria-current={path === `/${subject.slug}/` ? "page" : undefined}
+            >
+              <Icon name="home" />
+              <span>Home</span>
+            </a>
+
+            <p class="nav-label">Chapter notes</p>
+            <div class="nav-chapters">
+              {chapters.map((chapter) => (
+                <a
+                  class="nav-link"
+                  href={chapter.href}
+                  aria-current={path === chapter.href ? "page" : undefined}
+                >
+                  <span class="nav-number">{chapter.number}</span>
+                  <span>{chapter.label}</span>
+                </a>
+              ))}
+            </div>
+
+            {practice.length > 0 && (
+              <>
+                <p class="nav-label nav-practice-label">Practice</p>
+                <div class="nav-practice">
+                  {practice.map((item) => (
+                    <a
+                      class="nav-link"
+                      href={item.href}
+                      aria-current={path === item.href ? "page" : undefined}
+                    >
+                      <span aria-hidden="true">→</span>
+                      <span>{item.label}</span>
+                    </a>
+                  ))}
+                </div>
+              </>
+            )}
+          </>
+        ) : (
+          <>
+            <p class="nav-label">Subjects</p>
+            <div class="nav-subjects">
+              {subjects.map((item, index) => (
+                <a
+                  class="nav-link"
+                  href={`/${item.slug}/`}
+                  aria-current={path === `/${item.slug}/` ? "page" : undefined}
+                >
+                  <span class="nav-number">{String(index + 1).padStart(2, "0")}</span>
+                  <span>{item.name}</span>
+                </a>
+              ))}
+            </div>
+          </>
+        )}
+
+        <button class="nav-link nav-theme" type="button" data-theme-toggle aria-label="Toggle dark mode">
+          <Icon name="moon" />
+          <span>Dark mode</span>
+        </button>
+
+        <div class="nav-footer">
+          <a href="/">All subjects</a>
+          <a href="/search/">Search</a>
+          <a href="/progress/">Progress</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>
