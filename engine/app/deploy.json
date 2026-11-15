@@ -4,6 +4,6 @@
   "modules": [
     { "name": "index.js", "type": "esm", "path": "./site-worker.js" }
   ],
-  "assetsDirectory": "./preview-dist",
+  "assetsDirectory": "./dist-sites",
   "spa": false
 }

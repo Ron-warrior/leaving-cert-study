@@ -1,0 +1,13 @@
+{
+  "name": "Leaving Cert Study",
+  "siteId": "53f067dd-48b4-46c1-9b39-e1db0c41747e",
+  "environment": "preview",
+  "url": "https://site-f3e44e50dd0045fe93a0faf1eb6cc738.freebuff.page/",
+  "published": true,
+  "audioBinding": "AUDIO",
+  "audioFiles": [
+    "audio/2024-listening.mp3",
+    "audio/2025-listening.mp3",
+    "audio/2026-listening.mp3"
+  ]
+}

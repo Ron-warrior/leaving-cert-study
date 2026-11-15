@@ -1,5 +1,7 @@
 node_modules/
 dist/
+dist-sites/
 .astro/
+.upload-token
 server.log
 server.pid
