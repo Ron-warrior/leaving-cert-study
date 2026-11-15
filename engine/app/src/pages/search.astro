@@ -3,6 +3,7 @@ import Base from "../layouts/Base.astro";
 import Icon from "../components/Icon.astro";
 import NavDrawer from "../components/NavDrawer.astro";
 import Search from "../components/Search.svelte";
+import { withBase } from "../lib/paths";
 ---
 
 <Base
@@ -13,7 +14,7 @@ import Search from "../components/Search.svelte";
     <div class="subject-bar">
       <NavDrawer />
       <span class="subject-bar-name">Search</span>
-      <a class="web-back" href="/">← All subjects</a>
+      <a class="web-back" href={withBase("/")}>← All subjects</a>
       <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle dark mode"><Icon name="sun" /><Icon name="moon" /></button>
     </div>
 

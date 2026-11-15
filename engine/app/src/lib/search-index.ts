@@ -1,3 +1,4 @@
+import { withBase } from "./paths";
 import {
   getLab,
   getListening,
@@ -33,7 +34,7 @@ function plain(markdown: string): string {
 }
 
 function questionHref(subject: Subject, year: number, section: string, number: number): string {
-  return `/${subject.slug}/questions/#q-${year}-${section}-${number}`;
+  return withBase(`${subject.slug}/questions/#q-${year}-${section}-${number}`);
 }
 
 export function buildSearchIndex(): SearchDoc[] {
@@ -68,7 +69,7 @@ export function buildSearchIndex(): SearchDoc[] {
         subjectName: subject.shortName,
         kind: "Listening",
         title: `${paper.year} · Full transcript`,
-        href: `/${subject.slug}/listening/#transcript-${paper.year}`,
+        href: withBase(`${subject.slug}/listening/#transcript-${paper.year}`),
         text: plain(`${paper.transcript} ${paper.transcriptEn}`),
       });
       for (const question of paper.questions) {
@@ -77,7 +78,7 @@ export function buildSearchIndex(): SearchDoc[] {
           subjectName: subject.shortName,
           kind: "Listening",
           title: `${paper.year} · Section ${question.number} · ${question.title}`,
-          href: `/${subject.slug}/listening/#listen-${paper.year}-q-${question.number}`,
+          href: withBase(`${subject.slug}/listening/#listen-${paper.year}-q-${question.number}`),
           text: plain(`${question.prompt} ${question.answer}`),
         });
       }
@@ -90,7 +91,7 @@ export function buildSearchIndex(): SearchDoc[] {
         subjectName: subject.shortName,
         kind: "Oral",
         title: `Roleplay ${String(index + 1).padStart(2, "0")} · ${roleplay.title}`,
-        href: `/${subject.slug}/oral/#rp-${index + 1}`,
+        href: withBase(`${subject.slug}/oral/#rp-${index + 1}`),
         text: plain(`${roleplay.situation} ${roleplay.points.join(" ")} ${roleplay.phrases.join(" ")}`),
       });
     });
@@ -101,7 +102,7 @@ export function buildSearchIndex(): SearchDoc[] {
           subjectName: subject.shortName,
           kind: "Oral",
           title: `${topic.title} · ${question.question}`,
-          href: `/${subject.slug}/oral/#conversation-${topicIndex + 1}-${questionIndex + 1}`,
+          href: withBase(`${subject.slug}/oral/#conversation-${topicIndex + 1}-${questionIndex + 1}`),
           text: plain(question.answer),
         });
       });
@@ -114,7 +115,7 @@ export function buildSearchIndex(): SearchDoc[] {
           subjectName: subject.shortName,
           kind: "Lab",
           title: `${paper.year} ${part.letter} · ${part.title}`,
-          href: `/${subject.slug}/section-c/#paper-${paper.year}-${part.letter.replace(/[()]/g, "")}`,
+          href: withBase(`${subject.slug}/section-c/#paper-${paper.year}-${part.letter.replace(/[()]/g, "")}`),
           text: plain(`${part.prompt} ${part.tasks.join(" ")}`),
         });
       }

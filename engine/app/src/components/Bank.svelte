@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount, tick } from "svelte";
+  import { withBase } from "../lib/paths";
   import type { Question, Subject } from "../lib/content";
 
   export let subject: Subject;
@@ -577,7 +578,7 @@
               <div class="qhead">
                 <span class="qnum" aria-hidden="true">Q{question.number}</span>
                 <span class="qmeta">{question.year} · Section {question.section} · {question.marks} marks</span>
-                <a class="qtag" href={`/${subject.slug}/notes/${question.chapter}/`}>{chapterLabel(question.chapter)}</a>
+                <a class="qtag" href={withBase(`${subject.slug}/notes/${question.chapter}/`)}>{chapterLabel(question.chapter)}</a>
                 {#if markedTotal(question, marks) > 0}
                   <span class="qdone">✓ Marked</span>
                 {/if}

@@ -1,4 +1,5 @@
 ---
+import { withBase } from "../lib/paths";
 import type { Subject } from "../lib/content";
 import {
   getLab,
@@ -16,23 +17,23 @@ interface Props {
 
 const { subject, home = false } = Astro.props;
 const path = Astro.url.pathname;
-const subjectHome = `/${subject.slug}/`;
+const subjectHome = withBase(`${subject.slug}/`);
 
 const practice = [
   {
-    href: `/${subject.slug}/questions/`,
+    href: withBase(`${subject.slug}/questions/`),
     num: "Q",
     label: "2023–2026 questions",
   },
   {
-    href: `/${subject.slug}/mock/`,
+    href: withBase(`${subject.slug}/mock/`),
     num: "⏱",
     label: subject.mockTitle,
   },
   ...(subject.slug === "cs"
     ? [
         {
-          href: `/${subject.slug}/original-sample-paper-a/`,
+          href: withBase(`${subject.slug}/original-sample-paper-a/`),
           num: "✎",
           label: "Original sample paper",
         },
@@ -41,7 +42,7 @@ const practice = [
   ...(getLab(subject.slug).length
     ? [
         {
-          href: `/${subject.slug}/section-c/`,
+          href: withBase(`${subject.slug}/section-c/`),
           num: "C",
           label: "Section C lab",
         },
@@ -50,7 +51,7 @@ const practice = [
   ...(getListening(subject.slug).length
     ? [
         {
-          href: `/${subject.slug}/listening/`,
+          href: withBase(`${subject.slug}/listening/`),
           num: "♪",
           label: "Listening practice",
         },
@@ -59,7 +60,7 @@ const practice = [
   ...(getOral(subject.slug).roleplays.length
     ? [
         {
-          href: `/${subject.slug}/oral/`,
+          href: withBase(`${subject.slug}/oral/`),
           num: "◉",
           label: "Oral trainer",
         },
@@ -78,7 +79,7 @@ const practice = [
 
     <div class="side-title">Overview</div>
     <nav class="chapter-list" aria-label="Overview">
-      <a class="chapter-btn" href="/">
+      <a class="chapter-btn" href={withBase("/")}>
         <span class="chapter-num" aria-hidden="true">⊞</span>
         <span class="chapter-name">All subjects</span>
       </a>
@@ -98,7 +99,7 @@ const practice = [
         {subjects.map((item) => (
           <a
             class:list={["subject-btn", item.slug === subject.slug && "is-active"]}
-            href={`/${item.slug}/`}
+            href={withBase(`${item.slug}/`)}
             title={item.level}
             aria-current={item.slug === subject.slug ? "page" : undefined}
           >

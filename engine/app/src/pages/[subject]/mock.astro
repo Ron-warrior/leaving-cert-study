@@ -2,6 +2,7 @@
 import Base from "../../layouts/Base.astro";
 import StudyShell from "../../components/StudyShell.astro";
 import Mock from "../../components/Mock.svelte";
+import { withBase } from "../../lib/paths";
 import { getQuestions, subjects } from "../../lib/content";
 
 export function getStaticPaths() {
@@ -27,7 +28,7 @@ const questions = getQuestions(subject.slug);
       title={subject.mockTitle}
       minutes={subject.mockMinutes}
       blurb={subject.mockBlurb}
-      extraLink={subject.slug === "cs" ? "/cs/original-sample-paper-a/" : ""}
+      extraLink={subject.slug === "cs" ? withBase("cs/original-sample-paper-a/") : ""}
     />
   </StudyShell>
 </Base>

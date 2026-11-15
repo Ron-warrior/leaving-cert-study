@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import Icon from "../components/Icon.astro";
 import NavDrawer from "../components/NavDrawer.astro";
+import { withBase } from "../lib/paths";
 ---
 
 <Base
@@ -12,8 +13,8 @@ import NavDrawer from "../components/NavDrawer.astro";
     <div class="subject-bar">
       <NavDrawer />
       <span class="subject-bar-name">Not found</span>
-      <a class="web-back" href="/">← All subjects</a>
-      <a class="icon-btn" href="/search/" aria-label="Search notes and questions"><Icon name="search" /></a>
+      <a class="web-back" href={withBase("/")}>← All subjects</a>
+      <a class="icon-btn" href={withBase("search/")} aria-label="Search notes and questions"><Icon name="search" /></a>
       <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle dark mode"><Icon name="sun" /><Icon name="moon" /></button>
     </div>
 
@@ -27,8 +28,8 @@ import NavDrawer from "../components/NavDrawer.astro";
     </header>
 
     <div class="notfound-actions">
-      <a class="cta" href="/">All subjects</a>
-      <a class="cta ghost" href="/search/">Search the guide</a>
+      <a class="cta" href={withBase("/")}>All subjects</a>
+      <a class="cta ghost" href={withBase("search/")}>Search the guide</a>
     </div>
   </main>
 </Base>

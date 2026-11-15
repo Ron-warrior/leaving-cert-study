@@ -2,6 +2,7 @@
 import Base from "../../layouts/Base.astro";
 import StudyFooter from "../../components/StudyFooter.astro";
 import StudySidebar from "../../components/StudySidebar.astro";
+import { withBase } from "../../lib/paths";
 import {
   subjects,
   noteHref,
@@ -35,11 +36,11 @@ const questions = getQuestions(subject.slug);
 const isSpanish = subject.slug === "spanish";
 
 const extraPractice = lab.length
-  ? { href: `/${subject.slug}/section-c/`, label: "Section C lab" }
+  ? { href: withBase(`${subject.slug}/section-c/`), label: "Section C lab" }
   : listening.length
-    ? { href: `/${subject.slug}/listening/`, label: "Listening practice" }
+    ? { href: withBase(`${subject.slug}/listening/`), label: "Listening practice" }
     : oral.roleplays.length
-      ? { href: `/${subject.slug}/oral/`, label: "Oral trainer" }
+      ? { href: withBase(`${subject.slug}/oral/`), label: "Oral trainer" }
       : null;
 ---
 
@@ -66,11 +67,11 @@ const extraPractice = lab.length
           <p class="lede">{subject.homeLede}</p>
           <div class="hero-actions">
             <a class="cta" href={noteHref(subject, startNote)}>{subject.startLabel}</a>
-            <a class="cta ghost" href={`/${subject.slug}/questions/`}>Question bank</a>
+            <a class="cta ghost" href={withBase(`${subject.slug}/questions/`)}>Question bank</a>
             {isSpanish ? (
               <>
-                <a class="cta ghost" href={`/${subject.slug}/oral/`}>Oral trainer</a>
-                <a class="cta ghost" href={`/${subject.slug}/listening/`}>Listening practice</a>
+                <a class="cta ghost" href={withBase(`${subject.slug}/oral/`)}>Oral trainer</a>
+                <a class="cta ghost" href={withBase(`${subject.slug}/listening/`)}>Listening practice</a>
               </>
             ) : (
               extraPractice && (
@@ -172,7 +173,7 @@ const extraPractice = lab.length
           </p>
         )}
       </div>
-      <a class="cta light" href={`/${subject.slug}/questions/`}>Open the question bank →</a>
+      <a class="cta light" href={withBase(`${subject.slug}/questions/`)}>Open the question bank →</a>
     </section>
 
     <section class="home-chapters">

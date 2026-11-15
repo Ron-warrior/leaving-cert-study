@@ -1,6 +1,7 @@
 ---
 import "../styles/base.css";
 import "../styles/app.css";
+import { withBase } from "../lib/paths";
 
 interface Props {
   title: string;
@@ -21,7 +22,14 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#0b1220" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="application-name" content="Leaving Cert Study" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="LC Study" />
+    <link rel="icon" href={withBase("favicon.svg")} type="image/svg+xml" />
+    <link rel="apple-touch-icon" href={withBase("icons/apple-touch-icon.png")} />
+    <link rel="manifest" href={withBase("manifest.webmanifest")} />
     <script is:inline>
       try {
         var saved = localStorage.getItem("gk-web-theme");
@@ -60,7 +68,7 @@ const {
 
       (function () {
         var match = location.pathname.match(
-          /^\/([a-z0-9-]+)\/(notes|questions|mock|listening|oral|section-c)(?:\/|$)/,
+          /\/([a-z0-9-]+)\/(notes|questions|mock|listening|oral|section-c)(?:\/|$)/,
         );
         if (!match) return;
         var key = "gk2-activity-" + match[1];
@@ -225,6 +233,11 @@ const {
         });
       })();
 
+    </script>
+
+    <script>
+      import { registerSW } from "virtual:pwa-register";
+      registerSW({ immediate: true });
     </script>
   </body>
 </html>

@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import { withBase } from "../lib/paths";
 import {
   getDemos,
   getLab,
@@ -93,7 +94,7 @@ function indexStats(subject: (typeof subjects)[number]) {
                 </div>
               ))}
             </dl>
-            <a class="cta" href={`/${subject.slug}/`}>
+            <a class="cta" href={withBase(`${subject.slug}/`)}>
               Open {subject.shortName} <span aria-hidden="true">→</span>
             </a>
           </article>
@@ -114,7 +115,7 @@ function indexStats(subject: (typeof subjects)[number]) {
       </div>
       <nav class="foot-links" aria-label="Footer">
         {subjects.map((subject) => (
-          <a href={`/${subject.slug}/`}>{subject.name}</a>
+          <a href={withBase(`${subject.slug}/`)}>{subject.name}</a>
         ))}
       </nav>
     </div>

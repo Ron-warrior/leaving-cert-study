@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { withBase } from "./paths";
 
 export type NoteEntry = {
   slug: string;
@@ -229,11 +230,11 @@ export function readNote(note: NoteEntry): string {
 }
 
 export function noteHref(subject: Subject, note: NoteEntry): string {
-  return `/${subject.slug}/notes/${note.slug}/`;
+  return withBase(`${subject.slug}/notes/${note.slug}/`);
 }
 
 export function subjectHref(subject: Subject): string {
-  return `/${subject.slug}/`;
+  return withBase(`${subject.slug}/`);
 }
 
 export function shortTitle(title: string): string {

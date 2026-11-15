@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { withBase } from "../lib/paths";
   import type { ListeningPaper, Subject } from "../lib/content";
 
   export let subject: Subject;
@@ -86,7 +87,7 @@
       controls
       preload="metadata"
       aria-label={`${paper.year} listening audio`}
-      src={`/${paper.audio}`}
+      src={withBase(paper.audio)}
     >
       Your browser does not support the audio element.
     </audio>

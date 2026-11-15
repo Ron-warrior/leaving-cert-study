@@ -1,4 +1,5 @@
 ---
+import { withBase } from "../lib/paths";
 import type { Subject } from "../lib/content";
 import {
   getLab,
@@ -16,19 +17,19 @@ const { subject } = Astro.props;
 const startNote = subject.notes[0];
 const isSpanish = subject.slug === "spanish";
 const practice = [
-  { href: `/${subject.slug}/questions/`, label: "Questions" },
-  { href: `/${subject.slug}/mock/`, label: "Mock" },
+  { href: withBase(`${subject.slug}/questions/`), label: "Questions" },
+  { href: withBase(`${subject.slug}/mock/`), label: "Mock" },
   ...(getLab(subject.slug).length
-    ? [{ href: `/${subject.slug}/section-c/`, label: "Section C lab" }]
+    ? [{ href: withBase(`${subject.slug}/section-c/`), label: "Section C lab" }]
     : []),
   ...(isSpanish && getOral(subject.slug).roleplays.length
-    ? [{ href: `/${subject.slug}/oral/`, label: "Oral" }]
+    ? [{ href: withBase(`${subject.slug}/oral/`), label: "Oral" }]
     : []),
   ...(getListening(subject.slug).length
-    ? [{ href: `/${subject.slug}/listening/`, label: "Listening" }]
+    ? [{ href: withBase(`${subject.slug}/listening/`), label: "Listening" }]
     : []),
   ...(!isSpanish && getOral(subject.slug).roleplays.length
-    ? [{ href: `/${subject.slug}/oral/`, label: "Oral" }]
+    ? [{ href: withBase(`${subject.slug}/oral/`), label: "Oral" }]
     : []),
 ];
 ---

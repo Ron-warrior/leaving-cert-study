@@ -1,5 +1,6 @@
 ---
 import Icon from "./Icon.astro";
+import { withBase } from "../lib/paths";
 import type { Subject } from "../lib/content";
 import {
   getLab,
@@ -17,6 +18,7 @@ interface Props {
 
 const { subject, floating = false } = Astro.props;
 const path = Astro.url.pathname;
+const subjectHome = subject ? withBase(`${subject.slug}/`) : "";
 const chapters = subject
   ? subject.notes.map((note, index) => ({
       href: noteHref(subject, note),
@@ -27,16 +29,16 @@ const chapters = subject
 
 const practice = subject
   ? [
-      { href: `/${subject.slug}/questions/`, label: "Question bank" },
-      { href: `/${subject.slug}/mock/`, label: "Timed mock" },
+      { href: withBase(`${subject.slug}/questions/`), label: "Question bank" },
+      { href: withBase(`${subject.slug}/mock/`), label: "Timed mock" },
       ...(getLab(subject.slug).length
-        ? [{ href: `/${subject.slug}/section-c/`, label: "Section C lab" }]
+        ? [{ href: withBase(`${subject.slug}/section-c/`), label: "Section C lab" }]
         : []),
       ...(getListening(subject.slug).length
-        ? [{ href: `/${subject.slug}/listening/`, label: "Listening practice" }]
+        ? [{ href: withBase(`${subject.slug}/listening/`), label: "Listening practice" }]
         : []),
       ...(getOral(subject.slug).roleplays.length
-        ? [{ href: `/${subject.slug}/oral/`, label: "Oral trainer" }]
+        ? [{ href: withBase(`${subject.slug}/oral/`), label: "Oral trainer" }]
         : []),
     ]
   : [];
@@ -71,8 +73,8 @@ const title = subject ? "Chapters & practice" : "Subjects & practice";
           <>
             <a
               class="nav-link nav-home"
-              href={`/${subject.slug}/`}
-              aria-current={path === `/${subject.slug}/` ? "page" : undefined}
+              href={subjectHome}
+              aria-current={path === subjectHome ? "page" : undefined}
             >
               <Icon name="home" />
               <span>Home</span>
@@ -117,8 +119,8 @@ const title = subject ? "Chapters & practice" : "Subjects & practice";
               {subjects.map((item, index) => (
                 <a
                   class="nav-link"
-                  href={`/${item.slug}/`}
-                  aria-current={path === `/${item.slug}/` ? "page" : undefined}
+                  href={withBase(`${item.slug}/`)}
+                  aria-current={path === withBase(`${item.slug}/`) ? "page" : undefined}
                 >
                   <span class="nav-number">{String(index + 1).padStart(2, "0")}</span>
                   <span>{item.name}</span>
@@ -134,9 +136,9 @@ const title = subject ? "Chapters & practice" : "Subjects & practice";
         </button>
 
         <div class="nav-footer">
-          <a href="/">All subjects</a>
-          <a href="/search/">Search</a>
-          <a href="/progress/">Progress</a>
+          <a href={withBase("/")}>All subjects</a>
+          <a href={withBase("search/")}>Search</a>
+          <a href={withBase("progress/")}>Progress</a>
         </div>
       </nav>
     </div>

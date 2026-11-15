@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { withBase } from "../lib/paths";
   import type { SearchDoc } from "../lib/search-index";
 
   const kinds: Array<{ value: string; label: string }> = [
@@ -115,7 +116,7 @@
     mounted = true;
 
     try {
-      const response = await fetch("/search-index.json");
+      const response = await fetch(withBase("search-index.json"));
       if (!response.ok) throw new Error(`Search index returned ${response.status}.`);
       docs = (await response.json()) as SearchDoc[];
     } catch (err) {

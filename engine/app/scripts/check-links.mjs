@@ -2,6 +2,7 @@ import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { dirname, extname, join, relative, resolve } from "node:path";
 
 const dist = resolve("dist");
+const base = (process.env.BASE_PATH ?? "/").replace(/\/?$/, "/");
 
 if (!existsSync(dist)) {
   console.error("dist/ is missing. Run `npm run build` before checking links.");
@@ -19,8 +20,12 @@ function walk(directory) {
 }
 
 function targetFor(file, href) {
-  const withoutQuery = href.split("?")[0].split("#")[0];
+  let withoutQuery = href.split("?")[0].split("#")[0];
   if (!withoutQuery) return null;
+  if (base !== "/" && withoutQuery === base.slice(0, -1)) withoutQuery = "/";
+  else if (base !== "/" && withoutQuery.startsWith(base)) {
+    withoutQuery = `/${withoutQuery.slice(base.length)}`;
+  }
   const clean = withoutQuery.startsWith("/")
     ? join(dist, withoutQuery)
     : resolve(dirname(file), withoutQuery);
