@@ -25,10 +25,12 @@
 
   (() => {
     const dock = document.querySelector<HTMLElement>("[data-install-dock]");
-    const button = document.querySelector<HTMLButtonElement>("[data-install-app]");
+    const buttons = Array.from(
+      document.querySelectorAll<HTMLButtonElement>("[data-install-app]"),
+    );
     const help = document.querySelector<HTMLElement>("[data-install-help]");
     const helpText = document.querySelector<HTMLElement>("[data-install-help-text]");
-    if (!dock || !button || !help || !helpText) return;
+    if (!dock || !buttons.length || !help || !helpText) return;
 
     const nav = navigator as Navigator & { standalone?: boolean };
     const standalone =
@@ -42,39 +44,53 @@
     const ios =
       /iphone|ipad|ipod/i.test(navigator.userAgent) ||
       (navigator.maxTouchPoints > 1 && /Macintosh/i.test(navigator.userAgent));
+    const embedded = window.self !== window.top;
     let promptEvent: BeforeInstallPromptEvent | null = null;
 
-    const show = () => {
-      button.hidden = false;
+    const setHidden = (hidden: boolean) => {
+      buttons.forEach((button) => {
+        button.hidden = hidden;
+      });
     };
 
-    if (ios) show();
+    const fallbackText = embedded
+      ? "Open this app in a new tab, then tap Install app. Browsers block installation inside embedded previews."
+      : ios
+        ? "Tap Share, then choose Add to Home Screen."
+        : "Open your browser menu and choose Install app or Add to Home screen.";
+
+    setHidden(false);
 
     window.addEventListener("beforeinstallprompt", (event) => {
       event.preventDefault();
       promptEvent = event as BeforeInstallPromptEvent;
-      show();
     });
 
-    button.addEventListener("click", async () => {
-      if (!promptEvent) {
-        helpText.textContent = ios
-          ? "Tap Share, then choose Add to Home Screen."
-          : "Open your browser menu and choose Install app or Add to Home screen.";
-        help.hidden = !help.hidden;
-        return;
-      }
+    buttons.forEach((button) => {
+      button.addEventListener("click", async () => {
+        if (!promptEvent) {
+          helpText.textContent = fallbackText;
+          help.hidden = false;
+          return;
+        }
 
-      const installPrompt = promptEvent;
-      await installPrompt.prompt();
-      const choice = await installPrompt.userChoice;
-      promptEvent = null;
-      help.hidden = true;
-      if (choice.outcome === "accepted") button.hidden = true;
+        const installPrompt = promptEvent;
+        try {
+          await installPrompt.prompt();
+          const choice = await installPrompt.userChoice;
+          promptEvent = null;
+          help.hidden = true;
+          if (choice.outcome === "accepted") setHidden(true);
+        } catch {
+          promptEvent = null;
+          helpText.textContent = fallbackText;
+          help.hidden = false;
+        }
+      });
     });
 
     window.addEventListener("appinstalled", () => {
-      button.hidden = true;
+      setHidden(true);
       help.hidden = true;
     });
   })();

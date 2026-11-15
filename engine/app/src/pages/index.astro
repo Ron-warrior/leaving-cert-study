@@ -70,12 +70,19 @@ function indexStats(subject: (typeof subjects)[number]) {
   </header>
 
   <main id="main" class="wrap subjects-page">
-    <section class="subjects-hero">
+    <section class="subjects-hero" id="install">
       <p class="eyebrow">Leaving Certificate</p>
       <h2>Choose a subject.</h2>
       <p class="lede">
         Each subject has its own notes, runnable demos, exam questions and timed
         practice. Pick one to open its home page.
+      </p>
+      <div class="hero-actions">
+        <button class="cta" type="button" data-install-app hidden>Install app</button>
+      </div>
+      <p class="install-home-note">
+        Install for offline notes and papers. On iPhone or iPad, use Safari's
+        Share menu and choose Add to Home Screen.
       </p>
     </section>
 

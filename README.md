@@ -1,15 +1,18 @@
 # Leaving Cert Study
 
-[![Install the PWA](https://img.shields.io/badge/Install%20the%20PWA-LC%20Study-16b8d4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://site-f3e44e50dd0045fe93a0faf1eb6cc738.freebuff.page/)
+[![Open app and install](https://img.shields.io/badge/Open%20app%20and%20install-LC%20Study-16b8d4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://site-f3e44e50dd0045fe93a0faf1eb6cc738.freebuff.page/#install)
 
 Leaving Certificate Computer Science and Spanish study packs: chapter notes,
 exam questions, timed mocks, listening papers, oral practice and browser demos.
 
 **To install:** open the app, then tap its **Install app** button. On iPhone or
-iPad, use Safari's Share menu and choose **Add to Home Screen**.
+iPad, use Safari's Share menu and choose **Add to Home Screen**. If no prompt
+appears, use your browser menu's **Install app** option; Safari on Mac uses
+**File → Add to Dock**.
 
 The repository page cannot open the browser's install prompt itself; the
-install control runs on the app's HTTPS origin.
+install control runs on the app's HTTPS origin. Chrome, Edge and Android show
+the native install popup. Safari and Firefox do not.
 
 ## Project layout
 
