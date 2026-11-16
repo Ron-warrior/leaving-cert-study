@@ -1,5 +1,5 @@
 <div class="install-dock" data-install-dock>
-  <div class="install-help" data-install-help hidden>
+  <div class="install-help" data-install-help role="status" aria-live="polite" hidden>
     <strong>Install LC Study</strong>
     <span data-install-help-text></span>
   </div>
@@ -41,9 +41,15 @@
       return;
     }
 
+    const ua = navigator.userAgent;
     const ios =
-      /iphone|ipad|ipod/i.test(navigator.userAgent) ||
-      (navigator.maxTouchPoints > 1 && /Macintosh/i.test(navigator.userAgent));
+      /iphone|ipad|ipod/i.test(ua) ||
+      (navigator.maxTouchPoints > 1 && /Macintosh/i.test(ua));
+    const safariDesktop =
+      !ios &&
+      /Safari/.test(ua) &&
+      !/Chrome|Chromium|Edg|OPR|Firefox|Android/.test(ua);
+    const firefox = !ios && /Firefox|FxiOS/.test(ua);
     const embedded = window.self !== window.top;
     let promptEvent: BeforeInstallPromptEvent | null = null;
 
@@ -53,17 +59,29 @@
       });
     };
 
+    const reveal = () => setHidden(false);
+
     const fallbackText = embedded
       ? "Open this app in a new tab, then tap Install app. Browsers block installation inside embedded previews."
       : ios
         ? "Tap Share, then choose Add to Home Screen."
-        : "Open your browser menu and choose Install app or Add to Home screen.";
+        : safariDesktop
+          ? "In Safari, choose File → Add to Dock."
+          : firefox
+            ? "Firefox cannot install web apps. Bookmark this page, or open it in Chrome, Edge or Safari."
+            : "Open your browser menu and choose Install app or Add to Home screen.";
 
-    setHidden(false);
+    setHidden(true);
+    if (ios || embedded) {
+      reveal();
+    } else {
+      window.setTimeout(reveal, 2000);
+    }
 
     window.addEventListener("beforeinstallprompt", (event) => {
       event.preventDefault();
       promptEvent = event as BeforeInstallPromptEvent;
+      reveal();
     });
 
     buttons.forEach((button) => {

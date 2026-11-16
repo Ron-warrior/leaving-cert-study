@@ -78,6 +78,21 @@ export default {
     if (new URL(request.url).pathname.startsWith(AUDIO_PREFIX)) {
       return serveAudio(request, env);
     }
-    return env.ASSETS.fetch(request);
+
+    const response = await env.ASSETS.fetch(request);
+    if (
+      response.status === 404 &&
+      request.headers.get("sec-fetch-mode") === "navigate"
+    ) {
+      const notFound = await env.ASSETS.fetch(
+        new URL("/404.html", request.url),
+      );
+      if (notFound.ok) {
+        const headers = new Headers(notFound.headers);
+        headers.set("Cache-Control", "no-store");
+        return new Response(notFound.body, { status: 404, headers });
+      }
+    }
+    return response;
   },
 };

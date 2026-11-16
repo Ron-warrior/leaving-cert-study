@@ -45,3 +45,13 @@ bucket, is:
 ```sh
 BASE_PATH=/ npm run build:sites
 ```
+
+Notes, questions and mocks work offline after installation. Listening audio
+streams from R2 and needs a connection.
+
+For a GitHub Pages build of this repository, use the repository name as the
+base path:
+
+```sh
+BASE_PATH=/leaving-cert-study/ SITE_URL=https://ron-warrior.github.io npm run build
+```
